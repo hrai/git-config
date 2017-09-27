@@ -1,0 +1,22 @@
+[gui]
+	recentrepo = C:/_Dev/symphony
+[core]
+	autocrlf = true
+	excludesfile = C:\\Users\\hangjit.rai\\Documents\\gitignore_global.txt
+	editor = vim
+[user]
+	name = Hangjit Rai
+	email = hangjit.rai@adslot.com
+[mergetool "bc3"]
+	path = C:/Program Files (x86)/Beyond Compare 3/bcomp.exe
+[merge]
+	tool = bc3
+[diff]
+	guitool = kdiff3
+[difftool "kdiff3"]
+	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
+[alias]
+    co = checkout
+    br = branch
+    re = rebase
+    mt = mergetool
