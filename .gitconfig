@@ -20,3 +20,7 @@
     br = branch
     re = rebase
     mt = mergetool
+    c = commit
+
+
+
