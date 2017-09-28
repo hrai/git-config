@@ -21,6 +21,7 @@
     re = rebase
     mt = mergetool
     c = commit
+    s = status
 
 
 
