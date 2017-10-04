@@ -16,12 +16,15 @@
 [difftool "kdiff3"]
 	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
 [alias]
-    co = checkout
+    ch = checkout
     br = branch
-    re = rebase
+    rb = rebase
     mt = mergetool
-    c = commit
-    s = status
+    cm = commit
+    st = status
+    ps = push
+    pl = pull
+
 
 
 
