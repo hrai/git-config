@@ -2,12 +2,14 @@
 alias g='git'
 alias x='exit'
 alias v='vim'
+alias ns='npm start'
 
 #-------Git aliases-------
 alias gs='g status'
 alias gf='g fetch --prune'
 alias gc='g clean -f'
 alias gck='g checkout'
+alias gckm='g checkout master'
 alias gb='g branch'
 alias gbd='g branch -d'
 alias gbD='g branch -D'
