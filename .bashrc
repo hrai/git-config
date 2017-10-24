@@ -1,3 +1,4 @@
+
 #-----Command aliases-------
 alias g='git'
 alias x='exit'
@@ -5,6 +6,7 @@ alias v='vim'
 alias ns='npm start'
 
 #-------Git aliases-------
+alias ga='g add'
 alias gb='g branch'
 alias gbD='g branch -D'
 alias gbd='g branch -d'
