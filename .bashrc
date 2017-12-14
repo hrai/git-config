@@ -1,4 +1,3 @@
-
 #-----Command aliases-------
 alias g='git'
 alias x='exit'
@@ -15,6 +14,7 @@ alias gck='g checkout'
 alias gckm='g checkout master'
 alias gcm='g commit'
 alias gd='g diff'
+alias gdc='g diff --cached'
 alias gf='g fetch --prune'
 alias gm='g merge'
 alias gmt='g mergetool'
@@ -27,7 +27,18 @@ alias gs='g status'
 alias gsa='g stash apply'
 alias gsl='g stash list'
 alias gsp='g stash pop'
+alias gsd='g stash drop'
+alias gsc='g stash clear' #clear all the stashes
 alias gst='g stash'
+
+# git bash function
+gatm() {
+	git checkout ATM-$1 #checking out a branch
+}
+
+gnatm() {
+	git checkout -b ATM-$1 #checking out a new branch
+}
 
 #-------Delete all branches except master--------
 alias gbDA='git branch | egrep -v "(master|\*)" | xargs git branch -D'
