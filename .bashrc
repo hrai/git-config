@@ -32,11 +32,11 @@ alias gsc='g stash clear' #clear all the stashes
 alias gst='g stash'
 
 # git bash function
-gatm() {
+gtm() {
 	git checkout ATM-$1 #checking out a branch
 }
 
-gnatm() {
+gntm() {
 	git checkout -b ATM-$1 #checking out a new branch
 }
 
