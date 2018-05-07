@@ -3,6 +3,8 @@ alias g='git'
 alias x='exit'
 alias v='vim'
 alias ns='npm start'
+alias cd ='cd ..'
+
 
 #-------Git aliases-------
 alias ga='g add'
