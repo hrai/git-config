@@ -2,6 +2,7 @@
 alias g='git'
 alias x='exit'
 alias v='vim'
+alias ni='npm install'
 alias ns='npm start'
 alias cd ='cd ..'
 
