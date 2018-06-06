@@ -4,7 +4,7 @@ alias x='exit'
 alias v='vim'
 alias ni='npm install'
 alias ns='npm start'
-alias cd ='cd ..'
+alias cd..='cd ..'
 
 
 #-------Git aliases-------
@@ -16,7 +16,7 @@ alias gc='g clean -f' #remove untracked dirs and files
 alias gck='g checkout'
 alias gckm='g checkout master'
 alias gcm='g commit'
-alias gco='g clone'
+alias gcl='g clone'
 alias gd='g diff'
 alias gdc='g diff --cached'
 alias gf='g fetch --prune'
@@ -38,12 +38,12 @@ alias gsc='g stash clear' #clear all the stashes
 alias gst='g stash'
 
 # git bash function
-gtm() {
-	git checkout ATM-$1 #checking out a branch
+gbr() {
+	git checkout GM-$1 #checking out a branch
 }
 
-gntm() {
-	git checkout -b ATM-$1 #checking out a new branch
+gnbr() {
+	git checkout -b GM-$1 #checking out a new branch
 }
 
 #-------Delete all branches except master--------
