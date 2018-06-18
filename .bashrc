@@ -14,6 +14,7 @@ alias gbD='g branch -D'
 alias gbd='g branch -d'
 alias gc='g clean -f' #remove untracked dirs and files
 alias gck='g checkout'
+alias gckb='g checkout -b'
 alias gckm='g checkout master'
 alias gcm='g commit'
 alias gcl='g clone'
@@ -47,5 +48,8 @@ gnbr() {
 	git checkout -b GM-$1 #checking out a new branch
 }
 
+gbrs() {
+	git checkout SM-$1 #checking out a branch
+}
 #-------Delete all branches except master--------
 alias gbDA='git branch | egrep -v "(master|\*)" | xargs git branch -D'
