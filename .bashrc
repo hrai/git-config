@@ -48,6 +48,10 @@ gnbr() {
 	git checkout -b GM-$1 #checking out a new branch
 }
 
+gnbrs() {
+	git checkout -b SM-$1 #checking out a branch
+}
+
 gbrs() {
 	git checkout SM-$1 #checking out a branch
 }
