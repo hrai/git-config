@@ -15,6 +15,12 @@ BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAM
 TRIMMED=$(echo $BRANCH_NAME | sed -e 's:^\([^-]*-[^-]*\)-.*:\1:' -e \
     'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/')
 
+# Replace all the instances of the current branch name in the commit message - for amending commits
+sed -i "s/$BRANCH_NAME\s/ /g" $1
+
+# Delete BOTH leading and trailing whitespace from each line
+sed -i 's/^[ \t]*//;s/[ \t]*$//' $1
+
 # If it isn't excluded, prepend the trimmed branch identifier to the given message
 if [ -n "$BRANCH_NAME" ] &&  ! [[ $BRANCH_EXCLUDED -eq 1 ]]; then
     sed -i.bak -e "1s/^/$TRIMMED /" $1
