@@ -15,8 +15,10 @@ BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAM
 TRIMMED=$(echo $BRANCH_NAME | sed -e 's:^\([^-]*-[^-]*\)-.*:\1:' -e \
     'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/')
 
-# If it isn't excluded, preprend the trimmed branch identifier to the given message
+# If it isn't excluded, prepend the trimmed branch identifier to the given message
 if [ -n "$BRANCH_NAME" ] &&  ! [[ $BRANCH_EXCLUDED -eq 1 ]]; then
     sed -i.bak -e "1s/^/$TRIMMED /" $1
-    sed -i "s/\b\(.\)/\u\1/g" $1
 fi
+
+# Capitalise the first letter of each word
+sed -i "s/\b\(.\)/\u\1/g" $1
