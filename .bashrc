@@ -50,11 +50,25 @@ gnbr() {
 }
 
 gnbrs() {
-	git checkout -b SM-$1 #checking out a branch
+	git checkout -b SM-$1 #checking out a new branch
 }
 
 gbrs() {
 	git checkout SM-$1 #checking out a branch
 }
+
+gap() {
+	branch_name=$(git symbolic-ref -q HEAD);
+	git add .;
+	git commit -m "$*";
+	git push -u origin $branch_name;
+}
+
+gcp() {
+	branch_name=$(git symbolic-ref -q HEAD);
+	git commit -m "$*";
+	git push -u origin $branch_name;
+}
+
 #-------Delete all branches except master--------
 alias gbDA='git branch | egrep -v "(master|\*)" | xargs git branch -D'
