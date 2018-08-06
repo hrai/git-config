@@ -71,5 +71,9 @@ gcp() {
 	git push -u origin $branch_name;
 }
 
+gcmm() {
+	git commit -m "$*";
+}
+
 #-------Delete all branches except master--------
 alias gbDA='git branch | egrep -v "(master|\*)" | xargs git branch -D'
