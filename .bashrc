@@ -1,4 +1,5 @@
 #-----Command aliases-------
+alias d='docker'
 alias g='git'
 alias x='exit'
 alias v='vim'
