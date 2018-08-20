@@ -9,6 +9,10 @@ fi
 
 # Get the current branch name and check if it is excluded
 BRANCH_NAME=$(git symbolic-ref --short HEAD)
+
+# Remove 'feature/' from the branch name for branch names like
+# feature/PEN-23 so the BRANCH_NAME will be 'PEN-23' only
+BRANCH_NAME=$(echo $BRANCH_NAME | sed 's/feature\///g')
 BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
 
 # Trim it down to get the parts we're interested in
