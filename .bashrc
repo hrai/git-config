@@ -44,19 +44,11 @@ alias gst='g stash'
 
 # git bash function
 gbr() {
-	git checkout GM-$1 #checking out a branch
+	git checkout PEN-$1 #checking out a branch
 }
 
 gnbr() {
-	git checkout -b GM-$1 #checking out a new branch
-}
-
-gnbrs() {
-	git checkout -b SM-$1 #checking out a new branch
-}
-
-gbrs() {
-	git checkout SM-$1 #checking out a branch
+	git checkout -b PEN-$1 #checking out a new branch
 }
 
 gap() {
