@@ -15,6 +15,11 @@ BRANCH_NAME=$(git symbolic-ref --short HEAD)
 BRANCH_NAME=$(echo $BRANCH_NAME | sed 's/feature\///gI')
 BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
 
+# Remove 'bugfix/' from the branch name for branch names like
+# bugfix/PEN-23 so the BRANCH_NAME will be 'PEN-23' only
+BRANCH_NAME=$(echo $BRANCH_NAME | sed 's/bugfix\///gI')
+BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
+
 # Trim it down to get the parts we're interested in
 TRIMMED=$(echo $BRANCH_NAME | sed -e 's:^\([^-]*-[^-]*\)-.*:\1:' -e \
     'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/')
