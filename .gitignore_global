@@ -1,5 +1,8 @@
 git-hooks/
 
+# ctags
+tags
+
 # Node files
 node_modules/
 .vscode/
