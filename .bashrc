@@ -16,6 +16,7 @@ alias gbd='g branch -d'
 alias gc='g clean -f' #remove untracked dirs and files
 alias gck='g checkout'
 alias gckb='g checkout -b'
+alias gckd='g checkout develop'
 alias gckm='g checkout master'
 alias gcl='g clone'
 alias gcm='g commit'
