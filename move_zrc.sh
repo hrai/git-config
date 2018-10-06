@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo 'Moving .zshrc to home directory....'
-cat .bashrc >> ~/.zshrc
+cat .zshrc >> ~/.zshrc
 echo 'Successfully moved .zshrc to home directory....'
 
 echo 'Cloning plugins to $ZSH_CUSTOM....'
