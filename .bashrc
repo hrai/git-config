@@ -1,11 +1,18 @@
-#-----Command aliases-------
+#-----Internal Command aliases-------
+alias ~='cd ~'
+alias /='cd /'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ls='ls -a'
+alias v='vim'
+
+#-----External Command aliases-------
 alias d='docker'
 alias g='git'
 alias x='exit'
-alias v='vim'
 alias ni='npm install'
 alias ns='npm start'
-alias cd..='cd ..'
+alias nt='npm test'
 
 
 #-------Git aliases-------
@@ -44,29 +51,30 @@ alias gsl='g stash list'
 alias gsp='g stash pop'
 alias gst='g stash'
 
+
 # git bash function
-function gbr () {
+function gbr() {
 	git checkout feature/PEN-$1 #checking out a branch
 }
 
-function gnbr () {
+function gnbr() {
 	git checkout -b feature/PEN-$1 #checking out a new branch
 }
 
-function gap () {
+function gap() {
 	branch_name=$(git symbolic-ref -q HEAD);
 	git add .;
 	git commit -m "$*";
 	git push -u origin $branch_name;
 }
 
-function gcp () {
+function gcp() {
 	branch_name=$(git symbolic-ref -q HEAD);
 	git commit -m "$*";
 	git push -u origin $branch_name;
 }
 
-function gcmm () {
+function gcmm() {
 	git commit -m "$*";
 }
 
