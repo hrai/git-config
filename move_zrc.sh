@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo 'Moving .zshrc to home directory....'
 cat .bashrc >> ~/.zshrc
 echo 'Successfully moved .zshrc to home directory....'
