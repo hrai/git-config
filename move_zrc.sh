@@ -1,6 +1,6 @@
-echo 'Moving .zrc to home directory....'
-cp .bashrc ~/.zrc
-echo 'Successfully moved .zrc to home directory....'
+echo 'Moving .zshrc to home directory....'
+cp .bashrc ~/.zshrc
+echo 'Successfully moved .zshrc to home directory....'
 
 echo -e "\n"
 
