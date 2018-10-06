@@ -45,28 +45,28 @@ alias gsp='g stash pop'
 alias gst='g stash'
 
 # git bash function
-gbr() {
+function gbr () {
 	git checkout feature/PEN-$1 #checking out a branch
 }
 
-gnbr() {
+function gnbr () {
 	git checkout -b feature/PEN-$1 #checking out a new branch
 }
 
-gap() {
+function gap () {
 	branch_name=$(git symbolic-ref -q HEAD);
 	git add .;
 	git commit -m "$*";
 	git push -u origin $branch_name;
 }
 
-gcp() {
+function gcp () {
 	branch_name=$(git symbolic-ref -q HEAD);
 	git commit -m "$*";
 	git push -u origin $branch_name;
 }
 
-gcmm() {
+function gcmm () {
 	git commit -m "$*";
 }
 
