@@ -5,7 +5,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ls='ls -a'
 alias python=python3
-alias pip=pip3
 alias v='vim'
 alias clr='clear'
 alias update='sudo apt update'
