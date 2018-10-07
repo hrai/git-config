@@ -7,6 +7,7 @@ alias ls='ls -a'
 alias python=python3
 alias pip=pip3
 alias v='vim'
+alias clr='clear'
 
 #-----External Command aliases-------
 alias d='docker'
