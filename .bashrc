@@ -8,6 +8,8 @@ alias python=python3
 alias pip=pip3
 alias v='vim'
 alias clr='clear'
+alias update='sudo apt update'
+alias upgrade='sudo apt upgrade'
 
 #-----External Command aliases-------
 alias d='docker'
