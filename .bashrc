@@ -84,3 +84,9 @@ function gcmm() {
 
 #-------Delete all branches except master--------
 alias gbDA='git branch | egrep -v "(master|\*)" | xargs git branch -D'
+
+
+# set shell to start up tmux by default 
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
