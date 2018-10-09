@@ -1,5 +1,9 @@
 #!/bin/sh
 
+echo 'Cloning oh-my-zsh....'
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+echo 'Successfully cloned oh-my-zsh....'
+
 echo 'Moving .zshrc to home directory....'
 cp .zshrc ~/.zshrc
 cat .bashrc >> ~/.zshrc
