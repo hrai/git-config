@@ -1,6 +1,5 @@
 #-----Internal Command aliases-------
 alias ~='cd ~'
-alias /='cd /'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ls='ls -a'
@@ -86,7 +85,25 @@ function gcmm() {
 alias gbDA='git branch | egrep -v "(master|\*)" | xargs git branch -D'
 
 
-# set shell to start up tmux by default 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
+if [ "$(uname)" == "Darwin" ]; then
+  startTmux
+  loadAliases
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  startTmux
+  loadAliases
+# elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+    # Do something under 32 bits Windows NT platform
+# elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+    # Do something under 64 bits Windows NT platform
 fi
+
+function startTmux {
+  # set shell to start up tmux by default 
+  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+    exec tmux
+  fi
+}
+
+function loadAliases {
+  alias /='cd /'
+}
