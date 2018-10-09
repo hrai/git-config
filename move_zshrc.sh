@@ -1,20 +1,22 @@
-#!/bin/sh
+if hash zsh 2>/dev/null; then
+    echo 'Cloning oh-my-zsh....'
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    echo 'Successfully cloned oh-my-zsh....'
 
-echo 'Cloning oh-my-zsh....'
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-echo 'Successfully cloned oh-my-zsh....'
+    echo 'Moving .zshrc to home directory....'
+    cp .zshrc ~/.zshrc
+    cat .bashrc >> ~/.zshrc
+    echo "Successfully moved .zshrc to home directory...."
 
-echo 'Moving .zshrc to home directory....'
-cp .zshrc ~/.zshrc
-cat .bashrc >> ~/.zshrc
-echo "Successfully moved .zshrc to home directory...."
+    echo "Cloning plugins to $ZSH_CUSTOM...."
+    git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+    git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open
+    echo "Successfully cloned plugins to $ZSH_CUSTOM...."
 
-echo "Cloning plugins to $ZSH_CUSTOM...."
-git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open
-echo "Successfully cloned plugins to $ZSH_CUSTOM...."
+    echo -e "\n"
 
-echo -e "\n"
-
-read -n 1 -s -r -p "Press any key to continue..."
+    read -n 1 -s -r -p "Press any key to continue..."
+else
+    read -n 1 -s -r -p "Please install zsh to run this script."
+fi
