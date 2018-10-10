@@ -97,13 +97,13 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     # Do something under 64 bits Windows NT platform
 fi
 
-function startTmux {
+startTmux {
   # set shell to start up tmux by default 
   if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
     exec tmux
   fi
 }
 
-function loadAliases {
+loadAliases {
   alias /='cd /'
 }
