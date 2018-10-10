@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #-----Internal Command aliases-------
 alias ~='cd ~'
 alias ..='cd ..'
@@ -57,53 +59,47 @@ alias gst='g stash'
 
 # git bash function
 function gbr() {
-	git checkout feature/PEN-$1 #checking out a branch
+  git checkout feature/PEN-$1 #checking out a branch
 }
 
 function gnbr() {
-	git checkout -b feature/PEN-$1 #checking out a new branch
+  git checkout -b feature/PEN-$1 #checking out a new branch
 }
 
 function gap() {
-	branch_name=$(git symbolic-ref -q HEAD);
-	git add .;
-	git commit -m "$*";
-	git push -u origin $branch_name;
+  branch_name=$(git symbolic-ref -q HEAD);
+  git add .;
+  git commit -m "$*";
+  git push -u origin $branch_name;
 }
 
 function gcp() {
-	branch_name=$(git symbolic-ref -q HEAD);
-	git commit -m "$*";
-	git push -u origin $branch_name;
+  branch_name=$(git symbolic-ref -q HEAD);
+  git commit -m "$*";
+  git push -u origin $branch_name;
 }
 
 function gcmm() {
-	git commit -m "$*";
+  git commit -m "$*";
 }
 
 #-------Delete all branches except master--------
 alias gbDA='git branch | egrep -v "(master|\*)" | xargs git branch -D'
 
 
-if [ "$(uname)" == "Darwin" ]; then
-  startTmux
-  loadAliases
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  startTmux
-  loadAliases
-# elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
-    # Do something under 32 bits Windows NT platform
-# elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
-    # Do something under 64 bits Windows NT platform
-fi
-
-startTmux {
+start_tmux () {
   # set shell to start up tmux by default 
   if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
     exec tmux
   fi
 }
 
-loadAliases {
-  alias /='cd /'
-}
+if [ "$(uname)" == "Darwin" ]; then
+  start_tmux
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  start_tmux
+  # elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+  # Do something under 32 bits Windows NT platform
+  # elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+  # Do something under 64 bits Windows NT platform
+fi
