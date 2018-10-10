@@ -1,6 +1,12 @@
 #!/bin/zsh
 
 if hash zsh 2>/dev/null; then
+    # switch to zsh
+    zsh
+
+    # set zsh as default shell
+    chsh -s $(which zsh)
+
     echo 'Cloning oh-my-zsh....'
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     echo 'Successfully cloned oh-my-zsh....'

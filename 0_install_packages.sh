@@ -5,7 +5,7 @@ echo 'Installing apps....'
 
 function install_ctags() {
     git clone https://github.com/universal-ctags/ctags.git ~/ctags
-    cd ctags
+    cd ~/ctags
     ./autogen.sh 
     ./configure
     make

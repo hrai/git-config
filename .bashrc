@@ -104,9 +104,3 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   # Do something under 64 bits Windows NT platform
 fi
 
-
-# switch to zsh
-zsh
-
-# set zsh as default shell
-chsh -s $(which zsh)
