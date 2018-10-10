@@ -15,4 +15,4 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 fi
 
 echo ''
-echo "Successfully moved dot files to home directory...."
+echo "Successfully installed the packages..."
