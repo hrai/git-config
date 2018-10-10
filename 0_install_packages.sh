@@ -15,6 +15,7 @@ function install_ctags() {
 if [ "$(uname)" == "Darwin" ]; then
     echo "Update 0_install_packages.sh file to include the packages to install."
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    apt-get install sudo -y
     sudo apt install git -y
     sudo apt install python3 -y
     sudo apt install zsh -y

@@ -1,9 +1,6 @@
 #!/bin/zsh
 
 if hash zsh 2>/dev/null; then
-    # switch to zsh
-    zsh
-
     # set zsh as default shell
     chsh -s $(which zsh)
 
@@ -16,6 +13,7 @@ if hash zsh 2>/dev/null; then
     cat .bashrc >> ~/.zshrc
     echo "Successfully moved .zshrc to home directory...."
 
+    export ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
     if [ -z "$ZSH_CUSTOM" ]
     then
         echo "Cloning plugins to $ZSH_CUSTOM...."
