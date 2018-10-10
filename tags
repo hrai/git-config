@@ -4,4 +4,10 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+gap	.bashrc	/^function gap() {$/;"	f
+gbr	.bashrc	/^function gbr() {$/;"	f
+gcmm	.bashrc	/^function gcmm() {$/;"	f
+gcp	.bashrc	/^function gcp() {$/;"	f
+gnbr	.bashrc	/^function gnbr() {$/;"	f
 install_ctags	0_install_packages.sh	/^function install_ctags() {$/;"	f
+start_tmux	.bashrc	/^function start_tmux () {$/;"	f

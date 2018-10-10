@@ -4,7 +4,7 @@ echo ''
 echo 'Installing apps....'
 
 function install_ctags() {
-    git clone https://github.com/universal-ctags/ctags.git
+    git clone https://github.com/universal-ctags/ctags.git ~/ctags
     cd ctags
     ./autogen.sh 
     ./configure
@@ -18,7 +18,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     sudo apt install git
     sudo apt install python3
     sudo apt install zsh
-    sudo apt install vim-gnome
+    sudo apt install vim-gtk3
+    install_ctags
 
 # elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
     # Do something under 32 bits Windows NT platform

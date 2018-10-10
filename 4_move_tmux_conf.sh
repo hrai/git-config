@@ -1,3 +1,5 @@
+#!/bin/sh
+
 if hash tmux 2>/dev/null; then
     echo 'Moving .tmux.conf to home directory....'
     cp .tmux.conf ~/.tmux.conf

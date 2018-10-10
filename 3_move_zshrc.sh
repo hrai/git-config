@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 if hash zsh 2>/dev/null; then
     echo 'Cloning oh-my-zsh....'
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
