@@ -15,10 +15,10 @@ function install_ctags() {
 if [ "$(uname)" == "Darwin" ]; then
     echo "Update 0_install_packages.sh file to include the packages to install."
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    sudo apt install git
-    sudo apt install python3
-    sudo apt install zsh
-    sudo apt install vim-gtk3
+    sudo apt install git -y
+    sudo apt install python3 -y
+    sudo apt install zsh -y
+    sudo apt install vim-gtk3 -y
     install_ctags
 
 # elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
