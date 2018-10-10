@@ -1,5 +1,16 @@
+#!/bin/sh
+
 echo ''
 echo 'Installing apps....'
+
+function install_ctags() {
+    git clone https://github.com/universal-ctags/ctags.git
+    cd ctags
+    ./autogen.sh 
+    ./configure
+    make
+    sudo make install
+}
 
 if [ "$(uname)" == "Darwin" ]; then
     echo "Update 0_install_packages.sh file to include the packages to install."
@@ -7,7 +18,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     sudo apt install git
     sudo apt install python3
     sudo apt install zsh
-    sudo apt install vim
+    sudo apt install vim-gnome
 
 # elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
     # Do something under 32 bits Windows NT platform
