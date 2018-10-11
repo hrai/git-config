@@ -68,6 +68,7 @@ plugins=(
   vi-mode
   zsh-syntax-highlighting
   zsh-autosuggestions
+  git-extras
 )
 
 source $ZSH/oh-my-zsh.sh
