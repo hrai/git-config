@@ -107,3 +107,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+function prettify_json {
+    if [ $# -gt 0 ];
+        then
+        for arg in $@
+        do
+            if [ -f $arg ];
+                then
+                less $arg | python -m json.tool
+            else
+                echo "$arg" | python -m json.tool
+            fi
+        done
+    fi
+}
