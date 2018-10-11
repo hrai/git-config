@@ -69,6 +69,12 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   git-extras
+  last-working-dir
+  npm
+  sudo
+  tmux
+  vscode
+  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
