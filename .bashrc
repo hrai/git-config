@@ -1,5 +1,3 @@
-#!/bin/sh
-
 #-----Internal Command aliases-------
 alias ~='cd ~'
 alias ..='cd ..'
@@ -104,3 +102,6 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   # Do something under 64 bits Windows NT platform
 fi
 
+if hash zsh 2>/dev/null; then
+  zsh
+fi

@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 if hash zsh 2>/dev/null; then
     # set zsh as default shell
     chsh -s $(which zsh)
