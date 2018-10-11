@@ -20,6 +20,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     sudo apt install python3 -y
     sudo apt install zsh -y
     sudo apt install vim-gtk3 -y
+    sudo apt install ack -y
     sudo apt install curl -y
     sudo apt install make -y
     install_ctags
