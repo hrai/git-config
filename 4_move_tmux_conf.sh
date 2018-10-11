@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if hash tmux 2>/dev/null; then
     echo 'Moving .tmux.conf to home directory....'

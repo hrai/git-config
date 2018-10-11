@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo 'Moving prepare-commit-msg to .global-git-hooks directory....'
 mkdir -p ~/.global-git-hooks
