@@ -17,6 +17,7 @@ if [ "$(uname)" = "Darwin" ]; then
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
     apt-get install sudo -y
     sudo apt install git -y
+    sudo apt install python -y
     sudo apt install python3 -y
     sudo apt install zsh -y
     sudo apt install vim-gtk3 -y
