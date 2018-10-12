@@ -15,6 +15,7 @@ read user_response
 if [ "$user_response" = "y" ]
 then
     cp .gitignore_global ~/.gitignore
+    git config --global core.excludesfile '~/.gitignore'
     echo "Successfully moved .gitignore file to ~/.gitignore"
 fi
 
