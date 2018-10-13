@@ -5,58 +5,5 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/15560853/
-clr	.bashrc	/^alias clr='clear'$/;"	a
-d	.bashrc	/^alias d='docker'$/;"	a
-g	.bashrc	/^alias g='git'$/;"	a
-ga	.bashrc	/^alias ga='g add'$/;"	a
-gap	.bashrc	/^function gap() {$/;"	f
-gb	.bashrc	/^alias gb='g branch'$/;"	a
-gbD	.bashrc	/^alias gbD='g branch -D'$/;"	a
-gbDA	.bashrc	/^alias gbDA='git branch | egrep -v "(master|\\*)" | xargs git branch -D'$/;"	a
-gbd	.bashrc	/^alias gbd='g branch -d'$/;"	a
-gbr	.bashrc	/^function gbr() {$/;"	f
-gc	.bashrc	/^alias gc='g clean -f' #remove untracked dirs and files$/;"	a
-gck	.bashrc	/^alias gck='g checkout'$/;"	a
-gckb	.bashrc	/^alias gckb='g checkout -b'$/;"	a
-gckd	.bashrc	/^alias gckd='g checkout develop'$/;"	a
-gckm	.bashrc	/^alias gckm='g checkout master'$/;"	a
-gcl	.bashrc	/^alias gcl='g clone'$/;"	a
-gcm	.bashrc	/^alias gcm='g commit'$/;"	a
-gcmm	.bashrc	/^function gcmm() {$/;"	f
-gcp	.bashrc	/^function gcp() {$/;"	f
-gcrp	.bashrc	/^alias gcrp='g cherry-pick'$/;"	a
-gd	.bashrc	/^alias gd='g diff'$/;"	a
-gdc	.bashrc	/^alias gdc='g diff --cached'$/;"	a
-gf	.bashrc	/^alias gf='g fetch --prune'$/;"	a
-gi	.bashrc	/^alias gi='g init'$/;"	a
-gl	.bashrc	/^alias gl='g log'$/;"	a
-gm	.bashrc	/^alias gm='g merge'$/;"	a
-gmt	.bashrc	/^alias gmt='g mergetool'$/;"	a
-gnbr	.bashrc	/^function gnbr() {$/;"	f
-gp	.bashrc	/^alias gp='g pull'$/;"	a
-gpf	.bashrc	/^alias gpf='g push -f'$/;"	a
-gps	.bashrc	/^alias gps='g push'$/;"	a
-grb	.bashrc	/^alias grb='g rebase'$/;"	a
-grbom	.bashrc	/^alias grbom='g rebase origin\/master'$/;"	a
-grh	.bashrc	/^alias grh='g reset --hard'$/;"	a
-grhom	.bashrc	/^alias grhom='grh origin\/master'$/;"	a
-grs	.bashrc	/^alias grs='g reset --soft'$/;"	a
-gs	.bashrc	/^alias gs='g status'$/;"	a
-gsa	.bashrc	/^alias gsa='g stash apply'$/;"	a
-gsc	.bashrc	/^alias gsc='g stash clear' #clear all the stashes$/;"	a
-gsd	.bashrc	/^alias gsd='g stash drop'$/;"	a
-gsl	.bashrc	/^alias gsl='g stash list'$/;"	a
-gsp	.bashrc	/^alias gsp='g stash pop'$/;"	a
-gst	.bashrc	/^alias gst='g stash'$/;"	a
 install_ctags	0_install_packages.sh	/^function install_ctags() {$/;"	f
 is_vim	.tmux.conf	/^is_vim="ps -o state= -o comm= -t '#{pane_tty}' \\$/;"	k
-ls	.bashrc	/^alias ls='ls -a'$/;"	a
-ni	.bashrc	/^alias ni='npm install'$/;"	a
-ns	.bashrc	/^alias ns='npm start'$/;"	a
-nt	.bashrc	/^alias nt='npm test'$/;"	a
-python	.bashrc	/^alias python=python3$/;"	a
-start_tmux	.bashrc	/^function start_tmux () {$/;"	f
-update	.bashrc	/^alias update='sudo apt update'$/;"	a
-upgrade	.bashrc	/^alias upgrade='sudo apt upgrade'$/;"	a
-v	.bashrc	/^alias v='vim'$/;"	a
-x	.bashrc	/^alias x='exit'$/;"	a
