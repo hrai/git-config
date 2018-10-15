@@ -4,6 +4,6 @@
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	0.0.0	/15560853/
+!_TAG_PROGRAM_VERSION	0.0.0	/41311ac7/
 install_ctags	0_install_packages.sh	/^function install_ctags() {$/;"	f
 is_vim	.tmux.conf	/^is_vim="ps -o state= -o comm= -t '#{pane_tty}' \\$/;"	k
