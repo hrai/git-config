@@ -57,11 +57,19 @@ alias gst='g stash'
 
 
 # git bash function
-function gbr() {
-  git checkout feature/PEN-$1 #checking out a branch
+function gbf() {
+  git checkout feature/PEN-$1
 }
 
-function gnbr() {
+function gbb() {
+  git checkout bugfix/PEN-$1
+}
+
+function gnb() {
+  git checkout -b bugfix/PEN-$1 #checking out a new branch
+}
+
+function gnf() {
   git checkout -b feature/PEN-$1 #checking out a new branch
 }
 
