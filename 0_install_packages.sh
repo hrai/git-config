@@ -25,6 +25,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
     sudo apt install curl -y
     sudo apt install make -y
     sudo apt install git-extras -y
+    sudo apt install kdiff3 -y
     install_ctags
 
 # elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
