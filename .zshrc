@@ -173,5 +173,8 @@ zplugin snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 zplugin snippet OMZ::plugins/vscode/vscode.plugin.zsh
 zplugin snippet OMZ::plugins/web-search/web-search.plugin.zsh
 zplugin snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
+zplugin snippet OMZ::lib/functions.zsh
+zplugin snippet OMZ::lib/history.zsh
+
 
 ZSH_THEME="spaceship"
