@@ -164,17 +164,23 @@ zplugin light denysdovhan/spaceship-prompt
 zplugin creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
 
 # Oh-my-zsh plugins
+zplugin snippet OMZ::lib/clipboard.zsh
+zplugin snippet OMZ::lib/correction.zsh
+zplugin snippet OMZ::lib/directories.zsh
+zplugin snippet OMZ::lib/functions.zsh
+zplugin snippet OMZ::lib/history.zsh
+zplugin snippet OMZ::lib/misc.zsh
+zplugin snippet OMZ::lib/nvm.zsh
+zplugin snippet OMZ::lib/spectrum.zsh
 zplugin snippet OMZ::plugins/git-extras/git-extras.plugin.zsh
 zplugin snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
 zplugin snippet OMZ::plugins/npm/npm.plugin.zsh
 zplugin snippet OMZ::plugins/sudo/sudo.plugin.zsh
 zplugin snippet OMZ::plugins/tmux/tmux.plugin.zsh
+zplugin snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
 zplugin snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 zplugin snippet OMZ::plugins/vscode/vscode.plugin.zsh
 zplugin snippet OMZ::plugins/web-search/web-search.plugin.zsh
-zplugin snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
-zplugin snippet OMZ::lib/functions.zsh
-zplugin snippet OMZ::lib/history.zsh
 
 
 ZSH_THEME="spaceship"
