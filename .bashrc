@@ -63,6 +63,7 @@ alias x='exit'
 alias ni='npm install'
 alias ns='npm start'
 alias nt='npm test'
+alias v='vim'
 
 
 #-------Git aliases-------
