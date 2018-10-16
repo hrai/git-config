@@ -1,7 +1,28 @@
+
+function start_tmux () {
+  # set shell to start up tmux by default 
+  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+    exec tmux
+  fi
+}
+
+if [ "$(uname)" = "Darwin" ]; then
+  start_tmux
+elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+  start_tmux
+  # elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
+  # Do something under 32 bits Windows NT platform
+  # elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
+  # Do something under 64 bits Windows NT platform
+fi
+
+# update the system
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get autoremove -y
 
+
+# function definitions
 function install_package () {
   # set shell to start up tmux by default 
   if ! dpkg -s "$1" > /dev/null; then
@@ -22,6 +43,40 @@ function prettify_json {
             fi
         done
     fi
+}
+
+# git bash function
+function gbf() {
+  git checkout feature/PEN-$1
+}
+
+function gbb() {
+  git checkout bugfix/PEN-$1
+}
+
+function gnb() {
+  git checkout -b bugfix/PEN-$1 #checking out a new branch
+}
+
+function gnf() {
+  git checkout -b feature/PEN-$1 #checking out a new branch
+}
+
+function gap() {
+  branch_name=$(git symbolic-ref -q HEAD);
+  git add .;
+  git commit -m "$*";
+  git push -u origin $branch_name;
+}
+
+function gcp() {
+  branch_name=$(git symbolic-ref -q HEAD);
+  git commit -m "$*";
+  git push -u origin $branch_name;
+}
+
+function gcmm() {
+  git commit -m "$*";
 }
 
 if [ "$(uname)" = "Darwin" ]; then
@@ -107,57 +162,7 @@ alias gsp='g stash pop'
 alias gst='g stash'
 
 
-# git bash function
-function gbf() {
-  git checkout feature/PEN-$1
-}
-
-function gbb() {
-  git checkout bugfix/PEN-$1
-}
-
-function gnb() {
-  git checkout -b bugfix/PEN-$1 #checking out a new branch
-}
-
-function gnf() {
-  git checkout -b feature/PEN-$1 #checking out a new branch
-}
-
-function gap() {
-  branch_name=$(git symbolic-ref -q HEAD);
-  git add .;
-  git commit -m "$*";
-  git push -u origin $branch_name;
-}
-
-function gcp() {
-  branch_name=$(git symbolic-ref -q HEAD);
-  git commit -m "$*";
-  git push -u origin $branch_name;
-}
-
-function gcmm() {
-  git commit -m "$*";
-}
-
 #-------Delete all branches except master--------
 alias gbDA='git branch | egrep -v "(master|\*)" | xargs git branch -D'
 
 
-function start_tmux () {
-  # set shell to start up tmux by default 
-  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-    exec tmux
-  fi
-}
-
-if [ "$(uname)" = "Darwin" ]; then
-  start_tmux
-elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
-  start_tmux
-  # elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
-  # Do something under 32 bits Windows NT platform
-  # elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
-  # Do something under 64 bits Windows NT platform
-fi
