@@ -16,19 +16,34 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   # Do something under 64 bits Windows NT platform
 fi
 
-# update the system
-sudo apt-get update -y
-sudo apt-get upgrade -y
-sudo apt-get autoremove -y
+if [ "$(uname)" = "Darwin" ]; then
+  # update the system
+  brew update
+  brew upgrade
+elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+  # update the system
+  sudo apt-get update -y
+  sudo apt-get upgrade -y
+  sudo apt-get autoremove -y
+
+# elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
+    # Do something under 32 bits Windows NT platform
+# elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
+    # Do something under 64 bits Windows NT platform
+fi
 
 
 # function definitions
 function install_package () {
-  # set shell to start up tmux by default 
   if ! dpkg -s "$1" > /dev/null; then
     sudo apt-get install "$1" -y
   fi
 }
+
+function install_package_mac () {
+  brew list "$1" || brew install "$1"
+}
+
 
 function prettify_json {
     if [ $# -gt 0 ];
@@ -81,6 +96,22 @@ function gcmm() {
 
 if [ "$(uname)" = "Darwin" ]; then
     echo "Update 0_install_packages.sh file to include the packages to install."
+    install_package_mac "python3-dev"
+    install_package_mac "python3-pip"
+    install_package_mac "ack"
+    install_package_mac "curl"
+    install_package_mac "fonts-powerline"
+    install_package_mac "git"
+    install_package_mac "git-extras"
+    install_package_mac "kdiff3"
+    install_package_mac "make"
+    install_package_mac "python"
+    install_package_mac "python3"
+    install_package_mac "tree"
+    install_package_mac "vim-gtk3"
+    install_package_mac "zsh"
+
+    sudo pip3 install thefuck
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
 
     install_package "python3-dev"
