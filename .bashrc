@@ -1,6 +1,6 @@
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get autoremove
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get autoremove -y
 
 function install_package () {
   # set shell to start up tmux by default 
