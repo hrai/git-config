@@ -9,6 +9,21 @@ function install_package () {
   fi
 }
 
+function prettify_json {
+    if [ $# -gt 0 ];
+        then
+        for arg in $@
+        do
+            if [ -f $arg ];
+                then
+                less $arg | python -m json.tool
+            else
+                echo "$arg" | python -m json.tool
+            fi
+        done
+    fi
+}
+
 if [ "$(uname)" = "Darwin" ]; then
     echo "Update 0_install_packages.sh file to include the packages to install."
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
