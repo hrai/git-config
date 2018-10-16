@@ -153,9 +153,10 @@ zplugin light zdharma/fast-syntax-highlighting
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-syntax-highlighting
 zplugin light paulirish/git-open
+zplugin light denysdovhan/spaceship-prompt
 
 # Load the pure theme, with zsh-async library that's bundled with it
-zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
+# zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
 
 # This one to be ran just once, in interactive session
 
@@ -171,3 +172,5 @@ zplugin snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 zplugin snippet OMZ::plugins/vscode/vscode.plugin.zsh
 zplugin snippet OMZ::plugins/web-search/web-search.plugin.zsh
 zplugin snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
+
+ZSH_THEME="spaceship"
