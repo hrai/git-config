@@ -1,13 +1,45 @@
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get autoremove
+
+function install_package () {
+  # set shell to start up tmux by default 
+  if ! dpkg -s "$1" > /dev/null; then
+    sudo apt-get install "$1" -y
+  fi
+}
+
+if [ "$(uname)" = "Darwin" ]; then
+    echo "Update 0_install_packages.sh file to include the packages to install."
+elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+
+    install_package "ack"
+    install_package "curl"
+    install_package "fonts-powerline"
+    install_package "git"
+    install_package "git-extras"
+    install_package "kdiff3"
+    install_package "make"
+    install_package "python"
+    install_package "python3"
+    install_package "tree"
+    install_package "vim-gtk3"
+    install_package "zsh"
+
+    install_ctags
+
+# elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
+    # Do something under 32 bits Windows NT platform
+# elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
+    # Do something under 64 bits Windows NT platform
+fi
+
+
 #-----Internal Command aliases-------
 alias ~='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ls='ls -a'
-alias python=python3
-alias v='vim'
-alias clr='clear'
-alias update='sudo apt update'
-alias upgrade='sudo apt upgrade'
 
 #-----External Command aliases-------
 alias d='docker'
