@@ -28,6 +28,8 @@ if [ "$(uname)" = "Darwin" ]; then
     echo "Update 0_install_packages.sh file to include the packages to install."
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
 
+    install_package "python3-dev"
+    install_package "python3-pip"
     install_package "ack"
     install_package "curl"
     install_package "fonts-powerline"
@@ -41,6 +43,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
     install_package "vim-gtk3"
     install_package "zsh"
 
+    sudo pip3 install thefuck
     install_ctags
 
 # elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
