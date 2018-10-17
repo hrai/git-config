@@ -33,6 +33,8 @@ function update_system () {
 function install_package () {
   if ! dpkg -s "$1" > /dev/null; then
     sudo apt install "$1" -y
+  else
+    echo ">>>$1 is already installed"
   fi
 }
 
@@ -52,6 +54,59 @@ function install_package_mac_cask () {
   fi
 }
 
+function install_ctags() {
+    install_package "automake"
+    install_package "pkg-config"
+
+    git clone https://github.com/universal-ctags/ctags.git ~/ctags
+    cd ~/ctags
+    ./autogen.sh 
+    ./configure
+    make
+    sudo make install
+}
+
+function install_apps() {
+  echo 'Installing apps....'
+  # update packages
+  if [ "$(uname)" = "Darwin" ]; then
+      brew install gnu-sed --with-default-names
+      install_package_mac "python3"
+      install_package_mac "ack"
+      install_package_mac "curl"
+      # install_package_mac "fonts-powerline"
+      install_package_mac "git"
+      install_package_mac "git-extras"
+      install_package_mac_cask "kdiff3"
+      install_package_mac "make"
+      install_package_mac "python"
+      install_package_mac "python3"
+      install_package_mac "tree"
+      install_package_mac "zsh"
+      install_package_mac "thefuck"
+
+      install_package_mac "--HEAD universal-ctags/universal-ctags/universal-ctags"
+  elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+
+      install_package "python3-dev"
+      install_package "python3-pip"
+      install_package "ack-grep"
+      install_package "curl"
+      install_package "fonts-powerline"
+      install_package "git"
+      install_package "git-extras"
+      install_package "kdiff3"
+      install_package "make"
+      install_package "python"
+      install_package "python3"
+      install_package "tree"
+      install_package "vim-gtk3"
+      install_package "zsh"
+
+      sudo pip3 install thefuck
+      install_ctags
+  fi
+}
 
 function prettify_json {
     if [ $# -gt 0 ];
@@ -107,45 +162,7 @@ if ! find ~/ -ctime -7 -type f -name .zshrc > /dev/null; then
   update_system
 fi
 
-# update packages
-if [ "$(uname)" = "Darwin" ]; then
-    brew install gnu-sed --with-default-names
-    install_package_mac "python3"
-    install_package_mac "ack"
-    install_package_mac "curl"
-    # install_package_mac "fonts-powerline"
-    install_package_mac "git"
-    install_package_mac "git-extras"
-    install_package_mac_cask "kdiff3"
-    install_package_mac "make"
-    install_package_mac "python"
-    install_package_mac "python3"
-    install_package_mac "tree"
-    install_package_mac "zsh"
-    install_package_mac "thefuck"
-
-    pip3 install thefuck
-elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
-
-    install_package "python3-dev"
-    install_package "python3-pip"
-    install_package "ack-grep"
-    install_package "curl"
-    install_package "fonts-powerline"
-    install_package "git"
-    install_package "git-extras"
-    install_package "kdiff3"
-    install_package "make"
-    install_package "python"
-    install_package "python3"
-    install_package "tree"
-    install_package "vim-gtk3"
-    install_package "zsh"
-
-    sudo pip3 install thefuck
-    install_ctags
-fi
-
+install_apps
 
 #-----Internal Command aliases-------
 alias ~='cd ~'
