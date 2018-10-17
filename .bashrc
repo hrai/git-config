@@ -58,12 +58,16 @@ function install_ctags() {
     install_package "automake"
     install_package "pkg-config"
 
-    git clone https://github.com/universal-ctags/ctags.git ~/ctags
-    cd ~/ctags
-    ./autogen.sh 
-    ./configure
-    make
-    sudo make install
+    local CTAGS=~/ctags
+    # clone if folder doesn't exist
+    if [ ! -d "$CTAGS" ]; then
+      git clone https://github.com/universal-ctags/ctags.git $CTAGS
+      cd $CTAGS
+      ./autogen.sh 
+      ./configure
+      make
+      sudo make install
+    fi
 }
 
 function install_apps() {
