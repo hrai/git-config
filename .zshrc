@@ -1,7 +1,10 @@
 alias lt='zplg ls'
 
-# securing directories
-compaudit | xargs chmod g-w
+
+if [[ $(compaudit) ]]; then
+	# securing directories
+	compaudit | xargs chmod g-w
+fi
 
 ## If you come from bash you might have to change your $PATH.
 ## export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -152,7 +155,7 @@ zplugin light tj/git-extras
 
 # Two regular plugins loaded in default way (no `zplugin ice ...` modifiers)
 
-zplugin light nvbn/thefuck
+# zplugin light nvbn/thefuck
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-completions
@@ -165,7 +168,7 @@ zplugin light denysdovhan/spaceship-prompt
 
 # This one to be ran just once, in interactive session
 
-zplugin creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
+# zplugin creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
 
 # Oh-my-zsh plugins
 zplugin snippet OMZ::lib/clipboard.zsh
@@ -178,7 +181,7 @@ zplugin snippet OMZ::lib/nvm.zsh
 zplugin snippet OMZ::lib/spectrum.zsh
 zplugin snippet OMZ::plugins/git-extras/git-extras.plugin.zsh
 zplugin snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
-zplugin snippet OMZ::plugins/npm/npm.plugin.zsh
+#zplugin snippet OMZ::plugins/npm/npm.plugin.zsh
 zplugin snippet OMZ::plugins/sudo/sudo.plugin.zsh
 zplugin snippet OMZ::plugins/tmux/tmux.plugin.zsh
 zplugin snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh

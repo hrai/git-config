@@ -11,8 +11,8 @@ if hash zsh 2>/dev/null; then
     # sudo chown -R root:$USER ./.zplugin
 
     echo 'Moving .zshrc to home directory....'
-    cp .zshrc ~/.zshrc
-    cat .bashrc >> ~/.zshrc
+    cp .bashrc ~/.zshrc
+    cat .zshrc >> ~/.zshrc
     echo "Successfully moved .zshrc to home directory...."
 
     echo -e "\n"
