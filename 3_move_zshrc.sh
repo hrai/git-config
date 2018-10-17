@@ -7,7 +7,6 @@ if hash zsh 2>/dev/null; then
     echo 'Successfully cloned zplugin....'
 
     # securing the directories
-    compaudit | xargs chmod g-w
     # sudo chmod -R 777 ~/.zplugin
     # sudo chown -R root:$USER ./.zplugin
 
