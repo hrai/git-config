@@ -11,9 +11,13 @@ echo -e '\nSetting the global git-hooks folder to ~/.global-git-hooks'
 git config --global core.hooksPath ~/.global-git-hooks
 echo 'Successfully set the global git-hooks folder to ~/.global-git-hooks'
 
-# global git config setup
+git config --global user.name "Hangjit Rai"
+git config --global user.email rai.hangjit@gmail.com
+git config --global core.editor vim
 git config --global credential.helper 'cache --timeout=3600'
-git config --global --add merge.tool kdiff3
+git config --global merge.tool kdiff3
+git config --global diff.tool vimdiff
+git config --global difftool.prompt false
 
 echo "Do you want to move .gitignore file too (y/n)?"
 read user_response
