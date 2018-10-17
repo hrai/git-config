@@ -36,7 +36,7 @@ fi
 # function definitions
 function install_package () {
   if ! dpkg -s "$1" > /dev/null; then
-    sudo apt-get install "$1" -y
+    sudo apt install "$1" -y
   fi
 }
 
