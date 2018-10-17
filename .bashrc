@@ -41,7 +41,19 @@ function install_package () {
 }
 
 function install_package_mac () {
-  brew list "$1" || brew install "$1"
+  if brew ls --versions "$1" > /dev/null; then
+    echo ">>>$1 is already installed"
+  else
+    brew install "$1"
+  fi
+}
+
+function install_package_mac_cask () {
+  if brew cask ls --versions "$1" > /dev/null; then
+    echo ">>>$1 is already installed"
+  else
+    brew cask install "$1"
+  fi
 }
 
 
@@ -95,23 +107,21 @@ function gcmm() {
 }
 
 if [ "$(uname)" = "Darwin" ]; then
-    echo "Update 0_install_packages.sh file to include the packages to install."
-    install_package_mac "python3-dev"
-    install_package_mac "python3-pip"
+    brew install gnu-sed --with-default-names
+    install_package_mac "python3"
     install_package_mac "ack"
     install_package_mac "curl"
     install_package_mac "fonts-powerline"
     install_package_mac "git"
     install_package_mac "git-extras"
-    install_package_mac "kdiff3"
+    install_package_mac_cask "kdiff3"
     install_package_mac "make"
     install_package_mac "python"
     install_package_mac "python3"
     install_package_mac "tree"
-    install_package_mac "vim-gtk3"
     install_package_mac "zsh"
 
-    sudo pip3 install thefuck
+    pip3 install thefuck
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
 
     install_package "python3-dev"

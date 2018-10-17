@@ -3,6 +3,7 @@
 echo 'Moving prepare-commit-msg to .global-git-hooks directory....'
 mkdir -p ~/.global-git-hooks
 cp prepare-commit-msg ~/.global-git-hooks/prepare-commit-msg
+chmod 777 ~/.global-git-hooks/prepare-commit-msg
 echo 'Successfully moved prepare-commit-msg to .global-git-hooks directory....'
 
 # git hooks folder setup
