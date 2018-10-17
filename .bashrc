@@ -120,6 +120,7 @@ if [ "$(uname)" = "Darwin" ]; then
     install_package_mac "python3"
     install_package_mac "tree"
     install_package_mac "zsh"
+    install_package_mac "thefuck"
 
     pip3 install thefuck
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
