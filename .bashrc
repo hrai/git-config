@@ -16,6 +16,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   # Do something under 64 bits Windows NT platform
 fi
 
+# start zsh
+zsh
+
 if [ "$(uname)" = "Darwin" ]; then
   # update the system
   brew update
@@ -126,7 +129,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
 
     install_package "python3-dev"
     install_package "python3-pip"
-    install_package "ack"
+    install_package "ack-grep"
     install_package "curl"
     install_package "fonts-powerline"
     install_package "git"
