@@ -111,7 +111,7 @@ if [ "$(uname)" = "Darwin" ]; then
     install_package_mac "python3"
     install_package_mac "ack"
     install_package_mac "curl"
-    install_package_mac "fonts-powerline"
+    # install_package_mac "fonts-powerline"
     install_package_mac "git"
     install_package_mac "git-extras"
     install_package_mac_cask "kdiff3"
