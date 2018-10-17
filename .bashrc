@@ -22,9 +22,9 @@ if [ "$(uname)" = "Darwin" ]; then
   brew upgrade
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   # update the system
-  sudo apt-get update -y
-  sudo apt-get upgrade -y
-  sudo apt-get autoremove -y
+  sudo apt update -y
+  sudo apt upgrade -y
+  sudo apt autoremove -y
 
 # elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
     # Do something under 32 bits Windows NT platform
