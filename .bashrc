@@ -1,4 +1,3 @@
-
 function start_tmux () {
   # set shell to start up tmux by default 
   if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
@@ -16,24 +15,21 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   # Do something under 64 bits Windows NT platform
 fi
 
-if [ "$(uname)" = "Darwin" ]; then
-  # update the system
-  brew update
-  brew upgrade
-elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
-  # update the system
-  sudo apt update -y
-  sudo apt upgrade -y
-  sudo apt autoremove -y
+function update_system () {
+  if [ "$(uname)" = "Darwin" ]; then
+    brew update
+    brew upgrade
+  elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+    sudo apt update -y
+    sudo apt upgrade -y
+    sudo apt autoremove -y
+  fi
+}
 
-# elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
-    # Do something under 32 bits Windows NT platform
-# elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
-    # Do something under 64 bits Windows NT platform
-fi
+################################################
+############# function definitions #############
+################################################
 
-
-# function definitions
 function install_package () {
   if ! dpkg -s "$1" > /dev/null; then
     sudo apt install "$1" -y
@@ -106,6 +102,12 @@ function gcmm() {
   git commit -m "$*";
 }
 
+# update system if zshrc was last accessed more than 7 days ago
+if ! find ~/ -ctime -7 -type f -name .zshrc > /dev/null; then
+  update_system
+fi
+
+# update packages
 if [ "$(uname)" = "Darwin" ]; then
     brew install gnu-sed --with-default-names
     install_package_mac "python3"
@@ -142,11 +144,6 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
 
     sudo pip3 install thefuck
     install_ctags
-
-# elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
-    # Do something under 32 bits Windows NT platform
-# elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
-    # Do something under 64 bits Windows NT platform
 fi
 
 
