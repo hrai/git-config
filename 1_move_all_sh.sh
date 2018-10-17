@@ -14,4 +14,8 @@ echo 'Moving zshrc to home directory....'
 bash 3_move_zshrc.sh
 
 echo ''
+echo 'Moving vim-files to home directory....'
+bash 6_set_vim_configs.sh
+
+echo ''
 echo "Successfully moved dot files to home directory...."
