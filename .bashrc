@@ -110,6 +110,8 @@ function install_apps() {
       sudo pip3 install thefuck
       install_ctags
   fi
+
+  echo 'Finished installing apps....'
 }
 
 function prettify_json {
@@ -161,12 +163,26 @@ function gcmm() {
   git commit -m "$*";
 }
 
-# update system if zshrc was last accessed more than 7 days ago
-if ! find ~/ -ctime -7 -type f -name .zshrc > /dev/null; then
-  update_system
-fi
+function is_windows() {
+  local SYSTEM_NAME="$(expr substr $(uname -s) 1 10)"
 
-install_apps
+  if [ "$SYSTEM_NAME" = "MINGW64_NT" ]; then
+    true
+  elif [ "$SYSTEM_NAME" = "MINGW32_NT" ]; then
+    true
+  else
+    false
+  fi
+}
+
+if ! is_windows; then
+  # update system if zshrc was last accessed more than 7 days ago
+  if ! find ~/ -ctime -7 -type f -name .zshrc > /dev/null; then
+    update_system
+
+    install_apps
+  fi
+fi
 
 #-----Internal Command aliases-------
 alias ~='cd ~'
