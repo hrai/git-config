@@ -1,4 +1,4 @@
-alias lt='zplg ls'
+alias zlt='zplg ls'
 
 
 if [[ $(compaudit) ]]; then
