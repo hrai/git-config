@@ -108,6 +108,14 @@ if ! is_windows; then
     install_apps
 fi
 
-
 echo ''
 echo "Successfully installed the packages..."
+
+echo "Do you want to move all sh files too (y/n)?"
+read user_response
+
+if [ "$user_response" = "y" ]
+then
+    bash 1_move_all_sh.sh
+    echo "Successfully moved sh files."
+fi
