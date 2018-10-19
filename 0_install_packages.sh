@@ -81,6 +81,7 @@ function install_apps() {
       install_package "python3"
       install_package "python3-dev"
       install_package "python3-pip"
+      install_package "redshift-gtk"
       install_package "tmux"
       install_package "tree"
       install_package "vim-gtk3"
@@ -139,6 +140,9 @@ fi
 if is_linux; then
   # swap caps and escape
   dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"
+
+  # starting redshift-gtk
+  sudo redshift-gtk
 
   echo "Do you want to move all sh files too (y/n)?"
   read user_response
