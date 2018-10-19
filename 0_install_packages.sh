@@ -49,28 +49,27 @@ function install_apps() {
   # update packages
   if [ "$(uname)" = "Darwin" ]; then
       brew install gnu-sed --with-default-names
-      install_package_mac "python3"
+
+      # install_package_mac "fonts-powerline"
+      install_package_mac "--HEAD universal-ctags/universal-ctags/universal-ctags"
       install_package_mac "ack"
       install_package_mac "curl"
-      # install_package_mac "fonts-powerline"
       install_package_mac "git"
       install_package_mac "git-extras"
-      install_package_mac_cask "kdiff3"
       install_package_mac "make"
       install_package_mac "python"
       install_package_mac "python3"
-      install_package_mac "tree"
-      install_package_mac "zsh"
+      install_package_mac "python3"
       install_package_mac "thefuck"
       install_package_mac "tmux"
+      install_package_mac "tree"
+      install_package_mac "zsh"
+      install_package_mac_cask "kdiff3"
 
-      install_package_mac "--HEAD universal-ctags/universal-ctags/universal-ctags"
   elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
       # disable Alt + F4 switching to TTY4
       sudo kbd_mode -s
 
-      install_package "python3-dev"
-      install_package "python3-pip"
       install_package "ack-grep"
       install_package "curl"
       install_package "fonts-powerline"
@@ -80,10 +79,13 @@ function install_apps() {
       install_package "make"
       install_package "python"
       install_package "python3"
+      install_package "python3-dev"
+      install_package "python3-pip"
+      install_package "tmux"
       install_package "tree"
       install_package "vim-gtk3"
+      install_package "xclip"
       install_package "zsh"
-      install_package "tmux"
 
       sudo pip3 install thefuck
       install_ctags
@@ -114,8 +116,24 @@ function is_windows() {
   fi
 }
 
+function create_ssh_key() {
+  local ssh_file=~/.ssh/id_rsa
+
+  if [ ! -f $ssh_file ]; then
+    # create ssh keys
+    echo -e "\n\n\n" | ssh-keygen -t rsa -b 4096 -C "rai.hangjit@gmail.com" -N ""
+    eval "$(ssh-agent -s)"
+    ssh-add $ssh_file
+    xclip -sel clip < ~/.ssh/id_rsa.pub
+    echo ">>>ssh file created and copied to clipboard."
+  else
+    echo ">>>$ssh_file already exists."
+  fi
+}
+
 if ! is_windows; then
-    install_apps
+  install_apps
+  create_ssh_key
 fi
 
 if is_linux; then
@@ -127,7 +145,7 @@ if is_linux; then
 
   if [ "$user_response" = "y" ]
   then
-      bash 1_move_all_sh.sh
-      echo "Successfully moved sh files."
+    bash 1_move_all_sh.sh
+    echo "Successfully moved sh files."
   fi
 fi
