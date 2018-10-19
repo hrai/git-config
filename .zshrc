@@ -155,6 +155,9 @@ zplugin light tj/git-extras
 
 # Two regular plugins loaded in default way (no `zplugin ice ...` modifiers)
 
+# setting up thefuck plugin
+eval $(thefuck --alias)
+
 # zplugin light nvbn/thefuck
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light zsh-users/zsh-autosuggestions
