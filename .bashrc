@@ -105,6 +105,7 @@ function install_apps() {
       install_package "python3"
       install_package "tree"
       install_package "vim-gtk3"
+      install_package "redshift-gtk"
       install_package "zsh"
 
       sudo pip3 install thefuck
