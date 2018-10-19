@@ -192,6 +192,7 @@ zplugin snippet OMZ::plugins/web-search/web-search.plugin.zsh
 zplugin snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
 zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
-
+# using case-insensitive autocomplete
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 ZSH_THEME="spaceship"
