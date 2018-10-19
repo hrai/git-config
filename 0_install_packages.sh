@@ -92,6 +92,16 @@ function install_apps() {
   echo 'Finished installing apps....'
 }
 
+function is_linux() {
+  local SYSTEM_NAME="$(expr substr $(uname -s) 1 5)"
+
+  if [ "$SYSTEM_NAME" = "Linux" ]; then
+    true
+  else
+    false
+  fi
+}
+
 function is_windows() {
   local SYSTEM_NAME="$(expr substr $(uname -s) 1 10)"
 
@@ -108,14 +118,16 @@ if ! is_windows; then
     install_apps
 fi
 
-echo ''
-echo "Successfully installed the packages..."
+if is_linux; then
+  # swap caps and escape
+  dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"
 
-echo "Do you want to move all sh files too (y/n)?"
-read user_response
+  echo "Do you want to move all sh files too (y/n)?"
+  read user_response
 
-if [ "$user_response" = "y" ]
-then
-    bash 1_move_all_sh.sh
-    echo "Successfully moved sh files."
+  if [ "$user_response" = "y" ]
+  then
+      bash 1_move_all_sh.sh
+      echo "Successfully moved sh files."
+  fi
 fi
