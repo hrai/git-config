@@ -153,6 +153,9 @@ zplugin ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*";
 zplugin ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
 zplugin light tj/git-extras
 
+zplugin ice as"program" pick"bin/git-dsf"
+zplugin light zdharma/zsh-diff-so-fancy
+
 # Two regular plugins loaded in default way (no `zplugin ice ...` modifiers)
 
 # setting up thefuck plugin

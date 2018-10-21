@@ -18,6 +18,7 @@ git config --global credential.helper 'cache --timeout=3600'
 git config --global merge.tool kdiff3
 git config --global diff.tool vimdiff
 git config --global difftool.prompt false
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
 echo "Do you want to move .gitignore file too (y/n)?"
 read user_response
