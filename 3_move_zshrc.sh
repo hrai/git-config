@@ -18,7 +18,7 @@ if hash zsh 2>/dev/null; then
 
     echo 'Moving .zshenv to home directory....'
     cp .zshenv ~/.zshenv
-    mkdir -p .zsh/cache/last-working-dir
+    mkdir -p ~/.zsh/cache/last-working-dir
     echo "Successfully moved .zshenv to home directory...."
 
     echo -e "\n"
