@@ -15,6 +15,12 @@ if hash zsh 2>/dev/null; then
     cat .zshrc >> ~/.zshrc
     echo "Successfully moved .zshrc to home directory...."
 
+
+    echo 'Moving .zshenv to home directory....'
+    cp .zshenv ~/.zshenv
+    mkdir -p .zsh/cache/last-working-dir
+    echo "Successfully moved .zshenv to home directory...."
+
     echo -e "\n"
 
     read -n 1 -s -r -p "Press any key to continue..."
