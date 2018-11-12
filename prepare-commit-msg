@@ -26,7 +26,7 @@ sed -i "s/$BRANCH_NAME\s/ /g" $1
 # Delete BOTH leading and trailing whitespace from each line
 sed -i 's/^[ \t]*//;s/[ \t]*$//' $1
 
-# Trim it down to get the parts we're interested in
+# Trim the branch name
 TRIMMED=$(echo $BRANCH_NAME | sed -e 's:^\([^-]*-[^-]*\)-.*:\1:' -e \
     'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/')
 
