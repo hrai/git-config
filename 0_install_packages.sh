@@ -49,6 +49,8 @@ function install_apps() {
   # update packages
   if [ "$(uname)" = "Darwin" ]; then
       brew install gnu-sed --with-default-names
+      
+      xcode-select --install
 
       # install_package_mac "fonts-powerline"
       install_package_mac "--HEAD universal-ctags/universal-ctags/universal-ctags"
@@ -58,7 +60,6 @@ function install_apps() {
       install_package_mac "git-extras"
       install_package_mac "make"
       install_package_mac "python"
-      install_package_mac "python3"
       install_package_mac "python3"
       install_package_mac "thefuck"
       install_package_mac "tmux"
