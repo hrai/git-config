@@ -37,7 +37,7 @@ function install_ctags() {
     if [ ! -d "$CTAGS" ]; then
       git clone https://github.com/universal-ctags/ctags.git $CTAGS
       cd $CTAGS
-      ./autogen.sh 
+      ./autogen.sh
       ./configure
       make
       sudo make install
@@ -49,11 +49,11 @@ function install_apps() {
   # update packages
   if [ "$(uname)" = "Darwin" ]; then
       brew install gnu-sed --with-default-names
-      
+
       xcode-select --install
 
       # install_package_mac "fonts-powerline"
-      install_package_mac "--HEAD universal-ctags/universal-ctags/universal-ctags"
+      brew install --HEAD universal-ctags/universal-ctags/universal-ctags
       install_package_mac "ack"
       install_package_mac "curl"
       install_package_mac "git"
