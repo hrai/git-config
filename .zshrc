@@ -202,3 +202,4 @@ zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 ZSH_THEME="spaceship"
+SPACESHIP_BATTERY_SHOW="false"
