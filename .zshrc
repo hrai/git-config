@@ -72,8 +72,7 @@ fi
 ## Example format: plugins=(rails git textmate ruby lighthouse)
 ## Add wisely, as too many plugins slow down shell startup.
 #plugins=(
-#  # git
-#  vi-mode
+#  # git#  vi-mode
 #  zsh-syntax-highlighting
 #  zsh-autosuggestions
 #  git-extras
@@ -203,3 +202,5 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 ZSH_THEME="spaceship"
 SPACESHIP_BATTERY_SHOW="false"
+
+export DOCKER_HOST=tcp://localhost:2375
