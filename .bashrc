@@ -86,7 +86,7 @@ alias ...='cd ../..'
 alias ls='ls -a'
 
 #-----External Command aliases-------
-alias d='docker'
+alias dk='docker'
 alias g='git'
 alias x='exit'
 alias ni='npm install'
