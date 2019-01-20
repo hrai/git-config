@@ -1,5 +1,9 @@
 alias zlt='zplg ls'
 
+export EDITOR="vim"
+
+# instead of 'cd my_dir' you can do my_dir
+setopt AUTO_CD
 
 if [[ $(compaudit) ]]; then
 	# securing directories
