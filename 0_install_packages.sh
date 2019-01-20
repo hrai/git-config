@@ -137,10 +137,6 @@ function create_ssh_key() {
 if ! is_windows; then
   install_apps
   create_ssh_key
-
-  # source autojump starter file
-  . /usr/share/autojump/autojump.sh
-
 fi
 
 if is_linux; then
