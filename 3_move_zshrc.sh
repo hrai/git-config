@@ -24,7 +24,8 @@ if hash zsh 2>/dev/null; then
 
     echo -e "\n"
 
-    read -n 1 -s -r -p "Press any key to continue..."
+    echo "Press any key to continue..."
+    read
 else
-    read -n 1 -s -r -p "Please install zsh to run this script."
+    echo "Please install zsh to run this script."
 fi

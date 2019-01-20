@@ -32,4 +32,5 @@ fi
 
 echo -e "\n"
 
-read -n 1 -s -r -p "Press any key to continue..."
+echo "Press any key to continue..."
+read
