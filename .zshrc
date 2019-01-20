@@ -1,4 +1,4 @@
-alias zlt='zplg ls'
+alias zls='zplg ls'
 
 export EDITOR="vim"
 
