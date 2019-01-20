@@ -172,6 +172,7 @@ zplugin light zsh-users/zsh-syntax-highlighting
 zplugin light paulirish/git-open
 zplugin light denysdovhan/spaceship-prompt
 zplugin light MichaelAquilina/zsh-you-should-use
+zplugin light wting/autojump
 
 # Load the pure theme, with zsh-async library that's bundled with it
 # zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
