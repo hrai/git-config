@@ -1,5 +1,9 @@
-alias zlt='zplg ls'
+alias zls='zplg ls'
 
+export EDITOR="vim"
+
+# instead of 'cd my_dir' you can do my_dir
+setopt AUTO_CD
 
 if [[ $(compaudit) ]]; then
 	# securing directories
@@ -202,5 +206,8 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 ZSH_THEME="spaceship"
 SPACESHIP_BATTERY_SHOW="false"
+
+# source autojump starter file
+. /usr/share/autojump/autojump.sh
 
 export DOCKER_HOST=tcp://localhost:2375

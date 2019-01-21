@@ -11,7 +11,6 @@ function install_package () {
     echo ">>>$1 is already installed"
   fi
 }
-
 function install_package_mac () {
   if brew ls --versions "$1" > /dev/null; then
     echo ">>>$1 is already installed"
@@ -55,6 +54,7 @@ function install_apps() {
       # install_package_mac "fonts-powerline"
       brew install --HEAD universal-ctags/universal-ctags/universal-ctags
       install_package_mac "ack"
+      install_package_mac "autojump"
       install_package_mac "curl"
       install_package_mac "git"
       install_package_mac "git-extras"
@@ -72,6 +72,7 @@ function install_apps() {
       sudo kbd_mode -s
 
       install_package "ack-grep"
+      install_package "autojump"
       install_package "curl"
       install_package "fonts-powerline"
       install_package "git"
