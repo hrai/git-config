@@ -211,6 +211,6 @@ SPACESHIP_BATTERY_SHOW="false"
 . /usr/share/autojump/autojump.sh
 
 # fzf mapping
-bindkey -s '^f' 'vim $(fzf)\n'
+bindkey -s '^f' 'v $(fzf)\n'
 
 export DOCKER_HOST=tcp://localhost:2375
