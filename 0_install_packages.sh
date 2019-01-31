@@ -154,4 +154,9 @@ if is_linux; then
     bash 1_move_all_sh.sh
     echo "Successfully moved sh files."
   fi
+
+  # set zsh as default shell
+  echo "Setting zsh as default shell"
+  chsh -s $(which zsh)
+
 fi

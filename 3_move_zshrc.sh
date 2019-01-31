@@ -1,7 +1,4 @@
 if hash zsh 2>/dev/null; then
-    # set zsh as default shell
-    chsh -s $(which zsh)
-
     echo 'Cloning zplugin....'
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
     echo 'Successfully cloned zplugin....'
