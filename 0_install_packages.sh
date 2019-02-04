@@ -28,6 +28,12 @@ function install_package_mac_cask () {
 }
 
 function install_ctags() {
+
+  echo "Do you want to install and compile ctags (y/n)?"
+  read user_response
+
+  if [ "$user_response" = "y" ]
+  then
     install_package "automake"
     install_package "pkg-config"
 
@@ -35,12 +41,14 @@ function install_ctags() {
     # clone if folder doesn't exist
     if [ ! -d "$CTAGS" ]; then
       git clone https://github.com/universal-ctags/ctags.git $CTAGS
-      cd $CTAGS
-      ./autogen.sh
-      ./configure
-      make
-      sudo make install
     fi
+
+    cd $CTAGS
+    ./autogen.sh
+    ./configure
+    make
+    sudo make install
+  fi
 }
 
 function install_apps() {
