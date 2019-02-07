@@ -83,7 +83,7 @@ function gcmm() {
 alias ~='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ls='ls -a'
+alias ls='ls --color=auto'
 
 #-----External Command aliases-------
 alias dk='docker'
