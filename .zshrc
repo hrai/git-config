@@ -213,4 +213,7 @@ SPACESHIP_BATTERY_SHOW="false"
 # fzf mapping
 bindkey -s '^f' 'v $(fzf)\n'
 
+# autojump error fix - https://github.com/wting/autojump/issues/474
+unsetopt BG_NICE
+
 export DOCKER_HOST=tcp://localhost:2375
