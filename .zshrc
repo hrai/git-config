@@ -1,3 +1,10 @@
+# loading zsh config files
+if [ -d ~/.zsh  ]; then
+	source ~/.zsh/*
+else
+	print "404: ~/.zsh folder not found."
+fi
+
 alias zls='zplg ls'
 
 export EDITOR="vim"
@@ -212,9 +219,6 @@ SPACESHIP_BATTERY_SHOW="false"
 
 # source autojump starter file
 . /usr/share/autojump/autojump.sh
-
-# fzf mapping
-bindkey -s '^f' 'v $(fzf)\n'
 
 # autojump error fix - https://github.com/wting/autojump/issues/474
 unsetopt BG_NICE

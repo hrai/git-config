@@ -7,11 +7,20 @@ if hash zsh 2>/dev/null; then
     # sudo chmod -R 777 ~/.zplugin
     # sudo chown -R root:$USER ./.zplugin
 
+    echo "Moving key-bindings.zsh to $ZSH_DIR directory...."
+    ZSH_DIR=~/.zsh
+    if [ ! -d $ZSH_DIR  ]; then
+        mkdir $ZSH_DIR
+        chmod 777 $ZSH_DIR
+    fi
+
+    cp key-bindings.zsh ~/key-bindings.zsh
+    echo "Successfully moved key-bindings.zsh to $ZSH_DIR directory...."
+
     echo 'Moving .zshrc to home directory....'
     cp .bashrc ~/.zshrc
     cat .zshrc >> ~/.zshrc
     echo "Successfully moved .zshrc to home directory...."
-
 
     echo 'Moving .zshenv to home directory....'
     cp .zshenv ~/.zshenv
