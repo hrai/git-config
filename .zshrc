@@ -1,6 +1,7 @@
 # loading zsh config files
 if [ -d ~/.zsh  ]; then
 	source ~/.zsh/*
+	print "Sourcing .zsh folder..."
 else
 	print "404: ~/.zsh folder not found."
 fi
