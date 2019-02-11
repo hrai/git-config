@@ -1,11 +1,3 @@
-# loading zsh config files
-if [ -d ~/.zsh  ]; then
-	source ~/.zsh/*
-	print "Sourcing .zsh folder..."
-else
-	print "404: ~/.zsh folder not found."
-fi
-
 alias zls='zplg ls'
 
 export EDITOR="vim"
@@ -223,5 +215,18 @@ SPACESHIP_BATTERY_SHOW="false"
 
 # autojump error fix - https://github.com/wting/autojump/issues/474
 unsetopt BG_NICE
+
+# loading zsh config files
+ZSH_DIR=~/.zsh
+if [ -d $ZSH_DIR  ]; then
+        print "Sourcing $ZSH_DIR folder..."
+
+        for file in $ZSH_DIR/*; do
+          source $file
+          print $file
+        done
+else
+        print "404: $ZSH_DIR folder not found."
+fi
 
 export DOCKER_HOST=tcp://localhost:2375
