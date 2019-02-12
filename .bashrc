@@ -1,8 +1,3 @@
-# Launch Zsh if it exists - for WSL
-if [ -t 1  ] && [ -x "$(command -v zsh)"  ]; then
-  exec zsh
-fi
-
 function start_tmux () {
   # set shell to start up tmux by default 
   if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then

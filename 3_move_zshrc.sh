@@ -1,3 +1,15 @@
+function is_windows() {
+  local SYSTEM_NAME="$(expr substr $(uname -s) 1 10)"
+
+  if [ "$SYSTEM_NAME" = "MINGW64_NT" ]; then
+    true
+  elif [ "$SYSTEM_NAME" = "MINGW32_NT" ]; then
+    true
+  else
+    false
+  fi
+}
+
 if hash zsh 2>/dev/null; then
     echo 'Cloning zplugin....'
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
@@ -17,10 +29,20 @@ if hash zsh 2>/dev/null; then
     cp key-bindings.zsh $ZSH_DIR/key-bindings.zsh
     echo "Successfully moved key-bindings.zsh to $ZSH_DIR directory...."
 
-    echo 'Moving .zshrc to home directory....'
-    cp .bashrc ~/.zshrc
-    cat .zshrc >> ~/.zshrc
-    echo "Successfully moved .zshrc to home directory...."
+    ZSHRC=.zshrc
+    echo "Moving $ZSHRC to home directory...."
+    cp .bashrc ~/$ZSHRC
+    cat $ZSHRC >> ~/$ZSHRC
+    echo "Successfully moved $ZSHRC to home directory...."
+
+    if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+        echo '
+        # Launch Zsh if it exists - for WSL
+        if [ -t 1  ] && [ -x "$(command -v zsh)"  ]; then
+          exec zsh
+        fi
+        ' >> ~/$ZSHRC
+    fi
 
     echo 'Moving .zshenv to home directory....'
     cp .zshenv ~/.zshenv
