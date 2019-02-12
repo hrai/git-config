@@ -1,3 +1,8 @@
+# Launch Zsh
+if [ -t 1  ]; then
+  exec zsh
+fi
+
 function start_tmux () {
   # set shell to start up tmux by default 
   if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
