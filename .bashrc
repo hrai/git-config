@@ -79,6 +79,13 @@ function gcmm() {
   git commit -m "$*";
 }
 
+function gcap() {
+  branch_name=$(git symbolic-ref -q HEAD);
+  git add .;
+  git commit --amend --no-edit;
+  git push -u -f origin $branch_name;
+}
+
 #-----Internal Command aliases-------
 alias ~='cd ~'
 alias ..='cd ..'
