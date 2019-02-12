@@ -1,5 +1,5 @@
-# Launch Zsh
-if [ -t 1  ]; then
+# Launch Zsh if it exists - for WSL
+if [ -t 1  ] && [ -x "$(command -v zsh)"  ]; then
   exec zsh
 fi
 
