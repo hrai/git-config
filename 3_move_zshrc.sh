@@ -41,7 +41,7 @@ if hash zsh 2>/dev/null; then
         if [ -t 1  ] && [ -x "$(command -v zsh)"  ]; then
           exec zsh
         fi
-        ' >> ~/$ZSHRC
+        ' >> ~/.bashrc
     fi
 
     echo 'Moving .zshenv to home directory....'
