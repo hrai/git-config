@@ -62,6 +62,14 @@ function gnf() {
   git checkout -b feature/PEN-$1 #checking out a new branch
 }
 
+function gbr() {
+  git checkout release/$1
+}
+
+function gnr() {
+  git checkout release/$1
+}
+
 function gap() {
   branch_name=$(git symbolic-ref -q HEAD);
   git add .;
@@ -147,5 +155,4 @@ alias gst='g stash'
 
 #-------Delete all branches except master--------
 alias gbDA='git branch | egrep -v "(master|\*)" | xargs git branch -D'
-
 
