@@ -99,6 +99,7 @@ alias ~='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ls='ls --color=auto'
+alias clr='clear'
 
 #-----External Command aliases-------
 alias dk='docker'
