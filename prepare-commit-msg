@@ -1,7 +1,4 @@
 #!/bin/bash
-# NAME=$(git branch | grep '*' | sed 's/* //') 
-
-#!/bin/bash
 # Include any branches for which you wish to disable this script
 if [ -z "$BRANCHES_TO_SKIP" ]; then
     BRANCHES_TO_SKIP=(master develop staging test)
