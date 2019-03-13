@@ -1,11 +1,13 @@
 #!/bin/bash
 
-echo 'Moving prepare-commit-msg to .global-git-hooks directory....'
+echo 'Moving git hooks to .global-git-hooks directory....'
 mkdir -p ~/.global-git-hooks
 cp prepare-commit-msg ~/.global-git-hooks/prepare-commit-msg
 cp pre-commit ~/.global-git-hooks/pre-commit
+
 chmod 777 ~/.global-git-hooks/prepare-commit-msg
-echo 'Successfully moved prepare-commit-msg to .global-git-hooks directory....'
+chmod 777 ~/.global-git-hooks/pre-commit
+echo 'Successfully moved git hooks to .global-git-hooks directory....'
 
 # git hooks folder setup
 echo -e '\nSetting the global git-hooks folder to ~/.global-git-hooks'
