@@ -12,7 +12,7 @@ echo 'Successfully moved git hooks to .global-git-hooks directory....'
 # git hooks folder setup
 echo -e '\nSetting the global git-hooks folder to ~/.global-git-hooks'
 git config --global core.hooksPath ~/.global-git-hooks
-echo 'Successfully set the global git-hooks folder to ~/.global-git-hooks'
+echo 'Successfully set the global git-hooks folder to ~/.global-git-hooks\n'
 
 git config --global user.name "Hangjit Rai"
 git config --global user.email rai.hangjit@gmail.com
