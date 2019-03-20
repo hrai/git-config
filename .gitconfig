@@ -1,0 +1,14 @@
+[core]
+	autocrlf = true
+	excludesfile = C:/Users/hangjit.rai/.gitignore_global
+	editor = vim
+
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+
+[difftool "vimdiff"]
+	path = C:/Program Files (x86)/Vim/vim80/
+	cmd = "gvim.exe -d" "$LOCAL" "$REMOTE"
