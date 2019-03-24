@@ -94,6 +94,10 @@ function gcap() {
   git push -u -f origin $branch_name;
 }
 
+function af() {
+  alias | grep $1
+}
+
 #-----Internal Command aliases-------
 alias ~='cd ~'
 alias ..='cd ..'
