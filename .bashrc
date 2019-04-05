@@ -37,7 +37,7 @@ function prettify_json {
         do
             if [ -f $arg ];
                 then
-                less $arg | python -m json.tool
+                less $arg | python -m json.tool > $arg
             else
                 echo "$arg" | python -m json.tool
             fi
