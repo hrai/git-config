@@ -86,6 +86,7 @@ function install_apps() {
       install_package "curl"
       install_package "dos2unix"
       install_package "fonts-powerline"
+      install_package "fonts-hack-ttf"
       install_package "git"
       install_package "git-extras"
       install_package "kdiff3"
