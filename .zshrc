@@ -142,6 +142,7 @@ zplugin light paulirish/git-open
 zplugin light denysdovhan/spaceship-prompt
 zplugin light MichaelAquilina/zsh-you-should-use
 zplugin light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
+zplugin light wfxr/forgit
 
 # Load the pure theme, with zsh-async library that's bundled with it
 # zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
