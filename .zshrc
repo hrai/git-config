@@ -1,5 +1,9 @@
 alias zls='zplg ls'
 
+# Suffix aliases
+alias -s log=vim
+alias -s notes=vim
+
 export EDITOR="vim"
 
 # instead of 'cd my_dir' you can do my_dir
@@ -177,6 +181,18 @@ zplugin load trapd00r/LS_COLORS
 
 # using case-insensitive autocomplete
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+
+# Fuzzy matching of completions for when you mistype them:
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+
+# menu selection autocompletions and to have the words sorted by time
+xdvi() { command xdvi ${*:-*.dvi(om[1])}  }
+zstyle ':completion:*:*:xdvi:*' menu yes select
+zstyle ':completion:*:*:xdvi:*' file-sort time
+
 
 ZSH_THEME="spaceship"
 SPACESHIP_BATTERY_SHOW="false"
