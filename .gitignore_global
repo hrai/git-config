@@ -239,3 +239,7 @@ _Pvt_Extensions
 # JS Libraries and Styles
 node_modules/
 bower_components/
+
+# Python
+venv/
+.idea/
