@@ -94,6 +94,11 @@ function gcap() {
   git push -u -f origin $branch_name;
 }
 
+function gpu() {
+  branch_name=$(git symbolic-ref -q HEAD);
+  git push --set-upstream origin $branch_name;
+}
+
 function af() {
   alias | grep $1
 }
