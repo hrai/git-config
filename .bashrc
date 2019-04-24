@@ -1,4 +1,4 @@
-function start_tmux () {
+start_tmux () {
   # set shell to start up tmux by default 
   if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
     exec tmux
@@ -15,7 +15,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   # Do something under 64 bits Windows NT platform
 fi
 
-function update_system () {
+update_system () {
   if [ "$(uname)" = "Darwin" ]; then
     brew update
     brew upgrade
@@ -30,7 +30,7 @@ function update_system () {
 ############# function definitions #############
 ################################################
 
-function prettify_json {
+prettify_json {
     if [ $# -gt 0 ];
         then
         for arg in $@
@@ -46,60 +46,60 @@ function prettify_json {
 }
 
 # git bash function
-function gbf() {
+gbf() {
   git checkout feature/PEN-$1
 }
 
-function gbb() {
+gbb() {
   git checkout bugfix/PEN-$1
 }
 
-function gnb() {
+gnb() {
   git checkout -b bugfix/PEN-$1 #checking out a new branch
 }
 
-function gnf() {
+gnf() {
   git checkout -b feature/PEN-$1 #checking out a new branch
 }
 
-function gbr() {
+gbr() {
   git checkout release/$1
 }
 
-function gnr() {
+gnr() {
   git checkout release/$1
 }
 
-function gap() {
+gap() {
   branch_name=$(git symbolic-ref -q HEAD);
   git add .;
   git commit -m "$*";
   git push -u origin $branch_name;
 }
 
-function gcp() {
+gcp() {
   branch_name=$(git symbolic-ref -q HEAD);
   git commit -m "$*";
   git push -u origin $branch_name;
 }
 
-function gcmm() {
+gcmm() {
   git commit -m "$*";
 }
 
-function gcap() {
+gcap() {
   branch_name=$(git symbolic-ref -q HEAD);
   git add .;
   git commit --amend --no-edit;
   git push -u -f origin $branch_name;
 }
 
-function gpu() {
+gpu() {
   branch_name=$(git symbolic-ref -q HEAD);
   git push --set-upstream origin $branch_name;
 }
 
-function af() {
+af() {
   alias | grep $1
 }
 
