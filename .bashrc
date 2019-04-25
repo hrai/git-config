@@ -30,7 +30,7 @@ update_system () {
 ############# function definitions #############
 ################################################
 
-prettify_json {
+prettify_json() {
     if [ $# -gt 0 ];
         then
         for arg in $@
