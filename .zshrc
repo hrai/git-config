@@ -83,6 +83,9 @@ zplugin load zdharma/zui
 zplugin ice from"gh-r" as"program" bpick"*amd64*"
 zplugin light junegunn/fzf-bin
 
+zplugin ice as"program" pick"yank" make
+zplugin light mptre/yank
+
 # One other binary release, it needs renaming from `docker-compose-Linux-x86_64`.
 # This is done by ice-mod `mv'{from} -> {to}'. There are multiple packages per
 # single version, for OS X, Linux and Windows – so ice-mod `bpick' is used to
@@ -175,8 +178,6 @@ SPACESHIP_BATTERY_SHOW="false"
 
 # source autojump starter file
 . /usr/share/autojump/autojump.sh
-zplugin ice from"gh-r" as"program"
-zplugin light junegunn/fzf-bin
 
 # autojump error fix - https://github.com/wting/autojump/issues/474
 unsetopt BG_NICE
