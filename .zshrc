@@ -98,7 +98,6 @@ zplugin ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*";
 # using case-insensitive autocomplete
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-
 # Fuzzy matching of completions for when you mistype them:
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
@@ -109,8 +108,7 @@ xdvi() { command xdvi ${*:-*.dvi(om[1])}  }
 zstyle ':completion:*:*:xdvi:*' menu yes select
 zstyle ':completion:*:*:xdvi:*' file-sort time
 
-ZSH_THEME="spaceship"
-SPACESHIP_BATTERY_SHOW="false"
+# PLUGIN CONFIG
 
 # source autojump starter file
 . /usr/share/autojump/autojump.sh
@@ -118,7 +116,12 @@ SPACESHIP_BATTERY_SHOW="false"
 # autojump error fix - https://github.com/wting/autojump/issues/474
 unsetopt BG_NICE
 
-# loading zsh config files
+export DOCKER_HOST=tcp://localhost:2375
+
+# setting up thefuck plugin
+eval $(thefuck --alias)
+
+# LOADING ZSH CONFIG FILES
 ZSH_DIR=~/.zsh
 if [ -d $ZSH_DIR  ]; then
         print "Sourcing $ZSH_DIR folder..."
@@ -130,8 +133,6 @@ if [ -d $ZSH_DIR  ]; then
 else
         print "404: $ZSH_DIR folder not found."
 fi
-
-export DOCKER_HOST=tcp://localhost:2375
 
 ## If you come from bash you might have to change your $PATH.
 ## export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -168,6 +169,10 @@ export DOCKER_HOST=tcp://localhost:2375
 ## You may need to manually set your language environment
 ## export LANG=en_US.UTF-8
 
+
+ZSH_THEME="spaceship"
+SPACESHIP_BATTERY_SHOW="false"
+
 ## Case-sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
 
@@ -190,7 +195,4 @@ source "$HOME/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
-
-# setting up thefuck plugin
-eval $(thefuck --alias)
 
