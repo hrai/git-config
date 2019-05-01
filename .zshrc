@@ -15,6 +15,124 @@ if [[ $(compaudit) ]]; then
 	compaudit | xargs chmod g-w
 fi
 
+
+#
+## Completions
+##
+zplugin ice as"completion"
+zplugin snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+
+#
+## Scripts
+##
+zplugin ice as"program" atclone'perl Makefile.PL PREFIX=$ZPFX' atpull'%atclone' make'install' pick"$ZPFX/bin/git-cal"
+zplugin light k4rthik/git-cal
+
+zplugin ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
+zplugin light tj/git-extras
+
+zplugin ice as"program" pick"bin/git-dsf"
+zplugin light zdharma/zsh-diff-so-fancy
+
+zplugin ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
+zplugin load trapd00r/LS_COLORS
+
+# Binary release in archive, from Github-releases page; after automatic unpacking it provides program "fzf"
+zplugin ice from"gh-r" as"program" bpick"*amd64*"
+zplugin light junegunn/fzf-bin
+
+zplugin ice as"program" pick"yank" make
+zplugin light mptre/yank
+
+# zplugin light nvbn/thefuck
+zplugin light zdharma/fast-syntax-highlighting
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zsh-users/zsh-completions
+zplugin light zsh-users/zsh-syntax-highlighting
+zplugin light paulirish/git-open
+zplugin light denysdovhan/spaceship-prompt
+zplugin light MichaelAquilina/zsh-you-should-use
+zplugin light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
+zplugin light wfxr/forgit
+
+# Oh-my-zsh plugins
+zplugin snippet OMZ::lib/clipboard.zsh
+zplugin snippet OMZ::lib/correction.zsh
+zplugin snippet OMZ::lib/directories.zsh
+zplugin snippet OMZ::lib/functions.zsh
+zplugin snippet OMZ::lib/history.zsh
+zplugin snippet OMZ::lib/misc.zsh
+zplugin snippet OMZ::lib/nvm.zsh
+zplugin snippet OMZ::lib/spectrum.zsh
+zplugin snippet OMZ::plugins/git-extras/git-extras.plugin.zsh
+zplugin snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
+#zplugin snippet OMZ::plugins/npm/npm.plugin.zsh
+zplugin snippet OMZ::plugins/sudo/sudo.plugin.zsh
+zplugin snippet OMZ::plugins/tmux/tmux.plugin.zsh
+zplugin snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
+zplugin snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
+zplugin snippet OMZ::plugins/vscode/vscode.plugin.zsh
+zplugin snippet OMZ::plugins/web-search/web-search.plugin.zsh
+zplugin snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
+zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+
+zplugin load zdharma/history-search-multi-word
+
+# One other binary release, it needs renaming from `docker-compose-Linux-x86_64`.
+# This is done by ice-mod `mv'{from} -> {to}'. There are multiple packages per
+# single version, for OS X, Linux and Windows – so ice-mod `bpick' is used to
+# select Linux package – in this case this is not needed, Zplugin will grep
+# operating system name and architecture automatically when there's no `bpick'
+
+zplugin ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"; zplugin load docker/compose
+
+# zplugin creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
+
+# Vim repository on Github – a typical source code that needs compilation – Zplugin
+# can manage it for you if you like, run `./configure` and other `make`, etc. stuff.
+# Ice-mod `pick` selects a binary program to add to $PATH.
+
+# zplugin ice as"program" atclone"rm -f src/auto/config.cache; ./configure" atpull"%atclone" make pick"src/vim"
+# zplugin light vim/vim
+
+# using case-insensitive autocomplete
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+
+# Fuzzy matching of completions for when you mistype them:
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+
+# menu selection autocompletions and to have the words sorted by time
+xdvi() { command xdvi ${*:-*.dvi(om[1])}  }
+zstyle ':completion:*:*:xdvi:*' menu yes select
+zstyle ':completion:*:*:xdvi:*' file-sort time
+
+ZSH_THEME="spaceship"
+SPACESHIP_BATTERY_SHOW="false"
+
+# source autojump starter file
+. /usr/share/autojump/autojump.sh
+
+# autojump error fix - https://github.com/wting/autojump/issues/474
+unsetopt BG_NICE
+
+# loading zsh config files
+ZSH_DIR=~/.zsh
+if [ -d $ZSH_DIR  ]; then
+        print "Sourcing $ZSH_DIR folder..."
+
+        for file in $ZSH_DIR/*; do
+          source $file
+          print $file
+        done
+else
+        print "404: $ZSH_DIR folder not found."
+fi
+
+export DOCKER_HOST=tcp://localhost:2375
+
 ## If you come from bash you might have to change your $PATH.
 ## export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -73,139 +191,6 @@ autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
 
-zplugin load zdharma/history-search-multi-word
-
-zplugin ice compile"*.lzui" from"notabug"
-zplugin load zdharma/zui
-
-# Binary release in archive, from Github-releases page; after automatic unpacking it provides program "fzf"
-
-zplugin ice from"gh-r" as"program" bpick"*amd64*"
-zplugin light junegunn/fzf-bin
-
-zplugin ice as"program" pick"yank" make
-zplugin light mptre/yank
-
-# One other binary release, it needs renaming from `docker-compose-Linux-x86_64`.
-# This is done by ice-mod `mv'{from} -> {to}'. There are multiple packages per
-# single version, for OS X, Linux and Windows – so ice-mod `bpick' is used to
-# select Linux package – in this case this is not needed, Zplugin will grep
-# operating system name and architecture automatically when there's no `bpick'
-
-zplugin ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"; zplugin load docker/compose
-
-# Vim repository on Github – a typical source code that needs compilation – Zplugin
-# can manage it for you if you like, run `./configure` and other `make`, etc. stuff.
-# Ice-mod `pick` selects a binary program to add to $PATH.
-
-# zplugin ice as"program" atclone"rm -f src/auto/config.cache; ./configure" atpull"%atclone" make pick"src/vim"
-# zplugin light vim/vim
-
-# Scripts that are built at install (there's single default make target, "install",
-# and it constructs scripts by `cat'ing a few files). The make"" ice could also be:
-# `make"install PREFIX=$ZPFX"`, if "install" wouldn't be the only, default target
-
-zplugin ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
-zplugin light tj/git-extras
-
-zplugin ice as"program" pick"bin/git-dsf"
-zplugin light zdharma/zsh-diff-so-fancy
-
-# Two regular plugins loaded in default way (no `zplugin ice ...` modifiers)
-
 # setting up thefuck plugin
 eval $(thefuck --alias)
 
-# zplugin light nvbn/thefuck
-zplugin light zdharma/fast-syntax-highlighting
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zsh-users/zsh-completions
-zplugin light zsh-users/zsh-syntax-highlighting
-zplugin light paulirish/git-open
-zplugin light denysdovhan/spaceship-prompt
-zplugin light MichaelAquilina/zsh-you-should-use
-zplugin light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
-zplugin light wfxr/forgit
-
-# Load the pure theme, with zsh-async library that's bundled with it
-# zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
-
-# This one to be ran just once, in interactive session
-
-# zplugin creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
-
-# Oh-my-zsh plugins
-zplugin snippet OMZ::lib/clipboard.zsh
-zplugin snippet OMZ::lib/correction.zsh
-zplugin snippet OMZ::lib/directories.zsh
-zplugin snippet OMZ::lib/functions.zsh
-zplugin snippet OMZ::lib/history.zsh
-zplugin snippet OMZ::lib/misc.zsh
-zplugin snippet OMZ::lib/nvm.zsh
-zplugin snippet OMZ::lib/spectrum.zsh
-zplugin snippet OMZ::plugins/git-extras/git-extras.plugin.zsh
-zplugin snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
-#zplugin snippet OMZ::plugins/npm/npm.plugin.zsh
-zplugin snippet OMZ::plugins/sudo/sudo.plugin.zsh
-zplugin snippet OMZ::plugins/tmux/tmux.plugin.zsh
-zplugin snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
-zplugin snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
-zplugin snippet OMZ::plugins/vscode/vscode.plugin.zsh
-zplugin snippet OMZ::plugins/web-search/web-search.plugin.zsh
-zplugin snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
-zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
-
-zplugin ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
-zplugin load trapd00r/LS_COLORS
-
-#
-## Completions
-##
-zplugin ice as"completion"
-zplugin snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
-
-#
-## Scripts
-##
-zplugin ice as"program" atclone'perl Makefile.PL PREFIX=$ZPFX' atpull'%atclone' make'install' pick"$ZPFX/bin/git-cal"
-zplugin light k4rthik/git-cal
-
-
-# using case-insensitive autocomplete
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-
-
-# Fuzzy matching of completions for when you mistype them:
-zstyle ':completion:*' completer _complete _match _approximate
-zstyle ':completion:*:match:*' original only
-zstyle ':completion:*:approximate:*' max-errors 1 numeric
-
-# menu selection autocompletions and to have the words sorted by time
-xdvi() { command xdvi ${*:-*.dvi(om[1])}  }
-zstyle ':completion:*:*:xdvi:*' menu yes select
-zstyle ':completion:*:*:xdvi:*' file-sort time
-
-
-ZSH_THEME="spaceship"
-SPACESHIP_BATTERY_SHOW="false"
-
-# source autojump starter file
-. /usr/share/autojump/autojump.sh
-
-# autojump error fix - https://github.com/wting/autojump/issues/474
-unsetopt BG_NICE
-
-# loading zsh config files
-ZSH_DIR=~/.zsh
-if [ -d $ZSH_DIR  ]; then
-        print "Sourcing $ZSH_DIR folder..."
-
-        for file in $ZSH_DIR/*; do
-          source $file
-          print $file
-        done
-else
-        print "404: $ZSH_DIR folder not found."
-fi
-
-export DOCKER_HOST=tcp://localhost:2375
