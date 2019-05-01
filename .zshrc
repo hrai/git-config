@@ -80,7 +80,8 @@ zplugin load zdharma/zui
 
 # Binary release in archive, from Github-releases page; after automatic unpacking it provides program "fzf"
 
-zplugin ice from"gh-r" as"program"; zplugin load junegunn/fzf-bin
+zplugin ice from"gh-r" as"program"
+zplugin light junegunn/fzf-bin
 
 # One other binary release, it needs renaming from `docker-compose-Linux-x86_64`.
 # This is done by ice-mod `mv'{from} -> {to}'. There are multiple packages per
@@ -174,6 +175,8 @@ SPACESHIP_BATTERY_SHOW="false"
 
 # source autojump starter file
 . /usr/share/autojump/autojump.sh
+zplugin ice from"gh-r" as"program"
+zplugin light junegunn/fzf-bin
 
 # autojump error fix - https://github.com/wting/autojump/issues/474
 unsetopt BG_NICE
