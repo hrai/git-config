@@ -1,4 +1,4 @@
-echo 'Moving bashrc to home directory....'
+# Moving bashrc to home directory....
 bash 2_move_bashrc.sh
 
 echo ''
