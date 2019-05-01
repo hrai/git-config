@@ -80,7 +80,7 @@ zplugin load zdharma/zui
 
 # Binary release in archive, from Github-releases page; after automatic unpacking it provides program "fzf"
 
-zplugin ice from"gh-r" as"program"
+zplugin ice from"gh-r" as"program" bpick"*amd64*"
 zplugin light junegunn/fzf-bin
 
 # One other binary release, it needs renaming from `docker-compose-Linux-x86_64`.
