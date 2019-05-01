@@ -97,6 +97,7 @@ function install_apps() {
       install_package "python-dev"
       install_package "python3-dev"
       install_package "python3-pip"
+      install_package "python3-setuptools"
       install_package "redshift-gtk"
       install_package "tmux"
       install_package "tree"
