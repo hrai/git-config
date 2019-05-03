@@ -11,6 +11,7 @@ function install_package () {
     echo ">>>$1 is already installed"
   fi
 }
+
 function install_package_mac () {
   if brew ls --versions "$1" > /dev/null; then
     echo ">>>$1 is already installed"
