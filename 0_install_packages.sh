@@ -69,6 +69,7 @@ function install_apps() {
       install_package_mac "editorconfig"
       install_package_mac "git"
       install_package_mac "git-extras"
+      install_package_mac "caskroom/fonts/font-hack"
       install_package_mac "make"
       install_package_mac "npm"
       install_package_mac "python-dev"
