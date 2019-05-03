@@ -72,7 +72,6 @@ function install_apps() {
       install_package_mac "caskroom/fonts/font-hack"
       install_package_mac "make"
       install_package_mac "npm"
-      install_package_mac "python-dev"
       install_package_mac "python3-dev"
       install_package_mac "thefuck"
       install_package_mac "tmux"
