@@ -113,6 +113,9 @@ zstyle ':completion:*:*:xdvi:*' file-sort time
 # source autojump starter file
 . /usr/share/autojump/autojump.sh
 
+# for Mac
+[ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
+
 # autojump error fix - https://github.com/wting/autojump/issues/474
 unsetopt BG_NICE
 
