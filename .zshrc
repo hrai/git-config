@@ -4,6 +4,9 @@ alias zls='zplg ls'
 alias -s log=vim
 alias -s notes=vim
 
+# Sourcing zplugin
+source ~/.zplugin/bin/zplugin.zsh
+
 ## Preferred editor for local and remote sessions
 export EDITOR="vim"
 
