@@ -69,7 +69,6 @@ function install_apps() {
       install_package_mac "editorconfig"
       install_package_mac "git"
       install_package_mac "git-extras"
-      install_package_mac "caskroom/fonts/font-hack"
       install_package_mac "make"
       install_package_mac "npm"
       install_package_mac "python3-dev"
@@ -77,6 +76,7 @@ function install_apps() {
       install_package_mac "tmux"
       install_package_mac "tree"
       install_package_mac "zsh"
+      install_package_mac_cask "caskroom/fonts/font-hack"
       install_package_mac_cask "kdiff3"
 
   elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
