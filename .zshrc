@@ -1,24 +1,3 @@
-alias zls='zplg ls'
-
-# Suffix aliases
-alias -s log=vim
-alias -s notes=vim
-
-# Sourcing zplugin
-source ~/.zplugin/bin/zplugin.zsh
-
-## Preferred editor for local and remote sessions
-export EDITOR="vim"
-
-# instead of 'cd my_dir' you can do my_dir
-setopt AUTO_CD
-
-if [[ $(compaudit) ]]; then
-	# securing directories
-	compaudit | xargs chmod g-w
-fi
-
-
 #
 ## Completions
 ##
@@ -201,4 +180,26 @@ source "$HOME/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
+
+
+if [[ $(compaudit) ]]; then
+	# securing directories
+	compaudit | xargs chmod g-w
+fi
+
+alias zls='zplg ls'
+
+# Suffix aliases
+alias -s log=vim
+alias -s notes=vim
+
+# Sourcing zplugin
+source ~/.zplugin/bin/zplugin.zsh
+
+## Preferred editor for local and remote sessions
+export EDITOR="vim"
+
+# instead of 'cd my_dir' you can do my_dir
+setopt AUTO_CD
+
 
