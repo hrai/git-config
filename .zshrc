@@ -29,6 +29,9 @@ zplugin light junegunn/fzf-bin
 zplugin ice as"program" pick"yank" make
 zplugin light mptre/yank
 
+zplugin ice as"program" pick"fasd" make"install"
+zplugin light clvv/fasd
+
 # zplugin light nvbn/thefuck
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light zsh-users/zsh-autosuggestions
@@ -108,6 +111,9 @@ export DOCKER_HOST=tcp://localhost:2375
 
 # setting up thefuck plugin
 eval $(thefuck --alias)
+
+# setting up fasd plugin
+eval "$(fasd --init auto)"
 
 # LOADING ZSH CONFIG FILES
 ZSH_DIR=~/.zsh
