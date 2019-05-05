@@ -168,7 +168,7 @@ if is_linux; then
 
   if [ "$user_response" = "y" ]
   then
-    bash 1_move_all_sh.sh
+    bash 1_move_all_dot_files.sh
     echo "Successfully moved sh files."
   fi
 
