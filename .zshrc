@@ -1,3 +1,6 @@
+# Sourcing zplugin
+source ~/.zplugin/bin/zplugin.zsh
+
 #
 ## Completions
 ##
@@ -192,9 +195,6 @@ alias zls='zplg ls'
 # Suffix aliases
 alias -s log=vim
 alias -s notes=vim
-
-# Sourcing zplugin
-source ~/.zplugin/bin/zplugin.zsh
 
 ## Preferred editor for local and remote sessions
 export EDITOR="vim"
