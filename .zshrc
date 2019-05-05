@@ -202,4 +202,45 @@ export EDITOR="vim"
 # instead of 'cd my_dir' you can do my_dir
 setopt AUTO_CD
 
+# https://dtw.io/writings/2017/dotfiles
+if _has fasd; then
+    fasd_cache="$ZSH_CACHE_DIR/fasd-init-cache"
+    if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+        fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install >| "$fasd_cache"
+    fi
+    source "$fasd_cache"
+    unset fasd_cache
+fi
+
+# Fasd
+# If fasd is installed and in use, add a bunch of
+# aliases for it.
+if command -v fasd >/dev/null 2>&1; then
+    # Any
+    alias a='fasd -a'
+
+    # Show/search/select
+    alias s='fasd -si'
+
+    # Directory
+    alias d='fasd -d'
+
+    # File
+    alias f='fasd -f'
+
+    # Interactive directory selection
+    alias sd='fasd -sid'
+
+    # Interactive file selection
+    alias sf='fasd -sif'
+
+    # cd - same functionality as j in autojump
+    alias z='fasd_cd -d'
+
+    # Interactive cd
+    alias zz='fasd_cd -d -i'
+
+    # Vim
+    alias v='fasd -f -e vim'
+fi
 
