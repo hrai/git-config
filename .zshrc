@@ -209,7 +209,7 @@ export EDITOR="vim"
 setopt AUTO_CD
 
 # https://dtw.io/writings/2017/dotfiles
-if whereis fasd; then
+if whereis fasd 1>/dev/null; then
     fasd_cache="$ZSH_CACHE_DIR/fasd-init-cache"
     if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
         fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install >| "$fasd_cache"
