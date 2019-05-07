@@ -94,6 +94,7 @@ function install_apps() {
       install_package "git-extras"
       install_package "kdiff3"
       install_package "make"
+      install_package "nautilus"
       install_package "npm"
       install_package "python-dev"
       install_package "python3-dev"
