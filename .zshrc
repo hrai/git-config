@@ -181,7 +181,7 @@ COMPLETION_WAITING_DOTS="true"
 ## ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-alias zshconfig="vim ~/.zshrc"
+alias zconf="vim ~/.zshrc"
 
 
 ### Added by Zplugin's installer
