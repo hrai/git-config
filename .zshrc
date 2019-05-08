@@ -223,7 +223,6 @@ fi
 
 is_program_installed() {
     if command -v $1 >/dev/null 2>&1; then
-        echo 'true'
         true
     else
         false
