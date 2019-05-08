@@ -267,6 +267,9 @@ if is_program_installed 'wsl-open'; then
 fi
 
 if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+    zplugin ice as"program" atload"fpath+=( \$PWD  );" mv"wsl-open.sh -> wsl-open"
+    zplugin light 4U6U57/wsl-open
+
     # Adding wsl-open as a browser for Bash for Windows
     if [[ $(uname -r) == *Microsoft ]]; then
       if [[ -z $BROWSER ]]; then
