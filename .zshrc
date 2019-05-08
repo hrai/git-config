@@ -32,9 +32,6 @@ zplugin light mptre/yank
 zplugin ice as"program" pick"fasd" make"install"
 zplugin light clvv/fasd
 
-zplugin ice as"program" atload"fpath+=( \$PWD  );" mv"wsl-open.sh -> wsl-open"
-zplugin light 4U6U57/wsl-open
-
 # zplugin light nvbn/thefuck
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light zsh-users/zsh-autosuggestions
