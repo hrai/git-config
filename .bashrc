@@ -1,5 +1,5 @@
 start_tmux () {
-  # set shell to start up tmux by default 
+  # set shell to start up tmux by default
   if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
     exec tmux
   fi
@@ -37,7 +37,7 @@ prettify_json() {
         do
             if [ -f $arg ];
                 then
-                less $arg | python -m json.tool > $arg
+                python -m json.tool "$arg"
             else
                 echo "$arg" | python -m json.tool
             fi
