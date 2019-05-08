@@ -276,3 +276,6 @@ if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
       fi
     fi
 fi
+
+# print full file path
+filepath() { for f in "$@"; do echo ${f}(:A); done  }
