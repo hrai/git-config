@@ -212,16 +212,6 @@ export EDITOR="vim"
 # instead of 'cd my_dir' you can do my_dir
 setopt AUTO_CD
 
-# https://dtw.io/writings/2017/dotfiles
-if whereis fasd 1>/dev/null; then
-    fasd_cache="$ZSH_CACHE_DIR/fasd-init-cache"
-    if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-        fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install >| "$fasd_cache"
-    fi
-    source "$fasd_cache"
-    unset fasd_cache
-fi
-
 is_program_installed() {
     if command -v $1 >/dev/null 2>&1; then
         true
@@ -234,6 +224,15 @@ is_program_installed() {
 # If fasd is installed and in use, add a bunch of
 # aliases for it.
 if is_program_installed 'fasd'; then
+    # https://dtw.io/writings/2017/dotfiles
+    fasd_cache="$ZSH_CACHE_DIR/fasd-init-cache"
+    if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+        fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install >| "$fasd_cache"
+    fi
+    source "$fasd_cache"
+    unset fasd_cache
+
+
     # Any
     alias a='fasd -a'
 
