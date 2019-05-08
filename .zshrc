@@ -221,10 +221,19 @@ if whereis fasd 1>/dev/null; then
     unset fasd_cache
 fi
 
+is_program_installed() {
+    if command -v $1 >/dev/null 2>&1; then
+        echo 'true'
+        true
+    else
+        false
+    fi
+}
+
 # Fasd
 # If fasd is installed and in use, add a bunch of
 # aliases for it.
-if command -v fasd >/dev/null 2>&1; then
+if is_program_installed 'fasd'; then
     # Any
     alias a='fasd -a'
 
@@ -251,6 +260,10 @@ if command -v fasd >/dev/null 2>&1; then
 
     # Vim
     alias v='fasd -f -e vim'
+fi
+
+if is_program_installed 'wsl-open'; then
+    alias o='wsl-open'
 fi
 
 if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
