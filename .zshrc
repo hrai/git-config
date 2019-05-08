@@ -199,7 +199,7 @@ if [[ $(compaudit) ]]; then
 	compaudit | xargs chmod g-w
 fi
 
-alias zls='zplg ls'
+alias zls='zplgin ls'
 alias szc='source ~/.zshrc'
 
 # Suffix aliases
