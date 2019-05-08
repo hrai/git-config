@@ -267,8 +267,6 @@ if is_program_installed 'wsl-open'; then
 fi
 
 if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
-    echo "Windows 10 Bash"
-
     # Adding wsl-open as a browser for Bash for Windows
     if [[ $(uname -r) == *Microsoft ]]; then
       if [[ -z $BROWSER ]]; then
