@@ -200,6 +200,7 @@ if [[ $(compaudit) ]]; then
 fi
 
 alias zls='zplg ls'
+alias szc='source ~/.zshrc'
 
 # Suffix aliases
 alias -s log=vim
