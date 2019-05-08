@@ -253,3 +253,15 @@ if command -v fasd >/dev/null 2>&1; then
     alias v='fasd -f -e vim'
 fi
 
+if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+    echo "Windows 10 Bash"
+
+    # Adding wsl-open as a browser for Bash for Windows
+    if [[ $(uname -r) == *Microsoft ]]; then
+      if [[ -z $BROWSER ]]; then
+        export BROWSER=wsl-open
+      else
+        export BROWSER=$BROWSER:wsl-open
+      fi
+    fi
+fi
