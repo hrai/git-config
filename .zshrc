@@ -255,7 +255,7 @@ if is_program_installed 'fasd'; then
     alias zz='fasd_cd -d -i'
 
     # Vim
-    alias v='fasd -f -e vim'
+    alias vi='fasd -f -e vim'
 fi
 
 if is_program_installed 'wsl-open'; then
