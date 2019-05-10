@@ -1,4 +1,23 @@
-export TERM="xterm-256color"
+## functions ##
+is_wsl() {
+    if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+        true
+    else
+        false
+    fi
+}
+
+is_program_installed() {
+    if command -v $1 >/dev/null 2>&1; then
+        true
+    else
+        false
+    fi
+}
+
+if is_wsl; then
+    export TERM="xterm-256color"
+fi
 
 # Sourcing zplugin
 source ~/.zplugin/bin/zplugin.zsh
@@ -211,14 +230,6 @@ export EDITOR="vim"
 # instead of 'cd my_dir' you can do my_dir
 setopt AUTO_CD
 
-is_program_installed() {
-    if command -v $1 >/dev/null 2>&1; then
-        true
-    else
-        false
-    fi
-}
-
 # Fasd
 # If fasd is installed and in use, add a bunch of
 # aliases for it.
@@ -264,7 +275,7 @@ if is_program_installed 'wsl-open'; then
     alias o='wsl-open'
 fi
 
-if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+if is_wsl; then
     zplugin ice as"program" atload"fpath+=( \$PWD  );" mv"wsl-open.sh -> wsl-open"
     zplugin light 4U6U57/wsl-open
 
