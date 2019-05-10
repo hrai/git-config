@@ -43,6 +43,13 @@ zplugin light zdharma/zsh-diff-so-fancy
 zplugin ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
 zplugin load trapd00r/LS_COLORS
 
+#
+## Themes
+##
+zplugin ice from"gh"
+zplugin load bhilburn/powerlevel9k
+
+
 # Binary release in archive, from Github-releases page; after automatic unpacking it provides program "fzf"
 zplugin ice from"gh-r" as"program" bpick"*amd64*"
 zplugin light junegunn/fzf-bin
