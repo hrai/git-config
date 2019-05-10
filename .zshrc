@@ -291,3 +291,14 @@ fi
 
 # print full file path
 filepath() { for f in "$@"; do echo ${f}(:A); done  }
+
+
+## powerlevel9k theme settings ##
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_COLOR_SCHEME='light'
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs newline status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode)
+
