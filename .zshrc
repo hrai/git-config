@@ -15,6 +15,7 @@ is_program_installed() {
     fi
 }
 
+# Pre command hook for zsh
 precmd () {
     # display current folder in tmux
     tmux set -qg status-left "#S #P $(pwd)"
