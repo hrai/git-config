@@ -15,10 +15,6 @@ is_program_installed() {
     fi
 }
 
-if is_wsl; then
-    export TERM="xterm-256color"
-fi
-
 # Sourcing zplugin
 source ~/.zplugin/bin/zplugin.zsh
 
