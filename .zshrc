@@ -15,6 +15,11 @@ is_program_installed() {
     fi
 }
 
+precmd () {
+    # display current folder in tmux
+    tmux set -qg status-left "#S #P $(pwd)"
+}
+
 if is_wsl; then
     export TERM="xterm-256color"
 fi
