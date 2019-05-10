@@ -1,3 +1,5 @@
+export TERM="xterm-256color"
+
 # Sourcing zplugin
 source ~/.zplugin/bin/zplugin.zsh
 
