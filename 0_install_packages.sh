@@ -28,6 +28,10 @@ function install_package_mac_cask () {
   fi
 }
 
+function install_aws_cli() {
+    pip3 install awscli --upgrade --user
+}
+
 function install_ctags() {
 
   echo "Do you want to install and compile ctags (y/n)?"
@@ -76,8 +80,9 @@ function install_apps() {
       install_package_mac "tmux"
       install_package_mac "tree"
       install_package_mac "zsh"
-      install_package_mac_cask "caskroom/fonts/font-hack"
+      # install_package_mac_cask "caskroom/fonts/font-hack"
       install_package_mac_cask "kdiff3"
+      install_aws_cli
 
   elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
       # disable Alt + F4 switching to TTY4
@@ -89,7 +94,7 @@ function install_apps() {
       install_package "dos2unix"
       install_package "editorconfig"
       install_package "fonts-powerline"
-      install_package "fonts-hack-ttf"
+      # install_package "fonts-hack-ttf"
       install_package "git"
       install_package "git-extras"
       install_package "kdiff3"
@@ -111,6 +116,7 @@ function install_apps() {
 
       sudo pip3 install thefuck
       install_ctags
+      install_aws_cli
   fi
 
   echo 'Finished installing apps....'
