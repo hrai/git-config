@@ -185,11 +185,9 @@ if is_linux; then
     if [ "$user_response" = "y" ]
     then
         bash 1_move_all_dot_files.sh
-        echo "Successfully moved sh files."
     fi
 
     # set zsh as default shell
     echo "Setting zsh as default shell"
     chsh -s $(which zsh)
-
 fi
