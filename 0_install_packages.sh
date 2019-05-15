@@ -30,8 +30,7 @@ function install_package_mac_cask () {
 
 function install_hack_nerd_font() {
     mkdir -p ~/.local/share/fonts
-    cd ~/.local/share/fonts && curl -fLo "Hack Regular Nerd Font Complete.otf"
-    https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts%2FHack%2FRegular%2Fcomplete%2FHack%20Regular%20Nerd%20Font%20Complete.ttf
+    cd ~/.local/share/fonts && curl -fLo "Hack Regular Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts%2FHack%2FRegular%2Fcomplete%2FHack%20Regular%20Nerd%20Font%20Complete.ttf
 }
 
 function install_aws_cli() {
