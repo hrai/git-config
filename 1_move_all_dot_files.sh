@@ -20,6 +20,3 @@ bash 6_set_vim_configs.sh
 echo ''
 # Installing YCM....
 bash 8_move_editorconfig.sh
-
-echo ''
-echo "Successfully moved dot files to home directory...."
