@@ -39,7 +39,7 @@ prettify_json() {
                 then
                 python -m json.tool "$arg"
             else
-                echo "$arg" | python -m json.tool
+                echo "$arg" | python -m json.tool | vim -
             fi
         done
     fi
