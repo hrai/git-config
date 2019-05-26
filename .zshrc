@@ -15,6 +15,10 @@ is_program_installed() {
     fi
 }
 
+hibernate() {
+    systemctl suspend
+}
+
 # Sourcing zplugin
 source ~/.zplugin/bin/zplugin.zsh
 
