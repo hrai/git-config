@@ -6,13 +6,15 @@ start_tmux () {
 }
 
 if [ "$(uname)" = "Darwin" ]; then
-  start_tmux
+    start_tmux
+    alias ls='ls -G'
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
-  start_tmux
-  # elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
-  # Do something under 32 bits Windows NT platform
-  # elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
-  # Do something under 64 bits Windows NT platform
+    start_tmux
+    alias ls='ls --color=auto'
+    # elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
+    # Do something under 32 bits Windows NT platform
+    # elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
+    # Do something under 64 bits Windows NT platform
 fi
 
 update_system () {
@@ -121,7 +123,6 @@ FZF-EOF"
 alias ~='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ls='ls --color=auto'
 alias clr='clear'
 
 #-----External Command aliases-------
