@@ -2,7 +2,13 @@
 
 echo 'Moving git hooks to .global-git-hooks directory....'
 mkdir -p ~/.global-git-hooks
-cp prepare-commit-msg ~/.global-git-hooks/prepare-commit-msg
+
+if [ "$(uname)" = "Darwin" ]; then
+    cp prepare-commit-msg-mac ~/.global-git-hooks/prepare-commit-msg
+elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+    cp prepare-commit-msg ~/.global-git-hooks/prepare-commit-msg
+fi
+
 cp pre-commit ~/.global-git-hooks/pre-commit
 
 chmod 777 ~/.global-git-hooks/prepare-commit-msg
