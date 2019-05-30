@@ -181,7 +181,7 @@ alias gst='git stash'
 
 
 #-------Delete all branches except master--------
-alias gbDA='git branch | egrep -v "(master|\*)" | xargs git branch -D'
+alias gbda='git branch | egrep -v "(master|\*)" | xargs git branch -D'
 
 # AWS CLI path
 export PATH=~/.local/bin:$PATH
