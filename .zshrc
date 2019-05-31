@@ -19,6 +19,20 @@ hibernate() {
     systemctl suspend
 }
 
+# fzf functions
+# fh - repeat history
+fh() {
+    eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+}
+
+# fd - cd to selected directory
+fd() {
+    local dir
+    dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+    cd "$dir"
+}
+
 # Sourcing zplugin
 source ~/.zplugin/bin/zplugin.zsh
 
