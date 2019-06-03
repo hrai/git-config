@@ -19,20 +19,6 @@ hibernate() {
     systemctl suspend
 }
 
-# fzf functions
-# fh - repeat history
-fh() {
-    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
-}
-
-# fd - cd to selected directory
-# fd() {
-#     local dir
-#     dir=$(find ${1:-.} -path '*/\.*' -prune \
-#                   -o -type d -print 2> /dev/null | fzf +m) &&
-#     cd "$dir"
-# }
-
 # Sourcing zplugin
 source ~/.zplugin/bin/zplugin.zsh
 
@@ -335,3 +321,35 @@ POWERLEVEL9K_FOLDER_ICON="\uf07c "
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs )
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode time)
 
+#----- Fuzzy finder (fzf) functions -------
+# fshow - git commit browser
+fcm() {
+··git log --graph --color=always \
+····¦·--format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+··fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+····¦·--bind "ctrl-m:execute:
+····¦···¦···¦···(grep -o '[a-f0-9]\{7\}' | head -1 |
+····¦···¦···¦···xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+····¦···¦···¦···{}
+FZF-EOF"
+}
+
+# fh - repeat history
+fh() {
+····print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+}
+
+# fd - cd to selected directory
+unalias fd
+fd() {
+··local dir
+··dir=$(find ${1:-.} -path '*/\.*' -prune \
+····¦···¦···¦···¦·-o -type d -print 2> /dev/null | fzf +m) &&
+··cd "$dir"
+}
+
+# fda - including hidden directories
+fda() {
+··local dir
+··dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+}
