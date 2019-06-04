@@ -70,6 +70,7 @@ zplugin light denysdovhan/spaceship-prompt
 zplugin light MichaelAquilina/zsh-you-should-use
 zplugin light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
 zplugin light wfxr/forgit
+
 zplugin ice pick"zsh-interactive-cd.plugin.zsh"
 zplugin light changyuheng/zsh-interactive-cd
 
