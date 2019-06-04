@@ -85,7 +85,7 @@ zplugin snippet OMZ::lib/nvm.zsh
 zplugin snippet OMZ::lib/spectrum.zsh
 zplugin snippet OMZ::plugins/git-extras/git-extras.plugin.zsh
 zplugin snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
-#zplugin snippet OMZ::plugins/npm/npm.plugin.zsh
+zplugin snippet OMZ::plugins/npm/npm.plugin.zsh
 zplugin snippet OMZ::plugins/sudo/sudo.plugin.zsh
 zplugin snippet OMZ::plugins/tmux/tmux.plugin.zsh
 zplugin snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
