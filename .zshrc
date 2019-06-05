@@ -71,9 +71,6 @@ zplugin light MichaelAquilina/zsh-you-should-use
 zplugin light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
 zplugin light wfxr/forgit
 
-zplugin ice pick"zsh-interactive-cd.plugin.zsh"
-zplugin light changyuheng/zsh-interactive-cd
-
 # Oh-my-zsh plugins
 zplugin snippet OMZ::lib/clipboard.zsh
 zplugin snippet OMZ::lib/correction.zsh
@@ -95,7 +92,9 @@ zplugin snippet OMZ::plugins/web-search/web-search.plugin.zsh
 zplugin snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
 zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
+zplugin light changyuheng/zsh-interactive-cd
 zplugin load zdharma/history-search-multi-word
+
 
 # One other binary release, it needs renaming from `docker-compose-Linux-x86_64`.
 # This is done by ice-mod `mv'{from} -> {to}'. There are multiple packages per
