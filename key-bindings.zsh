@@ -72,5 +72,4 @@ bindkey '^x' edit-command-line
 bindkey "^[m" copy-prev-shell-word
 
 # fzf mapping
-bindkey -s '^f' 'v $(fzf)\n'
-
+bindkey -s '^f' 'v "$(fzf)"\n'
