@@ -66,7 +66,7 @@ zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-completions
 zplugin light zsh-users/zsh-syntax-highlighting
 zplugin light paulirish/git-open
-zplugin light denysdovhan/spaceship-prompt
+# zplugin light denysdovhan/spaceship-prompt
 zplugin light MichaelAquilina/zsh-you-should-use
 zplugin light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
 zplugin light wfxr/forgit
@@ -95,6 +95,7 @@ zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zplugin light changyuheng/zsh-interactive-cd
 zplugin load zdharma/history-search-multi-word
 
+zplugin light kutsan/zsh-system-clipboard
 
 # One other binary release, it needs renaming from `docker-compose-Linux-x86_64`.
 # This is done by ice-mod `mv'{from} -> {to}'. There are multiple packages per
@@ -194,8 +195,8 @@ fi
 ## export LANG=en_US.UTF-8
 
 
-ZSH_THEME="spaceship"
-SPACESHIP_BATTERY_SHOW="false"
+# ZSH_THEME="spaceship"
+# SPACESHIP_BATTERY_SHOW="false"
 
 ## Case-sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
