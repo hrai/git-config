@@ -96,6 +96,7 @@ zplugin light changyuheng/zsh-interactive-cd
 zplugin load zdharma/history-search-multi-word
 
 zplugin light kutsan/zsh-system-clipboard
+ZSH_SYSTEM_CLIPBOARD_TMUX_SUPPORT='true'
 
 # One other binary release, it needs renaming from `docker-compose-Linux-x86_64`.
 # This is done by ice-mod `mv'{from} -> {to}'. There are multiple packages per
@@ -307,8 +308,6 @@ export FZF_DEFAULT_COMMAND='
 
 # print full file path
 filepath() { for f in "$@"; do echo ${f}(:A); done  }
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
