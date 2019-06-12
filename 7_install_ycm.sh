@@ -25,5 +25,5 @@ install_mono
 #     JavaScript and TypeScript support: install Node.js and npm and add --ts-completer when calling install.py.
 #     Rust support: install Rust and add --rust-completer when calling install.py.
 #     Java support: install JDK8 (version 8 required) and add --java-completer when calling install.py.
-./install.py --ts-completer
-./install.py --cs-completer
+sudo ./install.py --ts-completer
+sudo ./install.py --cs-completer
