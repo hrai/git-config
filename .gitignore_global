@@ -256,3 +256,6 @@ AppData/
 .omnisharp/
 .vim/
 ctags/
+
+# Git
+.git/
