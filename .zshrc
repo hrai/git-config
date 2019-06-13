@@ -301,10 +301,7 @@ if is_wsl; then
 fi
 
 # fzf command to honour gitignore
-export FZF_DEFAULT_COMMAND='
-  (git ls-tree -r --name-only HEAD ||
-   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
-      sed s/^..//) 2> /dev/null'
+export FZF_DEFAULT_COMMAND='ag -l --path-to-ignore ~/.gitignore --nocolor --hidden -g ""'
 
 # print full file path
 filepath() { for f in "$@"; do echo ${f}(:A); done  }
