@@ -153,13 +153,14 @@ publish/
 # Publish Web Output
 *.[Pp]ublish.xml
 *.azurePubxml
-# TODO: Comment the next line if you want to checkin your web deploy settings 
+# TODO: Comment the next line if you want to checkin your web deploy settings
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml
 *.publishproj
 
 # NuGet Packages
 *.nupkg
+
 # The packages folder can be ignored because of Package Restore
 **/packages/*
 # except domain Package objects
@@ -243,3 +244,15 @@ bower_components/
 # Python
 venv/
 .idea/
+
+# Windows home folders
+AppData/
+.docker/
+.dotnet/
+.gem/
+.mono/
+.npm/
+.nuget/
+.omnisharp/
+.vim/
+ctags/
