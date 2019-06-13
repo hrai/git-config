@@ -394,3 +394,5 @@ function ds() {
 
     [ -n "$cid" ] && docker stop "$cid"
 }
+
+unalias ag
