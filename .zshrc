@@ -16,7 +16,7 @@ is_program_installed() {
 }
 
 hibernate() {
-    systemctl suspend
+    systemctl suspend -i
 }
 
 # Sourcing zplugin
