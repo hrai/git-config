@@ -9,6 +9,7 @@ install_mono() {
     echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee --append -y
     /etc/apt/sources.list.d/mono-xamarin.list
     sudo apt update -y
+    sudo apt install clang -y
     sudo apt install mono-complete -y
 
     sudo certmgr -ssl -m https://go.microsoft.com -y
