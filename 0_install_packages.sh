@@ -79,7 +79,22 @@ function install_apps() {
 
         brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
-        packages=(autojump curl dos2unix editorconfig git git-extras make npm python3-dev the_silver_searcher thefuck tmux tree zsh)
+        packages=(
+            autojump
+            curl
+            dos2unix
+            editorconfig
+            git
+            git-extras
+            make
+            npm
+            python3-dev
+            the_silver_searcher
+            thefuck
+            tmux
+            tree
+            zsh
+        )
 
         install_mac_packages ${packages[@]}
 
@@ -90,7 +105,34 @@ function install_apps() {
         # disable Alt + F4 switching to TTY4
         sudo kbd_mode -s
 
-        packages=(ack-grep autojump curl dos2unix editorconfig fonts-powerline fonts-hack-ttf git git-extras kdiff3 make nautilus npm python-dev python3-dev python3-pip python3-setuptools redshift-gtk silversearcher-ag tmux tree vim-gtk3 xclip xdg-utils xsel zsh)
+        packages=(
+            ack-grep
+            autojump
+            curl
+            dos2unix
+            editorconfig
+            fonts-hack-ttf
+            fonts-powerline
+            git
+            git-extras
+            kdiff3
+            make
+            nautilus
+            npm
+            python-dev
+            python3-dev
+            python3-pip
+            python3-setuptools
+            redshift-gtk
+            silversearcher-ag
+            tmux
+            tree
+            vim-gtk3
+            xclip
+            xdg-utils
+            xsel
+            zsh
+        )
 
         install_linux_packages ${packages[@]}
 
