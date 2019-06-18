@@ -254,8 +254,6 @@ AppData/
 .npm/
 .nuget/
 .omnisharp/
-.vim/
 ctags/
-
-# Git
 .git/
+.local/
