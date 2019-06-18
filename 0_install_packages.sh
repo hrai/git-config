@@ -4,22 +4,6 @@
 ############# function definitions #############
 ################################################
 
-function install_package () {
-    if ! dpkg -s "$1" > /dev/null; then
-        sudo apt install "$1" -y
-    else
-        echo ">>>$1 is already installed"
-    fi
-}
-
-function install_package_mac () {
-    if brew ls --versions "$1" > /dev/null; then
-        echo ">>>$1 is already installed"
-    else
-        brew install "$1"
-    fi
-}
-
 function install_package_mac_cask () {
     if brew cask ls --versions "$1" > /dev/null; then
         echo ">>>$1 is already installed"
@@ -61,6 +45,30 @@ function install_ctags() {
     fi
 }
 
+function install_linux_packages() {
+    arr=$@
+
+    for i in ${arr[@]}; do
+        if ! dpkg -s "$i" > /dev/null; then
+            sudo apt install "$i" -y
+        else
+            echo ">>>$i is already installed"
+        fi
+    done
+}
+
+function install_mac_packages() {
+    arr=$@
+
+    for i in ${arr[@]}; do
+        if brew ls --versions "$i" > /dev/null; then
+            echo ">>>$i is already installed"
+        else
+            brew install "$i"
+        fi
+    done
+}
+
 function install_apps() {
     echo 'Installing apps....'
     # update packages
@@ -69,24 +77,12 @@ function install_apps() {
 
         xcode-select --install
 
-        # install_package_mac "fonts-powerline"
         brew install --HEAD universal-ctags/universal-ctags/universal-ctags
-        install_package_mac "ack"
-        install_package_mac "autojump"
-        install_package_mac "curl"
-        install_package_mac "dos2unix"
-        install_package_mac "editorconfig"
-        install_package_mac "git"
-        install_package_mac "git-extras"
-        install_package_mac "make"
-        install_package_mac "npm"
-        install_package_mac "python3-dev"
-        install_package_mac "the_silver_searcher"
-        install_package_mac "thefuck"
-        install_package_mac "tmux"
-        install_package_mac "tree"
-        install_package_mac "zsh"
-        # install_package_mac_cask "caskroom/fonts/font-hack"
+
+        packages=(autojump curl dos2unix editorconfig git git-extras make npm python3-dev the_silver_searcher thefuck tmux tree zsh)
+
+        install_mac_packages ${packages[@]}
+
         install_package_mac_cask "kdiff3"
         install_aws_cli
 
@@ -94,32 +90,9 @@ function install_apps() {
         # disable Alt + F4 switching to TTY4
         sudo kbd_mode -s
 
-        install_package "ack-grep"
-        install_package "autojump"
-        install_package "curl"
-        install_package "dos2unix"
-        install_package "editorconfig"
-        # install_package "fonts-powerline"
-        # install_package "fonts-hack-ttf"
-        install_package "git"
-        install_package "git-extras"
-        install_package "kdiff3"
-        install_package "make"
-        install_package "nautilus"
-        install_package "npm"
-        install_package "python-dev"
-        install_package "python3-dev"
-        install_package "python3-pip"
-        install_package "python3-setuptools"
-        install_package "redshift-gtk"
-        install_package "silversearcher-ag"
-        install_package "tmux"
-        install_package "tree"
-        install_package "vim-gtk3"
-        install_package "xclip"
-        install_package "xdg-utils"
-        install_package "xsel"
-        install_package "zsh"
+        packages=(ack-grep autojump curl dos2unix editorconfig fonts-powerline fonts-hack-ttf git git-extras kdiff3 make nautilus npm python-dev python3-dev python3-pip python3-setuptools redshift-gtk silversearcher-ag tmux tree vim-gtk3 xclip xdg-utils xsel zsh)
+
+        install_linux_packages ${packages[@]}
 
         sudo pip3 install thefuck
         install_ctags
@@ -178,6 +151,7 @@ if is_linux; then
     dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"
 
     # starting redshift-gtk
+    echo "Starting redshift-gtk"
     sudo redshift-gtk
 
     echo "Do you want to move all sh files too (y/n)?"
