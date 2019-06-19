@@ -124,6 +124,9 @@ alias ~='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias clr='clear'
+alias rmf='rm -rf'
+
+
 
 #-----External Command aliases-------
 alias dk='docker'
