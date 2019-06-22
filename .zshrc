@@ -71,6 +71,7 @@ zplugin light MichaelAquilina/zsh-you-should-use
 zplugin light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
 zplugin light wfxr/forgit
 zplugin light hlissner/zsh-autopair
+zplugin light peterhurford/git-it-on.zsh
 
 # Oh-my-zsh plugins
 zplugin snippet OMZ::lib/clipboard.zsh
