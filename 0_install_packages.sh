@@ -28,8 +28,8 @@ function install_ctags() {
 
     if [ "$user_response" = "y" ]
     then
-        install_package "automake"
-        install_package "pkg-config"
+        sudo apt install "automake" -y
+        sudo apt install "pkg-config" -y
 
         local CTAGS=~/ctags
         # clone if folder doesn't exist
