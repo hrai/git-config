@@ -87,7 +87,7 @@ function install_apps() {
             git
             git-extras
             make
-            npm
+            nodejs
             python3-dev
             the_silver_searcher
             thefuck
@@ -118,7 +118,7 @@ function install_apps() {
             kdiff3
             make
             nautilus
-            npm
+            nodejs
             python-dev
             python3-dev
             python3-pip
