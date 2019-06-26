@@ -5,7 +5,7 @@ mkdir -p ~/.global-git-hooks
 
 if [ "$(uname)" = "Darwin" ]; then
     cp prepare-commit-msg-mac ~/.global-git-hooks/prepare-commit-msg
-elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+else
     cp prepare-commit-msg ~/.global-git-hooks/prepare-commit-msg
 fi
 
