@@ -245,7 +245,7 @@ bower_components/
 venv/
 .idea/
 
-# Windows home folders
+# Windows/Linux home folders
 AppData/
 .docker/
 .dotnet/
@@ -259,3 +259,34 @@ ctags/
 .local/
 .cache/
 .config/
+
+.PyCharm*/
+.android/
+.cache/
+.config/
+.dbus/
+.dotnet/
+.gconf/
+.gnome/
+.gnupg/
+.gphoto/
+.ipython/
+.java/
+.jupyter/
+.kde/
+.local/
+.mono/
+.mozilla/
+.npm/
+.nuget/
+.omnisharp/
+.oracle_jre_usage/
+.pki/
+.ssh/
+.swt/
+.templateengine/
+.thunderbird/
+.vscode/
+.yarn/
+opt/
+snap/
