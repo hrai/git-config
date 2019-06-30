@@ -21,9 +21,11 @@ setup_cs_autocomplete() {
 
 setup_js_autocomplete() {
     sudo npm install -g typescript
+    sudo ./install.py --ts-completer
 }
 
 
+# http://ycm-core.github.io/YouCompleteMe/
 # The following additional language support options are available:
 #     C# support: install Mono and add --cs-completer when calling install.py.
 #     Go support: install Go and add --go-completer when calling install.py.
