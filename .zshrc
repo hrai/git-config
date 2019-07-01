@@ -303,7 +303,7 @@ if is_wsl; then
     fi
 fi
 
-## Aliases
+## Aliases for opening Github PRs
 alias opm='open-pr master'
 alias opd='open-pr develop'
 
