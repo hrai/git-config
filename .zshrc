@@ -303,6 +303,10 @@ if is_wsl; then
     fi
 fi
 
+## Aliases
+alias opm='open-pr master'
+alias opd='open-pr develop'
+
 # fzf command to honour gitignore
 export FZF_DEFAULT_COMMAND='ag -l --path-to-ignore ~/.gitignore --nocolor --hidden -g ""'
 
