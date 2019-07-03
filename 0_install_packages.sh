@@ -116,6 +116,7 @@ function install_apps() {
             git
             git-extras
             kdiff3
+            libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev #vim build deps
             make
             nautilus
             nodejs
@@ -126,8 +127,7 @@ function install_apps() {
             redshift-gtk
             silversearcher-ag
             tmux
-            tree
-            vim-gtk3
+            tree            
             xclip
             xdg-utils
             xsel
