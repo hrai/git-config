@@ -21,6 +21,11 @@ function install_aws_cli() {
     pip3 install awscli --upgrade --user
 }
 
+function install_docker() {
+   curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+}
+
 function install_ctags() {
 
     echo "Do you want to install and compile ctags (y/n)?"
@@ -127,7 +132,7 @@ function install_apps() {
             redshift-gtk
             silversearcher-ag
             tmux
-            tree            
+            tree
             xclip
             xdg-utils
             xsel
@@ -139,6 +144,7 @@ function install_apps() {
         sudo pip3 install thefuck
         install_ctags
         install_aws_cli
+        install_docker
 
         install_hack_nerd_font
     fi
