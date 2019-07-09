@@ -49,19 +49,19 @@ prettify_json() {
 
 # git bash function
 gbf() {
-  git checkout feature/CRE-$1
+  git checkout CRE-$1
 }
 
 gbb() {
-  git checkout bugfix/CRE-$1
+  git checkout CRE-$1
 }
 
 gnb() {
-  git checkout -b bugfix/CRE-$1 #checking out a new branch
+  git checkout -b CRE-$1 #checking out a new branch
 }
 
 gnf() {
-  git checkout -b feature/CRE-$1 #checking out a new branch
+  git checkout -b CRE-$1 #checking out a new branch
 }
 
 gbr() {
