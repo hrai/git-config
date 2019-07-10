@@ -20,14 +20,19 @@ echo -e '\nSetting the global git-hooks folder to ~/.global-git-hooks'
 git config --global core.hooksPath ~/.global-git-hooks
 echo 'Successfully set the global git-hooks folder to ~/.global-git-hooks\n'
 
-git config --global user.name "Hangjit Rai"
-git config --global user.email rai.hangjit@gmail.com
 git config --global core.editor vim
+git config --global core.filemode false
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 git config --global credential.helper 'cache --timeout=3600'
-git config --global merge.tool kdiff3
 git config --global diff.tool vimdiff
 git config --global difftool.prompt false
-git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+git config --global merge.tool kdiff3
+git config --global user.email rai.hangjit@gmail.com
+git config --global user.name "Hangjit Rai"
+
+if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+    git config --global core.autocrlf true
+fi
 
 echo "Do you want to move .gitignore file too (y/n)?"
 read user_response
