@@ -32,6 +32,8 @@ git config --global user.name "Hangjit Rai"
 
 if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
     git config --global core.autocrlf true
+else
+    git config --global core.autocrlf input
 fi
 
 echo "Do you want to move .gitignore file too (y/n)?"
