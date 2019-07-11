@@ -137,6 +137,8 @@ alias ns='npm start'
 alias nt='npm test'
 alias v='vim'
 
+#-----Config file aliases-------
+alias gconf='vim ~/.gitconfig'
 
 #-------Git aliases-------
 alias ga='git add'
