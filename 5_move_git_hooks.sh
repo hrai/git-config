@@ -30,7 +30,19 @@ git config --global merge.tool kdiff3
 git config --global user.email rai.hangjit@gmail.com
 git config --global user.name "Hangjit Rai"
 
-if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+function is_windows() {
+    local SYSTEM_NAME="$(expr substr $(uname -s) 1 10)"
+
+    if [ "$SYSTEM_NAME" = "MINGW64_NT" ]; then
+        true
+    elif [ "$SYSTEM_NAME" = "MINGW32_NT" ]; then
+        true
+    else
+        false
+    fi
+}
+
+if is_windows; then
     git config --global core.autocrlf true
 else
     git config --global core.autocrlf input
