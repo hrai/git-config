@@ -307,7 +307,7 @@ fh() {
 }
 
 # fd - cd to selected directory
-# unalias fd
+unalias fd
 fd() {
  local dir
  dir=$(find ${1:-.} -path '*/\.*' -prune \
