@@ -210,35 +210,35 @@ if is_program_installed 'fasd'; then
 
 
     # Any
-    alias a='fasd -a'
+    abbrev-alias a='fasd -a'
 
     # Show/search/select
-    alias s='fasd -si'
+    abbrev-alias s='fasd -si'
 
     # Directory
-    alias d='fasd -d'
+    abbrev-alias d='fasd -d'
 
     # File
-    alias f='fasd -f'
+    abbrev-alias f='fasd -f'
 
     # Interactive directory selection
-    alias sd='fasd -sid'
+    abbrev-alias sd='fasd -sid'
 
     # Interactive file selection
-    alias sf='fasd -sif'
+    abbrev-alias sf='fasd -sif'
 
     # cd - same functionality as j in autojump
-    alias z='fasd_cd -d'
+    abbrev-alias z='fasd_cd -d'
 
     # Interactive cd
-    alias zz='fasd_cd -d -i'
+    abbrev-alias zz='fasd_cd -d -i'
 
     # Vim
-    alias vi='fasd -f -e vim'
+    abbrev-alias vi='fasd -f -e vim'
 fi
 
 if is_program_installed 'wsl-open'; then
-    alias o='wsl-open'
+    abbrev-alias o='wsl-open'
 fi
 
 if is_wsl; then
@@ -360,3 +360,6 @@ function ds() {
     [ -n "$cid" ] && docker stop "$cid"
 }
 
+
+# Initialising zsh abbreviations plugin
+abbrev-alias -i
