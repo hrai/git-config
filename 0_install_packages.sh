@@ -89,6 +89,7 @@ function install_apps() {
             curl
             dos2unix
             editorconfig
+            fzf
             git
             git-extras
             make
