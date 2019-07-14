@@ -134,7 +134,20 @@ zstyle ':completion:*:*:xdvi:*' file-sort time
 # PLUGIN CONFIG
 
 # source autojump starter file
-. /usr/share/autojump/autojump.sh
+function is_linux() {
+    local SYSTEM_NAME="$(expr substr $(uname -s) 1 5)"
+
+    if [ "$SYSTEM_NAME" = "Linux" ]; then
+        true
+    else
+        false
+    fi
+}
+
+if is_linux; then
+    # swap caps and escape
+    . /usr/share/autojump/autojump.sh
+fi
 
 # for Mac
 [ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
