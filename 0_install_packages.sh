@@ -104,6 +104,8 @@ function install_apps() {
         install_mac_packages ${packages[@]}
 
         install_package_mac_cask "kdiff3"
+        install_package_mac_cask "visual-studio-code"
+
         install_aws_cli
 
     elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
@@ -111,7 +113,7 @@ function install_apps() {
         sudo kbd_mode -s
 
         packages=(
-            ack-grep
+            # ack-grep
             autojump
             curl
             dos2unix
@@ -214,3 +216,14 @@ if is_linux; then
     echo "Setting zsh as default shell"
     chsh -s $(which zsh)
 fi
+
+
+npm install --global web-ext
+npm install --global eslint
+
+
+python3
+nodejs
+
+npm install --global web-ext
+npm install eslint --global
