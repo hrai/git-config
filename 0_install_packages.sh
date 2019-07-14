@@ -220,10 +220,3 @@ fi
 
 npm install --global web-ext
 npm install --global eslint
-
-
-python3
-nodejs
-
-npm install --global web-ext
-npm install eslint --global
