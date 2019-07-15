@@ -15,6 +15,14 @@ is_program_installed() {
     fi
 }
 
+is_not_mac() {
+    if [ "$(uname)" != "Darwin"  ]; then
+        true
+    else
+        false
+    fi
+}
+
 hibernate() {
     systemctl suspend -i
 }
@@ -133,17 +141,8 @@ zstyle ':completion:*:*:xdvi:*' file-sort time
 
 # PLUGIN CONFIG
 
-# source autojump starter file
-function is_not_mac() {
-    if [ "$(uname)" != "Darwin"  ]; then
-        true
-    else
-        false
-    fi
-}
-
 if is_not_mac; then
-    # swap caps and escape
+    # source autojump starter file
     . /usr/share/autojump/autojump.sh
 fi
 
@@ -356,7 +355,7 @@ fbr() {
 }
 
 # Select a docker container to start and attach to
-function da() {
+da() {
     local cid
     cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
 
@@ -364,7 +363,7 @@ function da() {
 }
 
 # Select a running docker container to stop
-function ds() {
+ds() {
     local cid
     cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
 
