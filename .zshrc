@@ -119,12 +119,11 @@ zplugin ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*";
 
 # zplugin creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
 
-# Vim repository on Github – a typical source code that needs compilation – Zplugin
-# can manage it for you if you like, run `./configure` and other `make`, etc. stuff.
-# Ice-mod `pick` selects a binary program to add to $PATH.
-
-zplugin ice as"program" atclone"rm -f src/auto/config.cache; ./configure --enable-gui=auto --enable-gtk2-check --with-x --prefix=/usr --enable-pythoninterp=yes --enable-python3interp=yes" atpull"%atclone" make pick"src/vim"
-zplugin light vim/vim
+if is_not_mac; then
+    # Ice-mod `pick` selects a binary program to add to $PATH.
+    zplugin ice as"program" atclone"rm -f src/auto/config.cache; ./configure --enable-gui=auto --enable-gtk2-check --with-x --prefix=/usr --enable-pythoninterp=yes --enable-python3interp=yes" atpull"%atclone" make pick"src/vim"
+    zplugin light vim/vim
+fi
 
 # using case-insensitive autocomplete
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
