@@ -123,6 +123,8 @@ if is_not_mac; then
     # Ice-mod `pick` selects a binary program to add to $PATH.
     zplugin ice as"program" atclone"rm -f src/auto/config.cache; ./configure --enable-gui=auto --enable-gtk2-check --with-x --prefix=/usr --enable-pythoninterp=yes --enable-python3interp=yes" atpull"%atclone" make pick"src/vim"
     zplugin light vim/vim
+
+    export VIMRUNTIME=~/.zplugin/plugins/vim---vim/runtime
 fi
 
 # using case-insensitive autocomplete
