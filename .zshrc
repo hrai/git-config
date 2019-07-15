@@ -152,6 +152,17 @@ fi
 unsetopt BG_NICE
 
 export DOCKER_HOST=tcp://localhost:2375
+export UPDATE_ZSH_DAYS=13
+
+## Preferred editor for local and remote sessions
+export EDITOR="vim"
+
+## ssh
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# fzf command to honour gitignore
+export FZF_DEFAULT_COMMAND='ag -l --path-to-ignore ~/.gitignore --nocolor --hidden -g ""'
+
 
 # setting up thefuck plugin
 eval $(thefuck --alias)
@@ -172,8 +183,6 @@ else
         print "404: $ZSH_DIR folder not found."
 fi
 
-export UPDATE_ZSH_DAYS=13
-
 ## Case-sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
 
@@ -182,9 +191,6 @@ ENABLE_CORRECTION="true"
 
 ## Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
-
-## ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 ### Added by Zplugin's installer
 source "$HOME/.zplugin/bin/zplugin.zsh"
@@ -198,9 +204,6 @@ if [[ $(compaudit) ]]; then
 	compaudit | xargs chmod g-w
 fi
 
-
-## Preferred editor for local and remote sessions
-export EDITOR="vim"
 
 # instead of 'cd my_dir' you can do my_dir
 setopt AUTO_CD
@@ -276,9 +279,6 @@ alias szc='source ~/.zshrc'
 alias -s log=vim
 alias -s notes=vim
 
-
-# fzf command to honour gitignore
-export FZF_DEFAULT_COMMAND='ag -l --path-to-ignore ~/.gitignore --nocolor --hidden -g ""'
 
 # print full file path
 filepath() { for f in "$@"; do echo ${f}(:A); done  }
