@@ -371,6 +371,9 @@ function ds() {
     [ -n "$cid" ] && docker stop "$cid"
 }
 
+# Forgit plugin config
+forgit_reset_head=grhd
+
 # Fix for compinit (There are insecure directories)
 compaudit | xargs chown -R "$(whoami)"
 compaudit | xargs chmod -R go-w
