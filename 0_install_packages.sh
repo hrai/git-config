@@ -221,5 +221,5 @@ if is_linux; then
 fi
 
 
-npm install --global web-ext
-npm install --global eslint
+sudo npm install --global web-ext
+sudo npm install --global eslint
