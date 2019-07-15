@@ -21,6 +21,12 @@ function install_aws_cli() {
     pip3 install awscli --upgrade --user
 }
 
+function install_vim() {
+    brew remove vim
+    brew cleanup
+    brew install vim --with-python3
+}
+
 function install_docker() {
     if ! [ -x "$(command -v docker)" ]; then
         curl -fsSL https://get.docker.com -o get-docker.sh
@@ -110,6 +116,7 @@ function install_apps() {
         install_package_mac_cask "visual-studio-code"
 
         install_aws_cli
+        install_vim
 
     elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
         # disable Alt + F4 switching to TTY4
