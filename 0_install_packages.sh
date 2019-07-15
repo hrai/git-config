@@ -21,10 +21,15 @@ function install_aws_cli() {
     pip3 install awscli --upgrade --user
 }
 
-function install_vim() {
+function install_mac_vim() {
     brew remove vim
     brew cleanup
     brew install vim --with-python3
+}
+
+function install_mac_hack_nerdfont() {
+    brew tap homebrew/cask-fonts
+    brew cask install font-hack-nerd-font
 }
 
 function install_docker() {
@@ -116,7 +121,8 @@ function install_apps() {
         install_package_mac_cask "visual-studio-code"
 
         install_aws_cli
-        install_vim
+        install_mac_vim
+        install_mac_hack_nerdfont
 
     elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
         # disable Alt + F4 switching to TTY4
