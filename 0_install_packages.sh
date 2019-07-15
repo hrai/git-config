@@ -34,7 +34,7 @@ function install_mac_hack_nerdfont() {
 
 function install_docker() {
     if ! [ -x "$(command -v docker)" ]; then
-        curl -fsSL https://get.docker.com -o get-docker.sh
+        curl -fsSL https://get.docker.com -o ~/get-docker.sh
         sudo sh get-docker.sh
     fi
 }
