@@ -371,6 +371,9 @@ function ds() {
     [ -n "$cid" ] && docker stop "$cid"
 }
 
+# Fix for compinit (There are insecure directories)
+compaudit | xargs chown -R "$(whoami)"
+compaudit | xargs chmod -R go-w
 
 # Initialising zsh abbreviations plugin
 abbrev-alias -i
