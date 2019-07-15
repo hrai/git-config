@@ -22,8 +22,10 @@ function install_aws_cli() {
 }
 
 function install_docker() {
-   curl -fsSL https://get.docker.com -o get-docker.sh
-    sudo sh get-docker.sh
+    if ! [ -x "$(command -v docker)" ]; then
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sudo sh get-docker.sh
+    fi
 }
 
 function install_ctags() {
