@@ -139,7 +139,7 @@ function install_apps() {
             git
             git-extras
             kdiff3
-            libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev #vim build deps
+            libatk1.0-dev libbonoboui2-dev libcairo2-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libncurses5-dev libsm-dev libx11-dev libxpm-dev libxt-dev libxtst-dev #vim build deps
             make
             nautilus
             nodejs
