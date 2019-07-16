@@ -265,7 +265,7 @@ if is_wsl; then
       if [[ -z $BROWSER ]]; then
         export BROWSER=wsl-open
       else
-        export BROWSER=$BROWSER:wsl-open
+        export BROWSER=$BROWSER:'wsl-open'
       fi
     fi
 fi
