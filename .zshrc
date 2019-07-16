@@ -202,8 +202,9 @@ autoload -Uz _zplugin
 
 
 if [[ $(compaudit) ]]; then
-	# securing directories
-	compaudit | xargs chmod g-w
+    # Fix for compinit (There are insecure directories)
+    compaudit | xargs chown -R "$(whoami)"
+    compaudit | xargs chmod -R go-w
 fi
 
 
@@ -373,10 +374,6 @@ ds() {
 
 # Forgit plugin config
 forgit_reset_head=grhd
-
-# Fix for compinit (There are insecure directories)
-compaudit | xargs chown -R "$(whoami)"
-compaudit | xargs chmod -R go-w
 
 # Initialising zsh abbreviations plugin
 abbrev-alias -i
