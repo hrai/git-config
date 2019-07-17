@@ -112,6 +112,7 @@ function install_apps() {
             thefuck
             tmux
             tree
+            zip
             zsh
         )
 
@@ -154,6 +155,7 @@ function install_apps() {
             xclip
             xdg-utils
             xsel
+            zip
             zsh
         )
 
