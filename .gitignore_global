@@ -290,3 +290,5 @@ ctags/
 .yarn/
 opt/
 snap/
+
+*.zip
