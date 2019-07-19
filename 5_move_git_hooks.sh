@@ -1,23 +1,23 @@
 #!/bin/bash
 
 echo 'Moving git hooks to .global-git-hooks directory....'
-mkdir -p ~/.global-git-hooks
+mkdir -p ~/.global-git-hooks/hooks
 
 if [ "$(uname)" = "Darwin" ]; then
-    cp prepare-commit-msg-mac ~/.global-git-hooks/prepare-commit-msg
+    cp git-hooks/prepare-commit-msg-mac ~/.global-git-hooks/hooks/prepare-commit-msg
 else
-    cp prepare-commit-msg ~/.global-git-hooks/prepare-commit-msg
+    cp git-hooks/prepare-commit-msg ~/.global-git-hooks/hooks/prepare-commit-msg
 fi
 
-cp pre-commit ~/.global-git-hooks/pre-commit
+cp git-hooks/pre-commit ~/.global-git-hooks/hooks/pre-commit
 
-chmod 777 ~/.global-git-hooks/prepare-commit-msg
-chmod 777 ~/.global-git-hooks/pre-commit
+chmod 777 ~/.global-git-hooks/hooks/prepare-commit-msg
+chmod 777 ~/.global-git-hooks/hooks/pre-commit
 echo 'Successfully moved git hooks to .global-git-hooks directory....'
 
 # git hooks folder setup
 echo -e '\nSetting the global git-hooks folder to ~/.global-git-hooks'
-git config --global core.hooksPath ~/.global-git-hooks
+# git config --global core.hooksPath ~/.global-git-hooks
 echo 'Successfully set the global git-hooks folder to ~/.global-git-hooks\n'
 
 git config --global core.editor vim
@@ -29,6 +29,8 @@ git config --global difftool.prompt false
 git config --global merge.tool kdiff3
 git config --global user.email rai.hangjit@gmail.com
 git config --global user.name "Hangjit Rai"
+git config --global init.templatedir '~/.global-git-hooks'
+
 
 function is_windows() {
     local SYSTEM_NAME="$(expr substr $(uname -s) 1 10)"
