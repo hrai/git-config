@@ -8,7 +8,6 @@ tags.temp
 # Node files
 node_modules/
 .vscode/
-package-lock.json
 
 # .NET build folders
 bin
