@@ -218,9 +218,12 @@ if is_linux; then
     # swap caps and escape
     dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"
 
-    # starting redshift-gtk
-    echo "Starting redshift-gtk"
-    sudo redshift-gtk
+    ZSH_CONF=~/.zshrc
+    if ! [ -f "$ZSH_CONF" ]; then
+        # starting redshift-gtk
+        echo "Starting redshift-gtk"
+        sudo redshift-gtk
+    fi
 
     echo "Do you want to move all sh files too (y/n)?"
     read user_response
