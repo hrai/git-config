@@ -223,6 +223,10 @@ if is_linux; then
         # starting redshift-gtk
         echo "Starting redshift-gtk"
         sudo redshift-gtk
+
+        # set zsh as default shell
+        echo "Setting zsh as default shell"
+        chsh -s $(which zsh)
     fi
 
     echo "Do you want to move all sh files too (y/n)?"
@@ -232,10 +236,6 @@ if is_linux; then
     then
         bash 1_move_all_dot_files.sh
     fi
-
-    # set zsh as default shell
-    echo "Setting zsh as default shell"
-    chsh -s $(which zsh)
 fi
 
 
