@@ -51,6 +51,9 @@ zplugin light zdharma/zsh-diff-so-fancy
 zplugin ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
 zplugin load trapd00r/LS_COLORS
 
+zplugin ice from"gh-r" as"program" bpick"*linux_amd64*" mv"wtf*/wtfutil -> wtfutil"
+zplugin light wtfutil/wtf
+
 #
 ## Themes
 ##
