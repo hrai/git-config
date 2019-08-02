@@ -30,6 +30,10 @@ hibernate() {
 # Sourcing zplugin
 source ~/.zplugin/bin/zplugin.zsh
 
+
+# Forgit plugin config
+forgit_reset_head=grhd
+
 #
 ## Completions
 ##
