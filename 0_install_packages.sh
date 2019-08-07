@@ -122,7 +122,8 @@ function install_apps() {
         install_package_mac_cask "visual-studio-code"
 
         install_aws_cli
-        install_mac_vim
+        # todo test this out
+        # install_mac_vim
         install_mac_hack_nerdfont
 
     elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
