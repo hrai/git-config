@@ -386,3 +386,5 @@ forgit_reset_head=grhd
 
 # Initialising zsh abbreviations plugin
 abbrev-alias -i
+abbrev-alias -g G="| grep"
+abbrev-alias -g gcl="| grep"
