@@ -4,6 +4,8 @@
 ############# function definitions #############
 ################################################
 
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 function install_package_mac_cask () {
     if brew cask ls --versions "$1" > /dev/null; then
         echo ">>>$1 is already installed"
@@ -229,14 +231,16 @@ if is_linux; then
         echo "Setting zsh as default shell"
         chsh -s $(which zsh)
     fi
+fi
 
-    echo "Do you want to move all sh files too (y/n)?"
-    read user_response
+cd $CURRENT_DIR
 
-    if [ "$user_response" = "y" ]
-    then
-        bash 1_move_all_dot_files.sh
-    fi
+echo "Do you want to move all sh files too (y/n)?"
+read user_response
+
+if [ "$user_response" = "y" ]
+then
+    bash 1_move_all_dot_files.sh
 fi
 
 
