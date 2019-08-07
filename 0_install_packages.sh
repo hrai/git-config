@@ -244,6 +244,6 @@ then
 fi
 
 
-sudo npm install --global web-ext
-sudo npm install --global eslint
-sudo npm install -g jest-cli
+npm install --global web-ext
+npm install --global eslint
+npm install -g jest-cli
