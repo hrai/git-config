@@ -139,7 +139,7 @@ alias v='vim'
 
 #-----Config file aliases-------
 alias gconf='vim ~/.gitconfig'
-alias gig='vim ~/.gitignore'
+alias gignore='vim ~/.gitignore'
 alias vconf='vim ~/.vimrc'
 
 #-------Git aliases-------
