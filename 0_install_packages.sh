@@ -123,7 +123,8 @@ function install_apps() {
         install_package_mac_cask "kdiff3"
         install_package_mac_cask "visual-studio-code"
 
-        install_aws_cli
+        # install_aws_cli
+
         # todo test this out
         # install_mac_vim
         install_mac_hack_nerdfont
@@ -166,7 +167,7 @@ function install_apps() {
 
         sudo pip3 install thefuck
         install_ctags
-        install_aws_cli
+        # install_aws_cli
         install_docker
 
         install_hack_nerd_font
@@ -243,6 +244,14 @@ then
     bash 1_move_all_dot_files.sh
 fi
 
+
+NODE_MODULES_DIR=/usr/local/lib/node_modules
+
+echo $NODE_MODULES_DIR
+if [ -d "$NODE_MODULES_DIR" ]; then
+    echo "Changing owner of $NODE_MODULES_DIR to $USER"
+    sudo chown -R $USER $NODE_MODULES_DIR
+fi
 
 npm install --global web-ext
 npm install --global eslint
