@@ -147,7 +147,6 @@ function install_apps() {
             libatk1.0-dev libbonoboui2-dev libcairo2-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libncurses5-dev libsm-dev libx11-dev libxpm-dev libxt-dev libxtst-dev #vim build deps
             make
             nautilus
-            nodejs
             python-dev
             python3-dev
             python3-pip
@@ -162,6 +161,11 @@ function install_apps() {
             zip
             zsh
         )
+
+        # Install nodejs
+        curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+        sudo apt install -y nodejs
+
 
         install_linux_packages ${packages[@]}
 
