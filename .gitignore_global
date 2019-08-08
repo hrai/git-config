@@ -290,4 +290,5 @@ ctags/
 opt/
 snap/
 
+.serverless
 *.zip
