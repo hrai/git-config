@@ -249,7 +249,7 @@ then
 fi
 
 
-NODE_MODULES_DIR=/usr/local/lib/node_modules
+NODE_MODULES_DIR=/usr/lib/node_modules
 
 echo $NODE_MODULES_DIR
 if [ -d "$NODE_MODULES_DIR" ]; then
