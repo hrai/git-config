@@ -162,12 +162,13 @@ function install_apps() {
             zsh
         )
 
+
+        install_linux_packages ${packages[@]}
+
         # Install nodejs
         curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
         sudo apt install -y nodejs
 
-
-        install_linux_packages ${packages[@]}
 
         sudo pip3 install thefuck
         install_ctags
