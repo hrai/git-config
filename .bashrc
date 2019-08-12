@@ -72,6 +72,12 @@ gnr() {
   git checkout release/$1
 }
 
+gac() {
+  branch_name=$(git symbolic-ref -q HEAD);
+  git add .;
+  git commit -m "$*";
+}
+
 gap() {
   branch_name=$(git symbolic-ref -q HEAD);
   git add .;
