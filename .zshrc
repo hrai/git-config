@@ -396,3 +396,4 @@ source ~/ros-workspace/devel/setup.zsh
 
 export ROS_MASTER_URI=http://127.0.0.1:11311
 export ROS_IP=localhost
+export ROS_HOSTNAME=localhost
