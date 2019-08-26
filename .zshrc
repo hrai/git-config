@@ -381,6 +381,23 @@ ds() {
     [ -n "$cid" ] && docker stop "$cid"
 }
 
+# ssh functions
+load_work_ssh_settings() {
+    eval "$(ssh-agent -s)"
+
+    ssh-add -l
+    ssh-add -D
+    ssh-add ~/.ssh/id_rsa
+}
+
+load_personal_ssh_settings() {
+    eval "$(ssh-agent -s)"
+
+    ssh-add -l
+    ssh-add -D
+    ssh-add ~/.ssh/id_rsa_personal
+}
+
 # Forgit plugin config
 forgit_reset_head=grhd
 
