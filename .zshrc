@@ -398,6 +398,10 @@ load_personal_ssh_settings() {
     ssh-add ~/.ssh/id_rsa_personal
 }
 
+fix_git_hooks_line_breaks() {
+    dos2unix .git/hooks/pre*
+}
+
 # Forgit plugin config
 forgit_reset_head=grhd
 
