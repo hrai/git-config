@@ -191,6 +191,14 @@ function is_linux() {
     fi
 }
 
+function is_wsl() {
+    if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+        true
+    else
+        false
+    fi
+}
+
 function is_windows() {
     local SYSTEM_NAME="$(expr substr $(uname -s) 1 10)"
 
@@ -221,6 +229,10 @@ function create_ssh_key() {
 if ! is_windows; then
     install_apps
     create_ssh_key
+fi
+
+if is_wsl; then
+    sudo apt install ubuntu-wsl
 fi
 
 if is_linux; then
