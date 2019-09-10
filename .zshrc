@@ -136,6 +136,9 @@ fi
 zplugin light vim/vim
 export VIMRUNTIME=~/.zplugin/plugins/vim---vim/runtime
 
+zplugin ice as"program" atclone"cd PathPicker/debian ./package.sh " atpull"%atclone" make pick"facebook/PathPicker"
+zplugin light facebook/PathPicker
+
 # using case-insensitive autocomplete
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
