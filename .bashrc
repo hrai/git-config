@@ -143,6 +143,7 @@ alias nr='npm run'
 alias ns='npm start'
 alias nt='npm test'
 alias v='vim'
+alias y='yarn'
 
 #-----Config file aliases-------
 alias gconf='vim ~/.gitconfig'
