@@ -72,8 +72,11 @@ gnr() {
   git checkout release/$1
 }
 
+get_branch_name() {
+    branch_name=$(git symbolic-ref -q HEAD);
+    return branch_name;
+}
 gac() {
-  branch_name=$(git symbolic-ref -q HEAD);
   git add .;
   git commit -m "$*";
 }
