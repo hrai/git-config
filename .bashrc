@@ -74,22 +74,24 @@ gnr() {
 
 get_branch_name() {
     branch_name=$(git symbolic-ref -q HEAD);
-    return branch_name;
+    echo $branch_name;
 }
+
 gac() {
+  branch_name=$(get_branch_name);
   git add .;
   git commit -m "$*";
 }
 
 gap() {
-  branch_name=$(git symbolic-ref -q HEAD);
+  branch_name=$(get_branch_name);
   git add .;
   git commit -m "$*";
   git push -u origin $branch_name;
 }
 
 gcp() {
-  branch_name=$(git symbolic-ref -q HEAD);
+  branch_name=$(get_branch_name);
   git commit -m "$*";
   git push -u origin $branch_name;
 }
@@ -99,14 +101,14 @@ gcmm() {
 }
 
 gcap() {
-  branch_name=$(git symbolic-ref -q HEAD);
+  branch_name=$(get_branch_name);
   git add .;
   git commit --amend --no-edit;
   git push -u -f origin $branch_name;
 }
 
 gpu() {
-  branch_name=$(git symbolic-ref -q HEAD);
+  branch_name=$(get_branch_name);
   git push --set-upstream origin $branch_name;
 }
 
