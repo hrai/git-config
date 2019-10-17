@@ -112,6 +112,13 @@ gpu() {
   git push --set-upstream origin $branch_name;
 }
 
+grc() {
+  branch_name=$(get_branch_name);
+  git add .;
+  git commit -m "review comments";
+  git push -u origin $branch_name;
+}
+
 fa() {
   alias | grep $1
 }
