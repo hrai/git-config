@@ -20,9 +20,11 @@ echo -e '\nSetting the global git-hooks folder to ~/.global-git-hooks'
 # git config --global core.hooksPath ~/.global-git-hooks
 echo 'Successfully set the global git-hooks folder to ~/.global-git-hooks\n'
 
+echo 'Removing gitconfig file\n'
+rm -rf ~/.gitconfig
+
 git config --global core.editor vim
 git config --global core.filemode false
-git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 git config --global credential.helper 'cache --timeout=3600'
 git config --global diff.tool vimdiff
 git config --global difftool.prompt false
@@ -48,6 +50,7 @@ if is_windows; then
     git config --global core.autocrlf true
 else
     git config --global core.autocrlf input
+    git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 fi
 
 echo "Do you want to move .gitignore file too (y/n)?"
