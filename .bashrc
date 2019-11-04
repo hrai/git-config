@@ -161,6 +161,7 @@ alias y='yarn'
 alias gconf='vim ~/.gitconfig'
 alias gignore='vim ~/.gitignore'
 alias vconf='vim ~/.vimrc'
+alias bconf='vim ~/.bashrc'
 
 #-------Git aliases-------
 alias ga='git add'
