@@ -11,10 +11,12 @@ if [ "$(uname)" = "Darwin" ]; then
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
     start_tmux
     alias ls='ls --color=auto'
-    # elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
+elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
     # Do something under 32 bits Windows NT platform
-    # elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
+    alias cb='cd /c/dev/cre-bus-fra/CREBusFra.Web'
+elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
     # Do something under 64 bits Windows NT platform
+    alias cb='cd /c/dev/cre-bus-fra/CREBusFra.Web'
 fi
 
 update_system () {
