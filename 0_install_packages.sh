@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################
-############# function definitions #############
+##################### Functions ################
 ################################################
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
@@ -225,6 +225,12 @@ function create_ssh_key() {
         echo ">>>$ssh_file already exists."
     fi
 }
+
+################################################
+##################### End Functions ############
+################################################
+
+sudo apt update
 
 if ! is_windows; then
     install_apps
