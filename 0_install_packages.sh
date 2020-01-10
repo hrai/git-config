@@ -230,7 +230,7 @@ function create_ssh_key() {
 ##################### End Functions ############
 ################################################
 
-sudo apt update
+sudo apt update -y
 
 if ! is_windows; then
     install_apps
@@ -238,7 +238,7 @@ if ! is_windows; then
 fi
 
 if is_wsl; then
-    sudo apt install ubuntu-wsl
+    sudo apt install ubuntu-wsl -y
 fi
 
 if is_linux; then
