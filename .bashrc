@@ -145,7 +145,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias clr='clear'
 alias rmf='rm -rf'
-
+alias sbc='source ~/.bashrc'
 
 
 #-----External Command aliases-------
