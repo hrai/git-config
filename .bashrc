@@ -159,6 +159,11 @@ alias nt='npm test'
 alias v='vim'
 alias y='yarn'
 
+alias dn='dotnet'
+alias db='dotnet build'
+alias dr='dotnet run'
+alias dt='dotnet test'
+
 #-----Config file aliases-------
 alias gconf='vim ~/.gitconfig'
 alias gignore='vim ~/.gitignore'
