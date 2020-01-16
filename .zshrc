@@ -267,20 +267,6 @@ if is_program_installed 'fasd'; then
     abbrev-alias vi='fasd -f -e vim'
 fi
 
-## Aliases for opening Github PRs
-alias opm='open-pr master'
-alias opd='open-pr develop'
-
-alias zconf="vim ~/.zshrc"
-alias zls='zplgin ls'
-alias szc='source ~/.zshrc'
-alias ex='explorer .'
-
-
-# Suffix aliases
-alias -s log=vim
-alias -s notes=vim
-
 
 # print full file path
 filepath() { for f in "$@"; do echo ${f}(:A); done  }
@@ -394,6 +380,21 @@ fix_git_hooks_line_breaks() {
 
 # Forgit plugin config
 forgit_reset_head=grhd
+
+
+## Aliases for opening Github PRs
+alias opm='open-pr master'
+alias opd='open-pr develop'
+
+alias zconf="vim ~/.zshrc"
+alias zls='zplgin ls'
+alias szc='source ~/.zshrc'
+alias ex='explorer .'
+
+
+# Suffix aliases
+alias -s log=vim
+alias -s notes=vim
 
 # Initialising zsh abbreviations plugin
 abbrev-alias -i
