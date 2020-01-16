@@ -267,24 +267,6 @@ if is_program_installed 'fasd'; then
     abbrev-alias vi='fasd -f -e vim'
 fi
 
-if is_program_installed 'wsl-open'; then
-    abbrev-alias o='wsl-open'
-fi
-
-if is_wsl; then
-    zplugin ice as"program" atload"fpath+=( \$PWD  );" mv"wsl-open.sh -> wsl-open"
-    zplugin light 4U6U57/wsl-open
-
-    # Adding wsl-open as a browser for Bash for Windows
-    if [[ $(uname -r) == *Microsoft ]]; then
-      if [[ -z $BROWSER ]]; then
-        export BROWSER=wsl-open
-      else
-        export BROWSER=$BROWSER:'wsl-open'
-      fi
-    fi
-fi
-
 ## Aliases for opening Github PRs
 alias opm='open-pr master'
 alias opd='open-pr develop'
@@ -292,6 +274,8 @@ alias opd='open-pr develop'
 alias zconf="vim ~/.zshrc"
 alias zls='zplgin ls'
 alias szc='source ~/.zshrc'
+alias ex='explorer .'
+
 
 # Suffix aliases
 alias -s log=vim
