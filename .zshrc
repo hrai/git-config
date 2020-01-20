@@ -58,7 +58,7 @@ zplugin load trapd00r/LS_COLORS
 zplugin ice from"gh-r" as"program" bpick"*linux_amd64*" mv"wtf*/wtfutil -> wtfutil"
 zplugin light wtfutil/wtf
 
-zplugin ice from"gh-r" as"program" bpick"*amd64*"
+zplugin ice from"gh-r" as"program" bpick"*amd64.tar.gz"
 zplugin light Versent/saml2aws
 
 #
