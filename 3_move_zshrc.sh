@@ -1,6 +1,6 @@
 if hash zsh 2>/dev/null; then
     echo 'Cloning zplugin....'
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
     echo 'Successfully cloned zplugin....'
 
     # securing the directories
