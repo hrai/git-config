@@ -27,8 +27,8 @@ hibernate() {
     systemctl suspend -i
 }
 
-# Sourcing zplugin
-source ~/.zplugin/bin/zplugin.zsh
+# Sourcing zinit
+source ~/.zinit/bin/zinit.zsh
 
 
 # Forgit plugin config
@@ -37,110 +37,110 @@ forgit_reset_head=grhd
 #
 ## Completions
 ##
-zplugin ice as"completion"
-zplugin snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+zinit ice as"completion"
+zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 
 #
 ## Scripts
 ##
-zplugin ice as"program" atclone'perl Makefile.PL PREFIX=$ZPFX' atpull'%atclone' make'install' pick"$ZPFX/bin/git-cal"
-zplugin light k4rthik/git-cal
+zinit ice as"program" atclone'perl Makefile.PL PREFIX=$ZPFX' atpull'%atclone' make'install' pick"$ZPFX/bin/git-cal"
+zinit light k4rthik/git-cal
 
-zplugin ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
-zplugin light tj/git-extras
+zinit ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
+zinit light tj/git-extras
 
-zplugin ice as"program" pick"bin/git-dsf"
-zplugin light zdharma/zsh-diff-so-fancy
+zinit ice as"program" pick"bin/git-dsf"
+zinit light zdharma/zsh-diff-so-fancy
 
-zplugin ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
-zplugin load trapd00r/LS_COLORS
+zinit ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
+zinit load trapd00r/LS_COLORS
 
-zplugin ice from"gh-r" as"program" bpick"*linux_amd64*" mv"wtf*/wtfutil -> wtfutil"
-zplugin light wtfutil/wtf
+zinit ice from"gh-r" as"program" bpick"*linux_amd64*" mv"wtf*/wtfutil -> wtfutil"
+zinit light wtfutil/wtf
 
-zplugin ice from"gh-r" as"program" bpick"*amd64.tar.gz"
-zplugin light Versent/saml2aws
+zinit ice from"gh-r" as"program" bpick"*amd64.tar.gz"
+zinit light Versent/saml2aws
 
 #
 ## Themes
 ##
-zplugin ice from"gh"
-zplugin load bhilburn/powerlevel9k
+zinit ice from"gh"
+zinit load bhilburn/powerlevel9k
 
 
 # Binary release in archive, from Github-releases page; after automatic unpacking it provides program "fzf"
-zplugin ice from"gh-r" as"program" bpick"*amd64*"
-zplugin light junegunn/fzf-bin
+zinit ice from"gh-r" as"program" bpick"*amd64*"
+zinit light junegunn/fzf-bin
 
-zplugin ice as"program" pick"yank" make
-zplugin light mptre/yank
+zinit ice as"program" pick"yank" make
+zinit light mptre/yank
 
-zplugin ice as"program" pick"fasd" make"install"
-zplugin light clvv/fasd
+zinit ice as"program" pick"fasd" make"install"
+zinit light clvv/fasd
 
-# zplugin light nvbn/thefuck
-zplugin light zdharma/fast-syntax-highlighting
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zsh-users/zsh-completions
-zplugin light zsh-users/zsh-syntax-highlighting
-zplugin light paulirish/git-open
-# zplugin light denysdovhan/spaceship-prompt
-zplugin light MichaelAquilina/zsh-you-should-use
-zplugin light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
-zplugin light wfxr/forgit
-zplugin light hlissner/zsh-autopair
-zplugin light peterhurford/git-it-on.zsh
-zplugin light caarlos0/zsh-open-pr
+# zinit light nvbn/thefuck
+zinit light zdharma/fast-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light paulirish/git-open
+# zinit light denysdovhan/spaceship-prompt
+zinit light MichaelAquilina/zsh-you-should-use
+zinit light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
+zinit light wfxr/forgit
+zinit light hlissner/zsh-autopair
+zinit light peterhurford/git-it-on.zsh
+zinit light caarlos0/zsh-open-pr
 
 # Oh-my-zsh plugins
-zplugin snippet OMZ::lib/clipboard.zsh
-zplugin snippet OMZ::lib/correction.zsh
-zplugin snippet OMZ::lib/directories.zsh
-zplugin snippet OMZ::lib/functions.zsh
-zplugin snippet OMZ::lib/history.zsh
-zplugin snippet OMZ::lib/misc.zsh
-zplugin snippet OMZ::lib/nvm.zsh
-zplugin snippet OMZ::lib/spectrum.zsh
-zplugin snippet OMZ::plugins/git-extras/git-extras.plugin.zsh
-zplugin snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
-zplugin snippet OMZ::plugins/npm/npm.plugin.zsh
-zplugin snippet OMZ::plugins/sudo/sudo.plugin.zsh
-zplugin snippet OMZ::plugins/tmux/tmux.plugin.zsh
-zplugin snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
-zplugin snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
-zplugin snippet OMZ::plugins/vscode/vscode.plugin.zsh
-zplugin snippet OMZ::plugins/web-search/web-search.plugin.zsh
-zplugin snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
-zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+zinit snippet OMZ::lib/clipboard.zsh
+zinit snippet OMZ::lib/correction.zsh
+zinit snippet OMZ::lib/directories.zsh
+zinit snippet OMZ::lib/functions.zsh
+zinit snippet OMZ::lib/history.zsh
+zinit snippet OMZ::lib/misc.zsh
+zinit snippet OMZ::lib/nvm.zsh
+zinit snippet OMZ::lib/spectrum.zsh
+zinit snippet OMZ::plugins/git-extras/git-extras.plugin.zsh
+zinit snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
+zinit snippet OMZ::plugins/npm/npm.plugin.zsh
+zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
+zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh
+zinit snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
+zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
+zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
+zinit snippet OMZ::plugins/web-search/web-search.plugin.zsh
+zinit snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
+zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
-zplugin light changyuheng/zsh-interactive-cd
-zplugin load zdharma/history-search-multi-word
+zinit light changyuheng/zsh-interactive-cd
+zinit load zdharma/history-search-multi-word
 
-zplugin light kutsan/zsh-system-clipboard
+zinit light kutsan/zsh-system-clipboard
 ZSH_SYSTEM_CLIPBOARD_TMUX_SUPPORT='true'
 
 # One other binary release, it needs renaming from `docker-compose-Linux-x86_64`.
 # This is done by ice-mod `mv'{from} -> {to}'. There are multiple packages per
 # single version, for OS X, Linux and Windows – so ice-mod `bpick' is used to
-# select Linux package – in this case this is not needed, Zplugin will grep
+# select Linux package – in this case this is not needed, zinit will grep
 # operating system name and architecture automatically when there's no `bpick'
 
-zplugin ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"; zplugin load docker/compose
+zinit ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"; zinit load docker/compose
 
-# zplugin creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
+# zinit creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
 
 if is_not_mac; then
     # Ice-mod `pick` selects a binary program to add to $PATH.
-    zplugin ice as"program" atclone"rm -f src/auto/config.cache; ./configure --enable-gui=auto --enable-gtk2-check --with-x --prefix=/usr --enable-pythoninterp=yes --enable-python3interp=yes" atpull"%atclone" make pick"src/vim"
+    zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure --enable-gui=auto --enable-gtk2-check --with-x --prefix=/usr --enable-pythoninterp=yes --enable-python3interp=yes" atpull"%atclone" make pick"src/vim"
 else
-    zplugin ice as"program" atclone"rm -f src/auto/config.cache; ./configure --with-features=huge --enable-multibyte  --enable-pythoninterp=yes --enable-python3interp=yes --enable-cscope --prefix=/usr/local" atpull"%atclone" make pick"src/vim"
+    zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure --with-features=huge --enable-multibyte  --enable-pythoninterp=yes --enable-python3interp=yes --enable-cscope --prefix=/usr/local" atpull"%atclone" make pick"src/vim"
 fi
 
-zplugin light vim/vim
-export VIMRUNTIME=~/.zplugin/plugins/vim---vim/runtime
+zinit light vim/vim
+export VIMRUNTIME=~/.zinit/plugins/vim---vim/runtime
 
-zplugin ice as"program" atclone"cd PathPicker/debian ./package.sh " atpull"%atclone" make pick"facebook/PathPicker"
-zplugin light facebook/PathPicker
+zinit ice as"program" atclone"cd PathPicker/debian ./package.sh " atpull"%atclone" make pick"facebook/PathPicker"
+zinit light facebook/PathPicker
 
 # using case-insensitive autocomplete
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'

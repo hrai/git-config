@@ -1,11 +1,11 @@
 if hash zsh 2>/dev/null; then
-    echo 'Cloning zplugin....'
+    echo 'Cloning zinit....'
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-    echo 'Successfully cloned zplugin....'
+    echo 'Successfully cloned zinit....'
 
     # securing the directories
-    # sudo chmod -R 777 ~/.zplugin
-    # sudo chown -R root:$USER ./.zplugin
+    # sudo chmod -R 777 ~/.zinit
+    # sudo chown -R root:$USER ./.zinit
 
     ZSH_DIR=~/.zsh
     echo "Moving key-bindings.zsh to $ZSH_DIR directory...."
