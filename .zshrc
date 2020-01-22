@@ -209,13 +209,6 @@ ENABLE_CORRECTION="true"
 ## Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-### Added by Zplugin's installer
-source "$HOME/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin's installer chunk
-
-
 if [[ $(compaudit) ]]; then
     # Fix for compinit (There are insecure directories)
     compaudit | xargs chown -R "$(whoami)"
