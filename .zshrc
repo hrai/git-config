@@ -382,7 +382,7 @@ alias opd='open-pr develop'
 alias zconf="vim ~/.zshrc"
 alias zls='zplgin ls'
 alias szc='source ~/.zshrc'
-alias ex='explorer .'
+alias ex='explorer.exe .'
 
 
 # Suffix aliases
