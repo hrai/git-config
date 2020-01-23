@@ -22,3 +22,7 @@ bash 6_set_vim_configs.sh
 echo ''
 # Installing YCM....
 bash 8_move_editorconfig.sh
+
+echo ''
+# installing npm packages
+bash 9_setup_js.sh
