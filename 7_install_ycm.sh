@@ -1,7 +1,9 @@
 # install dependencies
 sudo apt install build-essential cmake python3-dev python-dev npm -y
 
+git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/plugged/YouCompleteMe
 cd ~/.vim/plugged/YouCompleteMe
+git submodule update --init --recursive
 
 setup_cs_autocomplete() {
     wget http://download.mono-project.com/repo/xamarin.gpg
