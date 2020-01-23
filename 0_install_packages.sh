@@ -138,6 +138,7 @@ function install_apps() {
             # ack-grep
             autojump
             curl
+            cmake
             dos2unix
             editorconfig
             fonts-hack-ttf
