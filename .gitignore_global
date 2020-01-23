@@ -294,3 +294,5 @@ snap/
 
 .serverless
 *.zip
+
+xamarin.gpg*
