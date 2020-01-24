@@ -52,6 +52,11 @@ function install_dotnet() {
     sudo apt-get install dotnet-sdk-3.1
 }
 
+function install_nodejs() {
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+    sudo apt install -y nodejs
+}
+
 function install_ctags() {
 
     echo "Do you want to install and compile ctags (y/n)?"
@@ -177,14 +182,11 @@ function install_apps() {
 
         install_linux_packages ${packages[@]}
 
-        # Install nodejs
-        curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-        sudo apt install -y nodejs
-
         install_ctags
         install_docker
-        install_hack_nerd_font
         install_dotnet
+        install_hack_nerd_font
+        install_nodejs
 
         # install_aws_cli
 
