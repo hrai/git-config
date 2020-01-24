@@ -41,6 +41,17 @@ function install_docker() {
     fi
 }
 
+function install_dotnet() {
+    wget -q https://packages.microsoft.com/config/ubuntu/19.10/packages-microsoft-prod.deb -O
+    packages-microsoft-prod.deb
+    sudo dpkg -i packages-microsoft-prod.deb
+
+    sudo apt-get update
+    sudo apt-get install apt-transport-https
+    sudo apt-get update
+    sudo apt-get install dotnet-sdk-3.1
+}
+
 function install_ctags() {
 
     echo "Do you want to install and compile ctags (y/n)?"
@@ -164,20 +175,20 @@ function install_apps() {
             zsh
         )
 
-
         install_linux_packages ${packages[@]}
 
         # Install nodejs
         curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
         sudo apt install -y nodejs
 
+        install_ctags
+        install_docker
+        install_hack_nerd_font
+        install_dotnet
+
+        # install_aws_cli
 
         sudo pip3 install thefuck
-        install_ctags
-        # install_aws_cli
-        install_docker
-
-        install_hack_nerd_font
     fi
 
     echo 'Finished installing apps....'
