@@ -260,10 +260,6 @@ if is_program_installed 'fasd'; then
     abbrev-alias vi='fasd -f -e vim'
 fi
 
-
-# print full file path
-filepath() { for f in "$@"; do echo ${f}(:A); done  }
-
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
 ## powerlevel9k theme settings ##
