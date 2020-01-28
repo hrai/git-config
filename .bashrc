@@ -121,6 +121,10 @@ grc() {
   git push -u origin $branch_name;
 }
 
+gco() {
+    git clone "$1" && cd "$(basename "$1" .git)"
+}
+
 fa() {
   alias | grep $1
 }
@@ -181,7 +185,6 @@ alias gck='git checkout'
 alias gcb='git checkout -b'
 alias gcd='git checkout develop'
 alias gcm='git checkout master'
-alias gco='git clone'
 alias gcm='git commit'
 alias gcrp='git cherry-pick'
 alias gd='git diff'
