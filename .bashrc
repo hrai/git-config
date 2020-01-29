@@ -162,6 +162,7 @@ alias ns='npm start'
 alias nt='npm test'
 alias v='vim'
 alias y='yarn'
+alias ys='yarn start'
 
 alias dn='dotnet'
 alias db='dotnet build'
