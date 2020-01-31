@@ -378,3 +378,17 @@ abbrev-alias -i
 abbrev-alias -g G="| grep"
 abbrev-alias -g gcl="gap cleanup"
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/funkenn/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/funkenn/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/funkenn/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/funkenn/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
