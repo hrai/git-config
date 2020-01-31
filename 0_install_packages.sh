@@ -153,6 +153,7 @@ function install_apps() {
         packages=(
             # ack-grep
             autojump
+            calibre
             curl
             cmake
             dos2unix
