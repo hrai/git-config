@@ -20,7 +20,7 @@ echo ''
 bash 6_set_vim_configs.sh
 
 echo ''
-# Installing YCM....
+# Installing editor config....
 bash 8_move_editorconfig.sh
 
 echo ''
