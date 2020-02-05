@@ -378,3 +378,6 @@ abbrev-alias -i
 abbrev-alias -g G="| grep"
 abbrev-alias -g gcl="gap cleanup"
 
+
+# Ignoring cre-bus-fra build folders
+alias ag='ag ignore-dir wwwroot ignore-dir dist'
