@@ -257,7 +257,7 @@ if is_program_installed 'fasd'; then
     abbrev-alias zz='fasd_cd -d -i'
 
     # Vim
-    abbrev-alias vi='fasd -f -e vim'
+    abbrev-alias vif='fasd -f -e vim'
 fi
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
