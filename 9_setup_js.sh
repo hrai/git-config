@@ -1,5 +1,21 @@
+function is_windows() {
+    local SYSTEM_NAME="$(expr substr $(uname -s) 1 10)"
+
+    if [ "$SYSTEM_NAME" = "MINGW64_NT" ]; then
+        true
+    elif [ "$SYSTEM_NAME" = "MINGW32_NT" ]; then
+        true
+    else
+        false
+    fi
+}
+
 # install nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | zsh
+if is_windows; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | sh
+else
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | zsh
+fi
 
 # install npm packages
 NODE_MODULES_DIR=/usr/lib/node_modules
