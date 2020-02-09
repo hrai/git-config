@@ -5,7 +5,7 @@ bash 2_move_bashrc.sh
 
 echo ''
 # Moving git hooks to home directory....
-bash 5_move_git_hooks.sh
+bash 5_setup_git.sh
 
 echo ''
 # Moving tmux config to home directory....
