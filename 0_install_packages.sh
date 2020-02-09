@@ -93,6 +93,10 @@ function install_kitty() {
 
     # Update the path to the kitty icon in the kitty.desktop file
     sed -i "s/Icon\=kitty/Icon\=\/home\/$USER\/.local\/kitty.app\/share\/icons\/hicolor\/256x256\/apps\/kitty.png/g" ~/.local/share/applications/kitty.desktop
+
+    KITTY_CONFIG_PATH=~/.config/kitty
+    mkdir -p $KITTY_CONFIG_PATH
+    mv kitty.conf $KITTY_CONFIG_PATH/kitty.conf
 }
 
 function install_linux_packages() {
