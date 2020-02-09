@@ -84,7 +84,9 @@ function install_ctags() {
 
 function install_kitty() {
     curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+}
 
+function setup_kitty_desktop_file() {
     # Create a symbolic link to add kitty to PATH (assuming ~/.local/bin is in your PATH)
     ln -s ~/.local/kitty.app/bin/kitty ~/.local/bin/
 
@@ -93,10 +95,27 @@ function install_kitty() {
 
     # Update the path to the kitty icon in the kitty.desktop file
     sed -i "s/Icon\=kitty/Icon\=\/home\/$USER\/.local\/kitty.app\/share\/icons\/hicolor\/256x256\/apps\/kitty.png/g" ~/.local/share/applications/kitty.desktop
+}
 
+function move_kitty_conf() {
     KITTY_CONFIG_PATH=~/.config/kitty
     mkdir -p $KITTY_CONFIG_PATH
     mv kitty.conf $KITTY_CONFIG_PATH/kitty.conf
+}
+
+function change_default_terminal_to_kitty() {
+    # change default terminal emulator in Ubuntu to Kitty
+    gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty'
+}
+
+function configure_kitty() {
+    install_kitty()
+
+    setup_kitty_desktop_file()
+
+    move_kitty_conf()
+
+    change_default_terminal_to_kitty()
 }
 
 function install_linux_packages() {
