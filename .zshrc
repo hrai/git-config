@@ -61,6 +61,9 @@ zinit light wtfutil/wtf
 zinit ice from"gh-r" as"program" bpick"*amd64.tar.gz"
 zinit light Versent/saml2aws
 
+zinit ice pick"init.sh"
+zinit light b4b4r07/enhancd
+
 #
 ## Themes
 ##
