@@ -154,6 +154,7 @@ function install_apps() {
         packages=(
             # ack-grep
             autojump
+            bat
             calibre
             curl
             cmake
