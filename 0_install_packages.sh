@@ -150,7 +150,7 @@ function install_apps() {
         # disable Alt + F4 switching to TTY4
         sudo kbd_mode -s
 
-        sudo apt remove vim
+        sudo apt remove vim -y
         packages=(
             # ack-grep
             autojump
