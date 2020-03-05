@@ -186,7 +186,7 @@ alias gck='git checkout'
 alias gcb='git checkout -b'
 alias gcd='git checkout develop'
 alias gcm='git checkout master'
-alias gcm='git commit'
+alias gco='git commit'
 alias gcrp='git cherry-pick'
 alias gd='git diff'
 alias gdc='git diff --cached'
@@ -223,6 +223,8 @@ alias gsd='git stash drop'
 alias gsl='git stash list'
 alias gsp='git stash pop'
 alias gst='git stash'
+
+alias gcl='gap cleanup'
 
 
 #-------Delete all branches except master--------
