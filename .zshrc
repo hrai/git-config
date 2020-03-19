@@ -55,11 +55,11 @@ zinit light zdharma/zsh-diff-so-fancy
 zinit ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
 zinit load trapd00r/LS_COLORS
 
-zinit ice from"gh-r" as"program" bpick"*linux_amd64*" mv"wtf*/wtfutil -> wtfutil"
-zinit light wtfutil/wtf
+# zinit ice from"gh-r" as"program" bpick"*linux_amd64*" mv"wtf*/wtfutil -> wtfutil"
+# zinit light wtfutil/wtf
 
-zinit ice from"gh-r" as"program" bpick"*amd64.tar.gz"
-zinit light Versent/saml2aws
+# zinit ice from"gh-r" as"program" bpick"*amd64.tar.gz"
+# zinit light Versent/saml2aws
 
 zinit ice pick"init.sh"
 zinit light b4b4r07/enhancd
