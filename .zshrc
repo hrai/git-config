@@ -81,7 +81,6 @@ zinit light mptre/yank
 zinit ice as"program" pick"fasd" make"install"
 zinit light clvv/fasd
 
-# zinit light nvbn/thefuck
 zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
@@ -94,6 +93,7 @@ zinit light wfxr/forgit
 zinit light hlissner/zsh-autopair
 zinit light peterhurford/git-it-on.zsh
 zinit light caarlos0/zsh-open-pr
+zinit light Aloxaf/fzf-tab
 
 # Oh-my-zsh plugins
 zinit snippet OMZ::lib/clipboard.zsh
