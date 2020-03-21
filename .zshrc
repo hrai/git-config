@@ -95,9 +95,6 @@ zinit light peterhurford/git-it-on.zsh
 zinit light caarlos0/zsh-open-pr
 zinit light Aloxaf/fzf-tab
 
-# Use it when fzf-tab doesn't initialize properly
-enable-fzf-tab
-
 
 # Oh-my-zsh plugins
 zinit snippet OMZ::lib/clipboard.zsh
@@ -387,3 +384,7 @@ abbrev-alias -g gcl="gap cleanup"
 
 # Ignoring cre-bus-fra build folders
 alias ag='ag --ignore-dir={wwwroot,dist}'
+
+# Use it when fzf-tab doesn't initialize properly
+enable-fzf-tab
+
