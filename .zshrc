@@ -381,6 +381,8 @@ abbrev-alias -i
 abbrev-alias -g G="| grep"
 abbrev-alias -g gcl="gap cleanup"
 
+# Use it when fzf-tab doesn't initialize properly
+enable-fzf-tab
 
 # Ignoring cre-bus-fra build folders
 alias ag='ag --ignore-dir={wwwroot,dist}'
