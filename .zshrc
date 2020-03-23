@@ -388,3 +388,6 @@ alias ag='ag --ignore-dir={wwwroot,dist}'
 # Use it when fzf-tab doesn't initialize properly
 enable-fzf-tab
 
+if is_wsl; then
+    npm config set unsafe-perm=true
+fi
