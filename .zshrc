@@ -64,6 +64,10 @@ zinit load trapd00r/LS_COLORS
 zinit ice pick"init.sh"
 zinit light b4b4r07/enhancd
 
+zinit ice as"program" atload"fpath+=( \$PWD );" mv"wsl-open.sh -> wsl-open"
+zinit light 4U6U57/wsl-open
+
+
 #
 ## Themes
 ##
@@ -389,5 +393,13 @@ alias ag='ag --ignore-dir={wwwroot,dist}'
 enable-fzf-tab
 
 if is_wsl; then
-    npm config set unsafe-perm=true
+    # Adding wsl-open as a browser for Bash for Windows
+    if [[ $(uname -r) == *Microsoft ]]; then
+      if [[ -z $BROWSER ]]; then
+        export BROWSER=wsl-open
+      else
+        export BROWSER=$BROWSER:wsl-open
+      fi
+    fi
 fi
+
