@@ -47,6 +47,7 @@ function is_windows() {
 
 if is_windows; then
     git config --global core.autocrlf true
+    git config --global credential.helper wincred
 else
     git config --global core.autocrlf input
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
