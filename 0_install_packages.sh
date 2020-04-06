@@ -232,7 +232,7 @@ function create_ssh_key() {
 
     if [ ! -f $ssh_file ]; then
         # create ssh keys
-        echo -e "\n\n\n" | ssh-keygen -t rsa -b 4096 -C "rai.hangjit@gmail.com" -N ""
+        echo -e "\n\n\n" | ssh-keygen -t rsa -b 4096 -C "hangjit.rai@outlook.com" -N ""
         eval "$(ssh-agent -s)"
         ssh-add $ssh_file
         xclip -sel clip < ~/.ssh/id_rsa.pub

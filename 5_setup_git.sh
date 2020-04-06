@@ -29,7 +29,7 @@ git config --global credential.helper 'cache --timeout=3600'
 git config --global diff.tool vimdiff
 git config --global difftool.prompt false
 git config --global merge.tool kdiff3
-git config --global user.email rai.hangjit@gmail.com
+git config --global user.email hangjit.rai@outlook.com
 git config --global user.name "Hangjit Rai"
 git config --global init.templatedir '~/.global-git-hooks'
 
