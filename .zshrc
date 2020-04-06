@@ -403,3 +403,6 @@ if is_wsl; then
     fi
 fi
 
+convert_to_mobi_and_delete() {
+    for book in *.epub; do echo "Converting $book"; ebook-convert "$book" "$(basename "$book" .epub).mobi"; done && rm -f *.epub
+}
