@@ -9,7 +9,7 @@ if hash tmux 2>/dev/null; then
 
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-    echo "Enter `prefix + I` to install tmux plugins..."
+    echo "Enter 'prefix + I' to install tmux plugins..."
     echo "Press any key to continue..."
 
     read
