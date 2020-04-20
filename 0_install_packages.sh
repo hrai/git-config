@@ -124,6 +124,7 @@ function install_apps() {
             git
             git-extras
             make
+            neovim
             nodejs
             python3-dev
             the_silver_searcher
@@ -166,6 +167,7 @@ function install_apps() {
             libatk1.0-dev libbonoboui2-dev libcairo2-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libncurses5-dev libsm-dev libx11-dev libxpm-dev libxt-dev libxtst-dev #vim build deps
             make
             nautilus
+            neovim
             python-dev
             python3-dev
             python3-pip
