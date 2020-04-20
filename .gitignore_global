@@ -295,3 +295,4 @@ snap/
 *.zip
 
 xamarin.gpg*
+*.files
