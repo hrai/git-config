@@ -145,7 +145,7 @@ else
 fi
 
 zinit light vim/vim
-export VIMRUNTIME=~/.zinit/plugins/vim---vim/runtime
+# export VIMRUNTIME=~/.zinit/plugins/vim---vim/runtime
 
 zinit ice as"program" atclone"cd PathPicker/debian ./package.sh " atpull"%atclone" make pick"facebook/PathPicker"
 zinit light facebook/PathPicker
@@ -180,7 +180,7 @@ export DOCKER_HOST=tcp://localhost:2375
 export UPDATE_ZSH_DAYS=13
 
 ## Preferred editor for local and remote sessions
-export EDITOR="vim"
+export EDITOR="nvim"
 
 ## ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
