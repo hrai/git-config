@@ -376,9 +376,10 @@ alias opm='open-pr master'
 alias opd='open-pr develop'
 
 alias zconf="vim ~/.zshrc"
-alias zls='zplgin ls'
 alias szc='source ~/.zshrc'
+alias zls='zplgin ls'
 alias ex='explorer.exe .'
+alias tconf="vim ~/.tmux.conf"
 
 
 # Suffix aliases
