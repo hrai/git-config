@@ -42,7 +42,6 @@ forgit_reset_head=grhd
 ## Completions
 ##
 zinit ice as"completion"
-zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 
 #
 ## Scripts
@@ -131,13 +130,35 @@ zinit load zdharma/history-search-multi-word
 zinit light kutsan/zsh-system-clipboard
 ZSH_SYSTEM_CLIPBOARD_TMUX_SUPPORT='true'
 
-# One other binary release, it needs renaming from `docker-compose-Linux-x86_64`.
-# This is done by ice-mod `mv'{from} -> {to}'. There are multiple packages per
-# single version, for OS X, Linux and Windows – so ice-mod `bpick' is used to
-# select Linux package – in this case this is not needed, zinit will grep
-# operating system name and architecture automatically when there's no `bpick'
+load_docker_config() {
+    # auto completion
+    zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+    # One other binary release, it needs renaming from `docker-compose-Linux-x86_64`.
+    # This is done by ice-mod `mv'{from} -> {to}'. There are multiple packages per
+    # single version, for OS X, Linux and Windows – so ice-mod `bpick' is used to
+    # select Linux package – in this case this is not needed, zinit will grep
+    # operating system name and architecture automatically when there's no `bpick'
 
-zinit ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"; zinit load docker/compose
+    zinit ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"; zinit load docker/compose
+
+    export DOCKER_HOST=tcp://localhost:2375
+
+    # Select a docker container to start and attach to
+    da() {
+        local cid
+        cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
+
+        [ -n "$cid" ] && docker start "$cid" && docker attach "$cid"
+    }
+
+    # Select a running docker container to stop
+    ds() {
+        local cid
+        cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
+
+        [ -n "$cid" ] && docker stop "$cid"
+    }
+}
 
 # zinit creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
 
@@ -188,7 +209,6 @@ fi
 # autojump error fix - https://github.com/wting/autojump/issues/474
 unsetopt BG_NICE
 
-export DOCKER_HOST=tcp://localhost:2375
 export UPDATE_ZSH_DAYS=13
 
 ## Preferred editor for local and remote sessions
@@ -338,22 +358,6 @@ gckbr() {
     git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-# Select a docker container to start and attach to
-da() {
-    local cid
-    cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
-
-    [ -n "$cid" ] && docker start "$cid" && docker attach "$cid"
-}
-
-# Select a running docker container to stop
-ds() {
-    local cid
-    cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
-
-    [ -n "$cid" ] && docker stop "$cid"
-}
-
 # ssh functions
 load_work_ssh_settings() {
     eval "$(ssh-agent -s)"
@@ -419,3 +423,5 @@ fi
 convert_to_mobi_and_delete() {
     for book in *.epub; do echo "Converting $book"; ebook-convert "$book" "$(basename "$book" .epub).mobi"; done && rm -f *.epub
 }
+
+load_docker_config
