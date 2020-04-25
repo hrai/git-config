@@ -141,16 +141,24 @@ zinit ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"; z
 
 # zinit creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
 
-if is_not_mac; then
-    # Ice-mod `pick` selects a binary program to add to $PATH.
-    zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure --enable-gui=auto --enable-gtk2-check --with-x --prefix=/usr --enable-pythoninterp=yes --enable-python3interp=yes" atpull"%atclone" make pick"src/vim"
-else
-    zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure --with-features=huge --enable-multibyte  --enable-pythoninterp=yes --enable-python3interp=yes --enable-cscope --prefix=/usr/local" atpull"%atclone" make pick"src/vim"
-fi
+# install vim
+# if is_not_mac; then
+#     # Ice-mod `pick` selects a binary program to add to $PATH.
+#     zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure --enable-gui=auto --enable-gtk2-check --with-x --prefix=/usr --enable-pythoninterp=yes --enable-python3interp=yes" atpull"%atclone" make pick"src/vim"
+# else
+#     zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure --with-features=huge --enable-multibyte  --enable-pythoninterp=yes --enable-python3interp=yes --enable-cscope --prefix=/usr/local" atpull"%atclone" make pick"src/vim"
+# fi
 
-zinit light vim/vim
+# zinit light vim/vim
 # export VIMRUNTIME=~/.zinit/plugins/vim---vim/runtime
 
+# install tmux
+sudo apt install -y build-essential
+sudo apt install -y libevent-dev
+sudo apt install -y byacc
+
+zinit ice as"program" atclone"sh autogen.sh && ./configure" atpull"%atclone" make"install" pick"tmux/tmux"
+zinit light tmux/tmux
 zinit ice as"program" atclone"cd PathPicker/debian ./package.sh " atpull"%atclone" make pick"facebook/PathPicker"
 zinit light facebook/PathPicker
 
