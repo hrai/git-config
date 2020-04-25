@@ -160,8 +160,6 @@ load_docker_config() {
     }
 }
 
-# zinit creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
-
 # install vim
 # if is_not_mac; then
 #     # Ice-mod `pick` selects a binary program to add to $PATH.
