@@ -27,6 +27,10 @@ hibernate() {
     systemctl suspend -i
 }
 
+agf() {
+    ag $* | fpp
+}
+
 # Sourcing zinit
 source ~/.zinit/bin/zinit.zsh
 
