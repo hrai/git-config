@@ -62,11 +62,6 @@ alias tconf="vim ~/.tmux.conf"
 alias -s log=vim
 alias -s notes=vim
 
-# Initialising zsh abbreviations plugin
-abbrev-alias -i
-abbrev-alias -g G="| grep"
-abbrev-alias -g gcl="gap cleanup"
-
 # Ignoring cre-bus-fra build folders
 alias ag='ag --ignore-dir={wwwroot,dist}'
 
@@ -291,6 +286,11 @@ fi
 
 # instead of 'cd my_dir' you can do my_dir
 setopt AUTO_CD
+
+# Initialising zsh abbreviations plugin
+abbrev-alias -i
+abbrev-alias -g G="| grep"
+abbrev-alias -g gcl="gap cleanup"
 
 # Fasd
 # If fasd is installed and in use, add a bunch of

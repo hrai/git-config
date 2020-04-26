@@ -296,3 +296,4 @@ snap/
 
 xamarin.gpg*
 *.files
+*.deb
