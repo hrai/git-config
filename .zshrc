@@ -27,6 +27,19 @@ hibernate() {
     systemctl suspend -i
 }
 
+update_system () {
+  if [ "$(uname)" = "Darwin" ]; then
+    brew update
+    brew upgrade
+  elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+    sudo apt update -y
+    sudo apt upgrade -y
+    sudo apt autoremove -y
+  fi
+
+  zinit update
+}
+
 agf() {
     ag $* | fpp
 }
