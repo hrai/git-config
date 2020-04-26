@@ -112,6 +112,9 @@ zinit ice from"gh"
 zinit load bhilburn/powerlevel9k
 
 
+################################################
+############# apps and plugins definitions #############
+################################################
 # Binary release in archive, from Github-releases page; after automatic unpacking it provides program "fzf"
 zinit ice from"gh-r" as"program" bpick"*amd64*"
 zinit light junegunn/fzf-bin
@@ -127,7 +130,6 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light paulirish/git-open
-# zinit light denysdovhan/spaceship-prompt
 zinit light MichaelAquilina/zsh-you-should-use
 zinit light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
 zinit light wfxr/forgit
@@ -135,7 +137,6 @@ zinit light hlissner/zsh-autopair
 zinit light peterhurford/git-it-on.zsh
 zinit light caarlos0/zsh-open-pr
 zinit light Aloxaf/fzf-tab
-
 
 # Oh-my-zsh plugins
 zinit snippet OMZ::lib/clipboard.zsh
@@ -208,8 +209,25 @@ load_docker_config() {
 # install tmux
 zinit ice as"program" atclone"sh autogen.sh && ./configure" atpull"%atclone" make"install" pick"tmux/tmux"
 zinit light tmux/tmux
+
 zinit ice as"program" atclone"cd PathPicker/debian ./package.sh " atpull"%atclone" make pick"facebook/PathPicker"
 zinit light facebook/PathPicker
+
+
+start_tmux () {
+  # set shell to start up tmux by default
+  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+    exec tmux
+  fi
+}
+
+if [ "$(uname)" = "Darwin" ]; then
+    alias ls='ls -G'
+    start_tmux
+elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+    alias ls='ls --color=auto'
+    start_tmux
+fi
 
 # using case-insensitive autocomplete
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'

@@ -1,15 +1,6 @@
-start_tmux () {
-  # set shell to start up tmux by default
-  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-    exec tmux
-  fi
-}
-
 if [ "$(uname)" = "Darwin" ]; then
-    start_tmux
     alias ls='ls -G'
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
-    start_tmux
     alias ls='ls --color=auto'
 elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
     # Do something under 32 bits Windows NT platform
@@ -228,3 +219,4 @@ export PATH=~/.local/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
