@@ -20,8 +20,10 @@ function install_fira_code_nerd_font() {
     cd ~/.local/share/fonts && curl -fLo "Fira Code Regular Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts%2FFiraCode%2FRegular%2Fcomplete%2FFira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
 }
 
-function install_aws_cli() {
-    pip3 install awscli --upgrade --user
+function install_python_packages() {
+    sudo pip3 install awscli --user
+    sudo pip3 install thefuck --user
+    sudo pip3 install ranger-fm
 }
 
 function install_mac_vim() {
@@ -140,7 +142,7 @@ function install_apps() {
         install_package_mac_cask "kdiff3"
         install_package_mac_cask "visual-studio-code"
 
-        # install_aws_cli
+        install_python_packages
 
         # todo test this out
         # install_mac_vim
@@ -192,9 +194,8 @@ function install_apps() {
         install_fira_code_nerd_font
         install_nodejs
 
-        # install_aws_cli
+        install_python_packages
 
-        sudo pip3 install thefuck
     fi
 
     echo 'Finished installing apps....'
