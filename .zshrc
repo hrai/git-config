@@ -44,6 +44,32 @@ agf() {
     ag $* | fpp
 }
 
+# ALIASES
+alias fm=ranger
+
+## Aliases for opening Github PRs
+alias opm='open-pr master'
+alias opd='open-pr develop'
+
+alias zconf="vim ~/.zshrc"
+alias szc='source ~/.zshrc'
+alias zls='zplgin ls'
+alias ex='explorer.exe .'
+alias tconf="vim ~/.tmux.conf"
+
+
+# Suffix aliases
+alias -s log=vim
+alias -s notes=vim
+
+# Initialising zsh abbreviations plugin
+abbrev-alias -i
+abbrev-alias -g G="| grep"
+abbrev-alias -g gcl="gap cleanup"
+
+# Ignoring cre-bus-fra build folders
+alias ag='ag --ignore-dir={wwwroot,dist}'
+
 # Sourcing zinit
 source ~/.zinit/bin/zinit.zsh
 
@@ -389,29 +415,6 @@ fix_git_hooks_line_breaks() {
 # Forgit plugin config
 forgit_reset_head=grhd
 
-
-## Aliases for opening Github PRs
-alias opm='open-pr master'
-alias opd='open-pr develop'
-
-alias zconf="vim ~/.zshrc"
-alias szc='source ~/.zshrc'
-alias zls='zplgin ls'
-alias ex='explorer.exe .'
-alias tconf="vim ~/.tmux.conf"
-
-
-# Suffix aliases
-alias -s log=vim
-alias -s notes=vim
-
-# Initialising zsh abbreviations plugin
-abbrev-alias -i
-abbrev-alias -g G="| grep"
-abbrev-alias -g gcl="gap cleanup"
-
-# Ignoring cre-bus-fra build folders
-alias ag='ag --ignore-dir={wwwroot,dist}'
 
 # Use it when fzf-tab doesn't initialize properly
 enable-fzf-tab
