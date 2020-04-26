@@ -193,7 +193,13 @@ function install_apps() {
 
 
     echo 'Setting up JS env...'
-    bash 9_setup_js.sh
+    bash _install_nvm_and_setup_js.sh
+
+    echo 'Setting up kitty...'
+    bash _install_kitty.sh
+
+    echo 'Setting up YCM...'
+    bash _install_ycm.sh
 
     echo 'Finished installing apps....'
 }
