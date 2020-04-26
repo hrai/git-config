@@ -191,6 +191,10 @@ function install_apps() {
         install_python_packages
     fi
 
+
+    echo 'Setting up JS env...'
+    bash 9_setup_js.sh
+
     echo 'Finished installing apps....'
 }
 
