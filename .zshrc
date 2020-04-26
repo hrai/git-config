@@ -185,10 +185,6 @@ load_docker_config() {
 # export VIMRUNTIME=~/.zinit/plugins/vim---vim/runtime
 
 # install tmux
-sudo apt install -y build-essential
-sudo apt install -y libevent-dev
-sudo apt install -y byacc
-
 zinit ice as"program" atclone"sh autogen.sh && ./configure" atpull"%atclone" make"install" pick"tmux/tmux"
 zinit light tmux/tmux
 zinit ice as"program" atclone"cd PathPicker/debian ./package.sh " atpull"%atclone" make pick"facebook/PathPicker"
