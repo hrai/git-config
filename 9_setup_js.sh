@@ -17,6 +17,10 @@ else
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | zsh
 fi
 
+# install latest node version
+nvm install node
+nvm use node
+
 # install npm packages
 NODE_MODULES_DIR=/usr/lib/node_modules
 
