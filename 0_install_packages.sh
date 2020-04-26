@@ -23,7 +23,7 @@ function install_fira_code_nerd_font() {
 function install_python_packages() {
     sudo pip3 install awscli --user
     sudo pip3 install thefuck --user
-    sudo pip3 install ranger-fm
+    sudo pip3 install ranger-fm --user
 }
 
 function install_mac_vim() {
