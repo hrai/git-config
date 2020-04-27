@@ -83,7 +83,7 @@ function install_linux_packages() {
 
     for i in ${arr[@]}; do
         if ! dpkg -s "$i" > /dev/null; then
-            echo "Installing $1..."
+            echo "Installing $i..."
             sudo apt install "$i" -y
         else
             echo ">>>$i is already installed"
@@ -98,7 +98,7 @@ function install_mac_packages() {
         if brew ls --versions "$i" > /dev/null; then
             echo ">>>$i is already installed"
         else
-            echo "Installing $1..."
+            echo "Installing $i..."
             brew install "$i"
         fi
     done
