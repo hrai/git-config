@@ -4,10 +4,10 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
     alias ls='ls --color=auto'
 elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
     # Do something under 32 bits Windows NT platform
-    alias cb='cd /c/dev/cre-bus-fra/CREBusFra.Web'
+    alias cb='cd /c/_dev/cre-bus-fra/CREBusFra.Web'
 elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
     # Do something under 64 bits Windows NT platform
-    alias cb='cd /c/dev/cre-bus-fra/CREBusFra.Web'
+    alias cb='cd /c/_dev/cre-bus-fra/CREBusFra.Web'
 fi
 
 ################################################
