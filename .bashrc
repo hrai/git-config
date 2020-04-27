@@ -2,6 +2,7 @@ if [ "$(uname)" = "Darwin" ]; then
     alias ls='ls -G'
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
     alias ls='ls --color=auto'
+    alias cb='cd /mnt/c/_dev/cre-bus-fra/CREBusFra.Web'
 elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
     # Do something under 32 bits Windows NT platform
     alias cb='cd /c/_dev/cre-bus-fra/CREBusFra.Web'
