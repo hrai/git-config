@@ -98,6 +98,7 @@ function install_mac_packages() {
         if brew ls --versions "$i" > /dev/null; then
             echo ">>>$i is already installed"
         else
+            echo "Installing $1..."
             brew install "$i"
         fi
     done
