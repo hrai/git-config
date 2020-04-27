@@ -133,6 +133,7 @@ zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-history-substring-search
 zinit light paulirish/git-open
 zinit light MichaelAquilina/zsh-you-should-use
 zinit light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
