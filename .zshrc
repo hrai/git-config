@@ -92,6 +92,10 @@ zinit light zdharma/zsh-diff-so-fancy
 zinit ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
 zinit load trapd00r/LS_COLORS
 
+# make'!...' -> run make before atclone & atpull
+zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh"
+zinit light direnv/direnv
+
 # zinit ice from"gh-r" as"program" bpick"*linux_amd64*" mv"wtf*/wtfutil -> wtfutil"
 # zinit light wtfutil/wtf
 
