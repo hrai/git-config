@@ -163,10 +163,8 @@ function install_apps() {
             git
             git-extras
             kdiff3
-            #vim build deps
-            libatk1.0-dev libbonoboui2-dev libcairo2-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libncurses5-dev libsm-dev libx11-dev libxpm-dev libxt-dev libxtst-dev
-            #tmux build deps
-            build-essential libevent-dev byacc
+            libatk1.0-dev libbonoboui2-dev libcairo2-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libncurses5-dev libsm-dev libx11-dev libxpm-dev libxt-dev libxtst-dev #vim build deps
+            build-essential libevent-dev byacc #tmux build deps
             make
             neovim
             python-dev
@@ -175,7 +173,6 @@ function install_apps() {
             python3-setuptools
             redshift-gtk
             silversearcher-ag
-            tmux
             tree
             xclip
             xdg-utils
