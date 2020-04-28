@@ -44,140 +44,6 @@ agf() {
     ag $* | fpp
 }
 
-# ALIASES
-alias fm=ranger
-
-## Aliases for opening Github PRs
-alias opm='open-pr master'
-alias opd='open-pr develop'
-
-alias zconf="vim ~/.zshrc"
-alias szc='source ~/.zshrc'
-alias zls='zinit ls'
-alias ex='explorer.exe .'
-alias tconf="vim ~/.tmux.conf"
-
-
-# Suffix aliases
-alias -s log=vim
-alias -s notes=vim
-
-# Ignoring cre-bus-fra build folders
-alias ag='ag --ignore-dir={wwwroot,dist}'
-
-# Sourcing zinit
-source ~/.zinit/bin/zinit.zsh
-
-zinit light zinit-zsh/z-a-bin-gem-node
-
-# Forgit plugin config
-forgit_reset_head=grhd
-
-#
-## Scripts
-##
-zinit ice as"program" atclone'perl Makefile.PL PREFIX=$ZPFX' atpull'%atclone' make'install' pick"$ZPFX/bin/git-cal"
-zinit light k4rthik/git-cal
-
-zinit ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
-zinit load trapd00r/LS_COLORS
-
-# zinit ice from"gh-r" as"program" bpick"*linux_amd64*" mv"wtf*/wtfutil -> wtfutil"
-# zinit light wtfutil/wtf
-
-# zinit ice from"gh-r" as"program" bpick"*amd64.tar.gz"
-# zinit light Versent/saml2aws
-
-zinit ice pick"init.sh"
-zinit light b4b4r07/enhancd
-
-zinit ice as"program" atload"fpath+=( \$PWD );" mv"wsl-open.sh -> wsl-open"
-zinit light 4U6U57/wsl-open
-
-
-#
-## Themes
-##
-zinit ice from"gh"
-zinit load bhilburn/powerlevel9k
-
-
-################################################
-############# apps and plugins definitions #############
-################################################
-zinit pack for fzf
-
-zinit ice as"program" pick"yank" make
-zinit light mptre/yank
-
-zinit ice as"program" pick"fasd" make"install"
-zinit light clvv/fasd
-
-zinit light zdharma/fast-syntax-highlighting
-
-zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
-    zsh-users/zsh-autosuggestions
-
-zinit ice blockf
-zinit light zsh-users/zsh-completions
-
-# completions
-# zinit cuninstall zsh-users/zsh-completions   # uninstall
-# zinit creinstall zsh-users/zsh-completions   # install
-
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-history-substring-search
-zinit light MichaelAquilina/zsh-you-should-use
-zinit light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
-zinit light wfxr/forgit
-zinit light hlissner/zsh-autopair
-zinit light peterhurford/git-it-on.zsh
-zinit light caarlos0/zsh-open-pr
-zinit light Aloxaf/fzf-tab
-
-# Oh-my-zsh plugins
-zinit snippet OMZ::lib/clipboard.zsh
-zinit snippet OMZ::lib/correction.zsh
-zinit snippet OMZ::lib/directories.zsh
-zinit snippet OMZ::lib/functions.zsh
-zinit snippet OMZ::lib/history.zsh
-zinit snippet OMZ::lib/misc.zsh
-zinit snippet OMZ::lib/nvm.zsh
-zinit snippet OMZ::lib/spectrum.zsh
-zinit snippet OMZ::plugins/git-extras/git-extras.plugin.zsh
-zinit snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
-zinit snippet OMZ::plugins/npm/npm.plugin.zsh
-zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
-zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh
-zinit snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
-zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
-zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
-zinit snippet OMZ::plugins/web-search/web-search.plugin.zsh
-zinit snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
-zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
-
-zinit light changyuheng/zsh-interactive-cd
-zinit load zdharma/history-search-multi-word
-
-zinit light kutsan/zsh-system-clipboard
-ZSH_SYSTEM_CLIPBOARD_TMUX_SUPPORT='true'
-
-
-zinit as"null" wait"1" lucid for \
-    sbin    cloneopts paulirish/git-open \
-    sbin    paulirish/git-recent \
-    sbin    davidosomething/git-my \
-    sbin atload"export _MENU_THEME=legacy" \
-            arzzen/git-quick-stats \
-    sbin    iwata/git-now \
-    make"PREFIX=$ZPFX install" \
-            tj/git-extras \
-    sbin"bin/git-dsf;bin/diff-so-fancy" \
-            zdharma/zsh-diff-so-fancy \
-    sbin"git-url;git-guclone" make"GITURL_NO_CGITURL=1" \
-            zdharma/git-url
-
-
 load_docker_config() {
     # auto completion
     zinit ice as"completion"
@@ -209,6 +75,168 @@ load_docker_config() {
     }
 }
 
+start_tmux () {
+  # set shell to start up tmux by default
+  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+    exec tmux
+  fi
+}
+
+convert_to_mobi_and_delete() {
+    for book in *.epub; do echo "Converting $book"; ebook-convert "$book" "$(basename "$book" .epub).mobi"; done && rm -f *.epub
+}
+
+
+if [ "$(uname)" = "Darwin" ]; then
+    alias ls='ls -G'
+    start_tmux
+elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+    alias ls='ls --color=auto'
+    start_tmux
+fi
+
+# ALIASES
+alias fm=ranger
+
+## Aliases for opening Github PRs
+alias opm='open-pr master'
+alias opd='open-pr develop'
+
+alias zconf="vim ~/.zshrc"
+alias szc='source ~/.zshrc'
+alias zls='zinit ls'
+alias ex='explorer.exe .'
+alias tconf="vim ~/.tmux.conf"
+
+
+# Suffix aliases
+alias -s log=vim
+alias -s notes=vim
+
+# Ignoring cre-bus-fra build folders
+alias ag='ag --ignore-dir={wwwroot,dist}'
+
+################################################
+############# Sourcing zinit ###################
+################################################
+source ~/.zinit/bin/zinit.zsh
+
+zinit light zinit-zsh/z-a-bin-gem-node
+
+#
+## Themes
+##
+zinit ice from"gh"
+zinit load bhilburn/powerlevel9k
+
+
+################################################
+############# Oh-my-zsh plugins #############
+################################################
+
+#
+zinit snippet OMZ::lib/clipboard.zsh
+zinit snippet OMZ::lib/correction.zsh
+zinit snippet OMZ::lib/directories.zsh
+zinit snippet OMZ::lib/functions.zsh
+zinit snippet OMZ::lib/history.zsh
+zinit snippet OMZ::lib/misc.zsh
+zinit snippet OMZ::lib/nvm.zsh
+zinit snippet OMZ::lib/spectrum.zsh
+zinit snippet OMZ::plugins/git-extras/git-extras.plugin.zsh
+zinit snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
+zinit snippet OMZ::plugins/npm/npm.plugin.zsh
+zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
+zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh
+zinit snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
+zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
+zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
+zinit snippet OMZ::plugins/web-search/web-search.plugin.zsh
+zinit snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
+zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+
+
+################################################
+################## apps #######################
+################################################
+zinit pack for fzf
+
+zinit ice as"program" pick"yank" make
+zinit light mptre/yank
+
+zinit ice as"program" pick"fasd" make"install"
+zinit light clvv/fasd
+
+zinit light zdharma/fast-syntax-highlighting
+
+zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
+    zsh-users/zsh-autosuggestions
+
+zinit ice blockf
+zinit light zsh-users/zsh-completions
+
+zinit ice as"program" atclone'perl Makefile.PL PREFIX=$ZPFX' atpull'%atclone' make'install' pick"$ZPFX/bin/git-cal"
+zinit light k4rthik/git-cal
+
+zinit ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
+zinit load trapd00r/LS_COLORS
+
+zinit ice pick"init.sh"
+zinit light b4b4r07/enhancd
+
+zinit ice as"program" atload"fpath+=( \$PWD );" mv"wsl-open.sh -> wsl-open"
+zinit light 4U6U57/wsl-open
+
+# completions
+# zinit cuninstall zsh-users/zsh-completions   # uninstall
+# zinit creinstall zsh-users/zsh-completions   # install
+
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-history-substring-search
+zinit light MichaelAquilina/zsh-you-should-use
+zinit light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
+zinit light wfxr/forgit
+zinit light hlissner/zsh-autopair
+zinit light peterhurford/git-it-on.zsh
+zinit light caarlos0/zsh-open-pr
+zinit light Aloxaf/fzf-tab
+
+zinit light changyuheng/zsh-interactive-cd
+zinit load zdharma/history-search-multi-word
+
+zinit light kutsan/zsh-system-clipboard
+ZSH_SYSTEM_CLIPBOARD_TMUX_SUPPORT='true'
+
+# install tmux
+zinit ice as"program" atclone"sh autogen.sh && ./configure" atpull"%atclone" make"install" pick"tmux/tmux"
+zinit light tmux/tmux
+
+zinit ice as"program" atclone"cd PathPicker/debian ./package.sh " atpull"%atclone" make pick"facebook/PathPicker"
+zinit light facebook/PathPicker
+
+
+zinit as"null" wait"1" lucid for \
+    sbin    cloneopts paulirish/git-open \
+    sbin    paulirish/git-recent \
+    sbin    davidosomething/git-my \
+    sbin atload"export _MENU_THEME=legacy" \
+            arzzen/git-quick-stats \
+    sbin    iwata/git-now \
+    make"PREFIX=$ZPFX install" \
+            tj/git-extras \
+    sbin"bin/git-dsf;bin/diff-so-fancy" \
+            zdharma/zsh-diff-so-fancy \
+    sbin"git-url;git-guclone" make"GITURL_NO_CGITURL=1" \
+            zdharma/git-url
+
+#
+# zinit ice from"gh-r" as"program" bpick"*linux_amd64*" mv"wtf*/wtfutil -> wtfutil"
+# zinit light wtfutil/wtf
+
+# zinit ice from"gh-r" as"program" bpick"*amd64.tar.gz"
+# zinit light Versent/saml2aws
+
+
 # install vim
 # if is_not_mac; then
 #     # Ice-mod `pick` selects a binary program to add to $PATH.
@@ -220,28 +248,6 @@ load_docker_config() {
 # zinit light vim/vim
 # export VIMRUNTIME=~/.zinit/plugins/vim---vim/runtime
 
-# install tmux
-zinit ice as"program" atclone"sh autogen.sh && ./configure" atpull"%atclone" make"install" pick"tmux/tmux"
-zinit light tmux/tmux
-
-zinit ice as"program" atclone"cd PathPicker/debian ./package.sh " atpull"%atclone" make pick"facebook/PathPicker"
-zinit light facebook/PathPicker
-
-
-start_tmux () {
-  # set shell to start up tmux by default
-  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-    exec tmux
-  fi
-}
-
-if [ "$(uname)" = "Darwin" ]; then
-    alias ls='ls -G'
-    start_tmux
-elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
-    alias ls='ls --color=auto'
-    start_tmux
-fi
 
 # using case-insensitive autocomplete
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -461,9 +467,5 @@ if is_wsl; then
       fi
     fi
 fi
-
-convert_to_mobi_and_delete() {
-    for book in *.epub; do echo "Converting $book"; ebook-convert "$book" "$(basename "$book" .epub).mobi"; done && rm -f *.epub
-}
 
 # load_docker_config
