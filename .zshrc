@@ -53,7 +53,7 @@ alias opd='open-pr develop'
 
 alias zconf="vim ~/.zshrc"
 alias szc='source ~/.zshrc'
-alias zls='zplgin ls'
+alias zls='zinit ls'
 alias ex='explorer.exe .'
 alias tconf="vim ~/.tmux.conf"
 
