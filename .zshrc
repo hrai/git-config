@@ -159,7 +159,9 @@ zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 ################################################
 ################## apps #######################
 ################################################
-zinit pack for fzf
+# Binary release in archive, from Github-releases page; after automatic unpacking it provides program "fzf"
+zinit ice from"gh-r" as"program" bpick"*amd64*"
+zinit light junegunn/fzf-bin
 
 zinit ice as"program" pick"yank" make
 zinit light mptre/yank
