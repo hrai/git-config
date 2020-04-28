@@ -68,14 +68,10 @@ alias ag='ag --ignore-dir={wwwroot,dist}'
 # Sourcing zinit
 source ~/.zinit/bin/zinit.zsh
 
+zinit light zinit-zsh/z-a-bin-gem-node
 
 # Forgit plugin config
 forgit_reset_head=grhd
-
-#
-## Completions
-##
-zinit ice as"completion"
 
 #
 ## Scripts
@@ -83,18 +79,10 @@ zinit ice as"completion"
 zinit ice as"program" atclone'perl Makefile.PL PREFIX=$ZPFX' atpull'%atclone' make'install' pick"$ZPFX/bin/git-cal"
 zinit light k4rthik/git-cal
 
-zinit ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
-zinit light tj/git-extras
 
-zinit ice as"program" pick"bin/git-dsf"
-zinit light zdharma/zsh-diff-so-fancy
 
 zinit ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
 zinit load trapd00r/LS_COLORS
-
-# make'!...' -> run make before atclone & atpull
-zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh"
-zinit light direnv/direnv
 
 # zinit ice from"gh-r" as"program" bpick"*linux_amd64*" mv"wtf*/wtfutil -> wtfutil"
 # zinit light wtfutil/wtf
@@ -119,9 +107,7 @@ zinit load bhilburn/powerlevel9k
 ################################################
 ############# apps and plugins definitions #############
 ################################################
-# Binary release in archive, from Github-releases page; after automatic unpacking it provides program "fzf"
-zinit ice from"gh-r" as"program" bpick"*amd64*"
-zinit light junegunn/fzf-bin
+zinit pack for fzf
 
 zinit ice as"program" pick"yank" make
 zinit light mptre/yank
@@ -130,11 +116,19 @@ zinit ice as"program" pick"fasd" make"install"
 zinit light clvv/fasd
 
 zinit light zdharma/fast-syntax-highlighting
-zinit light zsh-users/zsh-autosuggestions
+
+zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
+    zsh-users/zsh-autosuggestions
+
+zinit ice blockf
 zinit light zsh-users/zsh-completions
+
+# completions
+# zinit cuninstall zsh-users/zsh-completions   # uninstall
+# zinit creinstall zsh-users/zsh-completions   # install
+
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-history-substring-search
-zinit light paulirish/git-open
 zinit light MichaelAquilina/zsh-you-should-use
 zinit light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
 zinit light wfxr/forgit
@@ -170,8 +164,25 @@ zinit load zdharma/history-search-multi-word
 zinit light kutsan/zsh-system-clipboard
 ZSH_SYSTEM_CLIPBOARD_TMUX_SUPPORT='true'
 
+
+zinit as"null" wait"1" lucid for \
+    sbin    cloneopts paulirish/git-open \
+    sbin    paulirish/git-recent \
+    sbin    davidosomething/git-my \
+    sbin atload"export _MENU_THEME=legacy" \
+            arzzen/git-quick-stats \
+    sbin    iwata/git-now \
+    make"PREFIX=$ZPFX install" \
+            tj/git-extras \
+    sbin"bin/git-dsf;bin/diff-so-fancy" \
+            zdharma/zsh-diff-so-fancy \
+    sbin"git-url;git-guclone" make"GITURL_NO_CGITURL=1" \
+            zdharma/git-url
+
+
 load_docker_config() {
     # auto completion
+    zinit ice as"completion"
     zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
     # One other binary release, it needs renaming from `docker-compose-Linux-x86_64`.
     # This is done by ice-mod `mv'{from} -> {to}'. There are multiple packages per
