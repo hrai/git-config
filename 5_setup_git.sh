@@ -53,14 +53,8 @@ else
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 fi
 
-echo "Do you want to move .gitignore file too (y/n)?"
-read user_response
-
-if [ "$user_response" = "y" ]
-then
-    cp .gitignore_global ~/.gitignore
-    echo "Successfully moved .gitignore file to ~/.gitignore"
-fi
+cp .gitignore_global ~/.gitignore
+echo "Successfully moved .gitignore file to ~/.gitignore"
 
 git config --global core.excludesfile '~/.gitignore'
 
