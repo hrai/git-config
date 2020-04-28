@@ -271,16 +271,16 @@ zstyle ':completion:*:*:xdvi:*' file-sort time
 
 # PLUGIN CONFIG
 
-if is_not_mac; then
-    # source autojump starter file
-    . /usr/share/autojump/autojump.sh
-fi
+# if is_not_mac; then
+#     # source autojump starter file
+#     . /usr/share/autojump/autojump.sh
+# fi
 
-# for Mac
-[ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
+# # for Mac
+# [ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
 
-# autojump error fix - https://github.com/wting/autojump/issues/474
-unsetopt BG_NICE
+# # autojump error fix - https://github.com/wting/autojump/issues/474
+# unsetopt BG_NICE
 
 export UPDATE_ZSH_DAYS=13
 
@@ -369,13 +369,13 @@ if is_program_installed 'fasd'; then
     abbrev-alias sf='fasd -sif'
 
     # cd - same functionality as j in autojump
-    abbrev-alias z='fasd_cd -d'
+    alias j='fasd_cd -d'
 
     # Interactive cd
     abbrev-alias zz='fasd_cd -d -i'
 
-    # Vim
-    abbrev-alias vif='fasd -f -e vim'
+    # Interactive open file in Vim
+    abbrev-alias of='fasd -f -e vim'
 fi
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
