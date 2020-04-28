@@ -79,8 +79,6 @@ forgit_reset_head=grhd
 zinit ice as"program" atclone'perl Makefile.PL PREFIX=$ZPFX' atpull'%atclone' make'install' pick"$ZPFX/bin/git-cal"
 zinit light k4rthik/git-cal
 
-
-
 zinit ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
 zinit load trapd00r/LS_COLORS
 
