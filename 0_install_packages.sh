@@ -115,7 +115,6 @@ function install_apps() {
         brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
         packages=(
-            autojump
             curl
             dos2unix
             editorconfig
@@ -152,7 +151,6 @@ function install_apps() {
         sudo apt remove vim -y
         packages=(
             # ack-grep
-            autojump
             bat
             calibre
             curl
