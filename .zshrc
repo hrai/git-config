@@ -216,6 +216,8 @@ zinit light tmux/tmux
 zinit ice as"program" atclone"cd PathPicker/debian ./package.sh " atpull"%atclone" pick"facebook/PathPicker"
 zinit light facebook/PathPicker
 
+zplugin ice as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX"
+zplugin light tj/git-extras
 
 zinit as"null" wait"1" lucid for \
     sbin    cloneopts paulirish/git-open \
@@ -224,8 +226,6 @@ zinit as"null" wait"1" lucid for \
     sbin atload"export _MENU_THEME=legacy" \
             arzzen/git-quick-stats \
     sbin    iwata/git-now \
-    make"PREFIX=$ZPFX install" \
-            tj/git-extras \
     sbin"bin/git-dsf;bin/diff-so-fancy" \
             zdharma/zsh-diff-so-fancy \
     sbin"git-url;git-guclone" make"GITURL_NO_CGITURL=1" \
