@@ -185,6 +185,7 @@ zinit load trapd00r/LS_COLORS
 
 zinit ice pick"init.sh"
 zinit light b4b4r07/enhancd
+$ENHANCD_DISABLE_DOT=1
 
 zinit ice as"program" atload"fpath+=( \$PWD );" mv"wsl-open.sh -> wsl-open"
 zinit light 4U6U57/wsl-open
