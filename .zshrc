@@ -173,13 +173,9 @@ zinit light mptre/yank
 zinit ice as"program" pick"fasd" make"install"
 zinit light clvv/fasd
 
-zinit light zdharma/fast-syntax-highlighting
-
-zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
-    zsh-users/zsh-autosuggestions
-
-zinit ice blockf
-zinit light zsh-users/zsh-completions
+# completions
+# zinit cuninstall zsh-users/zsh-completions   # uninstall
+# zinit creinstall zsh-users/zsh-completions   # install
 
 zinit ice as"program" atclone'perl Makefile.PL PREFIX=$ZPFX' atpull'%atclone' make'install' pick"$ZPFX/bin/git-cal"
 zinit light k4rthik/git-cal
@@ -194,11 +190,7 @@ export ENHANCD_DISABLE_DOT=1
 zinit ice as"program" atload"fpath+=( \$PWD );" mv"wsl-open.sh -> wsl-open"
 zinit light 4U6U57/wsl-open
 
-# completions
-# zinit cuninstall zsh-users/zsh-completions   # uninstall
-# zinit creinstall zsh-users/zsh-completions   # install
-
-zinit light zsh-users/zsh-syntax-highlighting
+# zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-history-substring-search
 zinit light MichaelAquilina/zsh-you-should-use
 zinit light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
@@ -235,6 +227,14 @@ zinit as"null" wait"1" lucid for \
     zdharma/zsh-diff-so-fancy \
     sbin"git-url;git-guclone" make"GITURL_NO_CGITURL=1" \
     zdharma/git-url
+
+zinit wait lucid for \
+    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma/fast-syntax-highlighting \
+    blockf \
+    zsh-users/zsh-completions \
+    atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
 
 #
 # zinit ice from"gh-r" as"program" bpick"*linux_amd64*" mv"wtf*/wtfutil -> wtfutil"
@@ -432,60 +432,60 @@ fkill() {
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
 fe() (
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+[[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 )
 
 # Modified version where you can press
 #   - CTRL-O to open with `open` command,
 #   - CTRL-E or Enter key to open with the $EDITOR
 fo() (
-  IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
-  key=$(head -1 <<< "$out")
-  file=$(head -2 <<< "$out" | tail -1)
-  if [ -n "$file" ]; then
+IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
+key=$(head -1 <<< "$out")
+file=$(head -2 <<< "$out" | tail -1)
+if [ -n "$file" ]; then
     [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
-  fi
+fi
 )
 
 # vf - fuzzy open with vim from anywhere
 # ex: vf word1 word2 ... (even part of a file name)
 # zsh autoload function
 vf() {
-  local files
+    local files
 
-  files=(${(f)"$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1 -m)"})
+    files=(${(f)"$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1 -m)"})
 
-  if [[ -n $files ]]
-  then
-     vim -- $files
-     print -l $files[1]
-  fi
+    if [[ -n $files ]]
+    then
+        vim -- $files
+        print -l $files[1]
+    fi
 }
 
 # fuzzy grep open via ag
 vg() {
-  local file
+    local file
 
-  file="$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1}')"
+    file="$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1}')"
 
-  if [[ -n $file ]]
-  then
-     vim $file
-  fi
+    if [[ -n $file ]]
+    then
+        vim $file
+    fi
 }
 
 # fuzzy grep open via ag with line number
 vg() {
-  local file
-  local line
+    local file
+    local line
 
-  read -r file line <<<"$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
+    read -r file line <<<"$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
 
-  if [[ -n $file ]]
-  then
-     vim $file +$line
-  fi
+    if [[ -n $file ]]
+    then
+        vim $file +$line
+    fi
 }
 
 
