@@ -228,11 +228,12 @@ zinit as"null" wait"1" lucid for \
     sbin"git-url;git-guclone" make"GITURL_NO_CGITURL=1" \
     zdharma/git-url
 
+zinit ice blockf atload'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
+
 zinit wait lucid for \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     zdharma/fast-syntax-highlighting \
-    blockf atload'zinit creinstall -q .' \
-    zsh-users/zsh-completions \
     atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions
 
