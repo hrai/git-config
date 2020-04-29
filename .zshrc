@@ -403,7 +403,7 @@ unalias fd
 fd() {
     local dir
     dir=$(find ${1:-.} -path '*/\.*' -prune \
-        ¦ ·¦ ·¦ ·¦·-o -type d -print 2> /dev/null | fzf +m) &&
+        -o -type d -print 2> /dev/null | fzf +m) &&
         builtin cd "$dir"
     }
 
