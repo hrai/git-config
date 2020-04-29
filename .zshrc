@@ -32,16 +32,16 @@ hibernate() {
 }
 
 update_system () {
-  if [ "$(uname)" = "Darwin" ]; then
-    brew update
-    brew upgrade
-  elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
-    sudo apt update -y
-    sudo apt upgrade -y
-    sudo apt autoremove -y
-  fi
+    if [ "$(uname)" = "Darwin" ]; then
+        brew update
+        brew upgrade
+    elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+        sudo apt update -y
+        sudo apt upgrade -y
+        sudo apt autoremove -y
+    fi
 
-  zinit update
+    zinit update
 }
 
 agf() {
@@ -80,15 +80,15 @@ load_docker_config() {
 }
 
 start_tmux () {
-  # set shell to start up tmux by default
-  if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-    exec tmux
-  fi
+    # set shell to start up tmux by default
+    if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+        exec tmux
+    fi
 }
 
 convert_to_mobi_and_delete() {
     for book in *.epub; do echo "Converting $book"; ebook-convert "$book" "$(basename "$book" .epub).mobi"; done && rm -f *.epub
-}
+    }
 
 
 if [ "$(uname)" = "Darwin" ]; then
@@ -229,12 +229,12 @@ zinit as"null" wait"1" lucid for \
     sbin    paulirish/git-recent \
     sbin    davidosomething/git-my \
     sbin atload"export _MENU_THEME=legacy" \
-            arzzen/git-quick-stats \
+    arzzen/git-quick-stats \
     sbin    iwata/git-now \
     sbin"bin/git-dsf;bin/diff-so-fancy" \
-            zdharma/zsh-diff-so-fancy \
+    zdharma/zsh-diff-so-fancy \
     sbin"git-url;git-guclone" make"GITURL_NO_CGITURL=1" \
-            zdharma/git-url
+    zdharma/git-url
 
 #
 # zinit ice from"gh-r" as"program" bpick"*linux_amd64*" mv"wtf*/wtfutil -> wtfutil"
@@ -303,14 +303,14 @@ eval "$(fasd --init auto)"
 # LOADING ZSH CONFIG FILES
 ZSH_DIR=~/.zsh
 if [ -d $ZSH_DIR  ]; then
-        print "Sourcing $ZSH_DIR folder..."
+    print "Sourcing $ZSH_DIR folder..."
 
-        for file in $ZSH_DIR/*; do
-          source $file
-          print $file
-        done
+    for file in $ZSH_DIR/*; do
+        source $file
+        print $file
+    done
 else
-        print "404: $ZSH_DIR folder not found."
+    print "404: $ZSH_DIR folder not found."
 fi
 
 ## Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -395,22 +395,22 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode time)
 #----- Fuzzy finder (fzf) functions -------
 # fh - repeat history
 fh() {
-  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
 }
 
 # fd - cd to selected directory
 unalias fd
 fd() {
- local dir
- dir=$(find ${1:-.} -path '*/\.*' -prune \
-  ¦ ·¦ ·¦ ·¦·-o -type d -print 2> /dev/null | fzf +m) &&
- cd "$dir"
-}
+    local dir
+    dir=$(find ${1:-.} -path '*/\.*' -prune \
+        ¦ ·¦ ·¦ ·¦·-o -type d -print 2> /dev/null | fzf +m) &&
+        builtin cd "$dir"
+    }
 
 # fda - including hidden directories
 fda() {
- local dir
- dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+    local dir
+    dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && builtin cd "$dir"
 }
 
 # fkill - kill processes - list only the ones you can kill
@@ -432,9 +432,9 @@ fkill() {
 gckbr() {
     local branches branch
     branches=$(git --no-pager branch -vv) &&
-    branch=$(echo "$branches" | fzf +m) &&
-    git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
-}
+        branch=$(echo "$branches" | fzf +m) &&
+        git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+    }
 
 # ssh functions
 load_work_ssh_settings() {
@@ -467,11 +467,11 @@ enable-fzf-tab
 if is_wsl; then
     # Adding wsl-open as a browser for Bash for Windows
     if [[ $(uname -r) == *Microsoft ]]; then
-      if [[ -z $BROWSER ]]; then
-        export BROWSER=wsl-open
-      else
-        export BROWSER=wsl-open:$BROWSER
-      fi
+        if [[ -z $BROWSER ]]; then
+            export BROWSER=wsl-open
+        else
+            export BROWSER=wsl-open:$BROWSER
+        fi
     fi
 fi
 
