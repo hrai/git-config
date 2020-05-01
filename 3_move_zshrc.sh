@@ -17,8 +17,11 @@ if hash zsh 2>/dev/null; then
     cp key-bindings.zsh $ZSH_DIR/key-bindings.zsh
     echo "Successfully moved key-bindings.zsh to $ZSH_DIR directory...."
 
-    cp powerlevel.zsh $ZSH_DIR/powerlevel.zsh
+    cp powerlevel.zsh $ZSH_DIR/
     echo "Successfully moved powerlevel.zsh to $ZSH_DIR directory...."
+
+    cp .p10k.zsh $ZSH_DIR/
+    echo "Successfully moved .p10k.zsh to $ZSH_DIR directory...."
 
     ZSHRC=.zshrc
     echo "Moving $ZSHRC to home directory...."
