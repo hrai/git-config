@@ -546,6 +546,12 @@ if is_wsl; then
     fi
 fi
 
+if is_program_installed 'bat'; then
+    alias cat=bat
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    export BAT_STYLE="full"
+fi
+
 # load_docker_config
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
