@@ -1,5 +1,8 @@
 # git-hooks/
 
+# vim dirs
+temp-dirs/
+
 # ctags
 tags
 tags.lock
