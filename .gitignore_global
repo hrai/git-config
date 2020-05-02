@@ -269,6 +269,9 @@ ctags/
 .cache/
 .config/
 .dbus/
+.aspnet/
+.fontconfig/
+.enhancd/
 .dotnet/
 .gconf/
 .gnome/
@@ -298,6 +301,7 @@ snap/
 .node-gyp/
 .tmux/
 .nvm/
+.zinit/
 
 .serverless
 *.zip
