@@ -52,7 +52,7 @@ update_system () {
 
     zinit update
 
-    nvim --headless +PlugInstall +UpdateRemotePlugins +qall
+    nvim --headless +PlugUpdate +UpdateRemotePlugins +qall
 }
 
 agf() {
