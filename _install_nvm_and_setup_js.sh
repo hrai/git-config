@@ -32,10 +32,10 @@ if [ -d "$NODE_MODULES_DIR" ]; then
     # sudo chown -R $USER /usr/bin
 fi
 
-npm install web-ext
-npm install eslint
-npm install jest-cli
-
+npm install -i web-ext
+npm install -i eslint
+npm install -i jest-cli
+npm install -i bash-language-server
 
 
 
