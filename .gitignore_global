@@ -2,6 +2,7 @@
 
 # vim dirs
 temp-dirs/
+.vim/
 
 # ctags
 tags
@@ -293,6 +294,10 @@ ctags/
 .yarn/
 opt/
 snap/
+.aws/
+.node-gyp/
+.tmux/
+.nvm/
 
 .serverless
 *.zip
