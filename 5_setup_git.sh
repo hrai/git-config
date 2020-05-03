@@ -1,5 +1,22 @@
 #!/bin/bash
 
+function create_ssh_key() {
+    local ssh_file=~/.ssh/id_rsa
+
+    if [ ! -f $ssh_file ]; then
+        # create ssh keys
+        echo -e "\n\n\n" | ssh-keygen -t rsa -b 4096 -C "hangjit.rai@outlook.com" -N ""
+        eval "$(ssh-agent -s)"
+        ssh-add $ssh_file
+        # xclip -sel clip < ~/.ssh/id_rsa.pub
+        echo ">>>ssh file created and copied to clipboard."
+    else
+        echo ">>>$ssh_file already exists."
+    fi
+}
+
+create_ssh_key
+
 echo 'Moving git hooks to .global-git-hooks directory....'
 mkdir -p ~/.global-git-hooks/hooks
 
