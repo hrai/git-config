@@ -10,11 +10,13 @@ function is_windows() {
     fi
 }
 
-# install nvm
-if is_windows; then
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | sh
-else
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | zsh
+if ! where nvm > /dev/null; then
+    # install nvm
+    if is_windows; then
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | sh
+    else
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | zsh
+    fi
 fi
 
 # install latest node version
