@@ -10,8 +10,8 @@ function is_windows() {
     fi
 }
 
-if ! where nvm > /dev/null; then
-    # install nvm
+if [ -x "$(command -v nvm)" ]; then
+    echo "Installing nvm.."
     if is_windows; then
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | sh
     else
