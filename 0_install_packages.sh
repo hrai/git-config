@@ -213,7 +213,7 @@ function is_linux() {
 }
 
 function is_wsl() {
-    if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+    if grep -qE "(Microsoft|microsoft|WSL)" /proc/version &> /dev/null ; then
         true
     else
         false
@@ -239,14 +239,14 @@ function is_windows() {
 sudo apt update -y
 
 if ! is_windows; then
-    install_apps    
+    install_apps
 fi
 
 if is_wsl; then
     sudo apt install ubuntu-wsl -y
 fi
 
-if is_linux; then
+if ! is_wsl; then
     # swap caps and escape
     dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"
 

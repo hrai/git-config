@@ -29,7 +29,7 @@ if hash zsh 2>/dev/null; then
     cat $ZSHRC >> ~/$ZSHRC
     echo "Successfully moved $ZSHRC to home directory...."
 
-    if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+    if grep -qE "(Microsoft|microsoft|WSL)" /proc/version &> /dev/null ; then
         echo '
         # Launch Zsh if it exists - for WSL
         if [ -t 1  ] && [ -x "$(command -v zsh)"  ]; then
