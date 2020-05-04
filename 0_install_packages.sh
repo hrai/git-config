@@ -202,18 +202,18 @@ function install_apps() {
     echo 'Finished installing apps....'
 }
 
-function is_linux() {
-    local SYSTEM_NAME="$(expr substr $(uname -s) 1 5)"
-
-    if [ "$SYSTEM_NAME" = "Linux" ]; then
+function is_wsl() {
+    if grep -qE "(Microsoft|microsoft|WSL)" /proc/version &> /dev/null ; then
         true
     else
         false
     fi
 }
 
-function is_wsl() {
-    if grep -qE "(Microsoft|microsoft|WSL)" /proc/version &> /dev/null ; then
+function is_linux() {
+    local SYSTEM_NAME="$(expr substr $(uname -s) 1 5)"
+
+    if [ "$SYSTEM_NAME" = "Linux" ] && ! is_wsl; then
         true
     else
         false
@@ -246,7 +246,7 @@ if is_wsl; then
     sudo apt install ubuntu-wsl -y
 fi
 
-if ! is_wsl; then
+if is_linux; then
     # swap caps and escape
     dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"
 
