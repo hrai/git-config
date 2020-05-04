@@ -19,6 +19,8 @@ if [ -x "$(command -v nvm)" ]; then
     fi
 fi
 
+source ~/.nvm/nvm.sh
+
 # install latest node version
 nvm install node
 nvm use node
