@@ -557,4 +557,5 @@ fi
 # load_docker_config
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+P10K=~/.p10k.zsh
+[[ ! -f $P10K ]] || source $P10K && echo "$P10K sourced..."
