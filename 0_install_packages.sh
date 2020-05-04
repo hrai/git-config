@@ -15,9 +15,10 @@ function install_package_mac_cask () {
 }
 
 function install_fira_code_nerd_font() {
-    mkdir -p ~/.local/share/fonts
+    FONT_DIR=~/.local/share/fonts
+    mkdir -p $FONT_DIR
     # cd ~/.local/share/fonts && curl -fLo "Hack Regular Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts%2FHack%2FRegular%2Fcomplete%2FHack%20Regular%20Nerd%20Font%20Complete.ttf
-    cd ~/.local/share/fonts && curl -fLo "Fira Code Regular Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts%2FFiraCode%2FRegular%2Fcomplete%2FFira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
+    curl -fLo "$FONT_DIR/Fira Code Regular Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts%2FFiraCode%2FRegular%2Fcomplete%2FFira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
 }
 
 function install_python_packages() {
