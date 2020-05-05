@@ -145,6 +145,8 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias y='yarn'
+alias ya='yarn add'
+alias yb='yarn build'
 alias ys='yarn start'
 
 alias dn='dotnet'
