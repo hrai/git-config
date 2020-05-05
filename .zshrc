@@ -129,7 +129,8 @@ alias -s log=vim
 alias -s notes=vim
 
 # Ignoring cre-bus-fra build folders
-alias ag='ag --ignore-dir={wwwroot,dist}'
+# alias ag='ag --ignore-dir={wwwroot,dist}'
+alias ag=rg --hidden
 
 ################################################
 ############# Sourcing zinit ###################
@@ -167,7 +168,7 @@ zinit snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
 zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
 zinit snippet OMZ::plugins/web-search/web-search.plugin.zsh
-zinit snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
+# zinit snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
 zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
 
@@ -410,19 +411,20 @@ fh() {
     print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
 }
 
+alias fd=fdfind
 # fd - cd to selected directory
-unalias fd
-fd() {
-    local dir
-    dir=$(find ${1:-.} -path '*/\.*' -prune \
-        -o -type d -print 2> /dev/null | fzf +m) &&
-        builtin cd "$dir"
-    }
+# unalias fd
+# fd() {
+#     local dir
+#     dir=$(find ${1:-.} -path '*/\.*' -prune \
+#         -o -type d -print 2> /dev/null | fzf +m) &&
+#         builtin cd "$dir"
+#     }
 
 # fda - including hidden directories
 fda() {
     local dir
-    dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && builtin cd "$dir"
+    dir=$(fd ${1:-.} --type d 2> /dev/null | fzf +m) && builtin cd "$dir"
 }
 
 # fkill - kill processes - list only the ones you can kill
@@ -452,21 +454,24 @@ IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
 #   - CTRL-O to open with `open` command,
 #   - CTRL-E or Enter key to open with the $EDITOR
 fo() (
-IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
-key=$(head -1 <<< "$out")
-file=$(head -2 <<< "$out" | tail -1)
-if [ -n "$file" ]; then
-    [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
-fi
+    IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
+    key=$(head -1 <<< "$out")
+    file=$(head -2 <<< "$out" | tail -1)
+
+    if [ -n "$file" ]; then
+        [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
+    fi
 )
 
 # vf - fuzzy open with vim from anywhere
 # ex: vf word1 word2 ... (even part of a file name)
 # zsh autoload function
+#
+#
 vf() {
     local files
 
-    files=(${(f)"$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1 -m)"})
+    files=(${(f)"$(fd $@ | rg '~$' | fzf --read0 -0 -1 -m)"})
 
     if [[ -n $files ]]
     then
@@ -475,24 +480,12 @@ vf() {
     fi
 }
 
-# fuzzy grep open via ag
-vg() {
-    local file
-
-    file="$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1}')"
-
-    if [[ -n $file ]]
-    then
-        vim $file
-    fi
-}
-
 # fuzzy grep open via ag with line number
 vg() {
     local file
     local line
 
-    read -r file line <<<"$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
+    read -r file line <<<"$(rg $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
 
     if [[ -n $file ]]
     then
