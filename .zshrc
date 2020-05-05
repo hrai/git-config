@@ -412,7 +412,7 @@ alias fd=fdfind
 # fda - including hidden directories
 fda() {
     local dir
-    dir=$(fd ${1:-.} --type d 2> /dev/null | fzf +m) && builtin cd "$dir"
+    dir=$(fd $1 --type d 2> /dev/null | fzf +m) && builtin cd "$dir"
 }
 
 # fkill - kill processes - list only the ones you can kill
