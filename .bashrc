@@ -123,6 +123,50 @@ fshow() {
 FZF-EOF"
 }
 
+# fda - including hidden directories
+fda() {
+    local dir
+    dir=$(fd $1 --type d 2> /dev/null | fzf +m) && builtin cd "$dir"
+}
+
+# vf - fuzzy open with vim from anywhere
+# ex: vf word1 word2 ... (even part of a file name)
+# zsh autoload function
+#
+#
+vf() {
+    local files
+
+    files=(${(f)"$(fd $@ | rg '~$' | fzf --read0 -0 -1 -m)"})
+
+    if [[ -n $files ]]
+    then
+        vim -- $files
+        print -l $files[1]
+    fi
+}
+
+# fuzzy grep open via ag with line number
+vg() {
+    local file
+    local line
+
+    read -r file line <<<"$(rg $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
+
+    if [[ -n $file ]]
+    then
+        vim $file +$line
+    fi
+}
+
+
+# checkout git branch
+gbr() {
+    local branches branch
+    branches=$(git --no-pager branch -vv) &&
+        branch=$(echo "$branches" | fzf +m) &&
+        git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
 
 #-----Internal Command aliases-------
 alias ~='cd ~'
