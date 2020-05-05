@@ -15,6 +15,9 @@ fi
 ############# function definitions #############
 ################################################
 
+# fzf command to honour gitignore
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
+
 prettify_json() {
     if [ $# -gt 0 ];
         then

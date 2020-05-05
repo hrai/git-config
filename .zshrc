@@ -303,9 +303,6 @@ export EDITOR="nvim"
 ## ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# fzf command to honour gitignore
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
-
 
 # setting up thefuck plugin
 eval $(thefuck --alias)
