@@ -304,7 +304,7 @@ export EDITOR="nvim"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # fzf command to honour gitignore
-export FZF_DEFAULT_COMMAND='ag -l --path-to-ignore ~/.gitignore --nocolor --hidden -g ""'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
 
 
 # setting up thefuck plugin
