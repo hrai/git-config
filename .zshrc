@@ -391,20 +391,6 @@ fi
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
 #----- Fuzzy finder (fzf) functions -------
-# fh - repeat history
-fh() {
-    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
-}
-
-alias fd=fdfind
-# fd - cd to selected directory
-# unalias fd
-# fd() {
-#     local dir
-#     dir=$(find ${1:-.} -path '*/\.*' -prune \
-#         -o -type d -print 2> /dev/null | fzf +m) &&
-#         builtin cd "$dir"
-#     }
 
 # fkill - kill processes - list only the ones you can kill
 fkill() {

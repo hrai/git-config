@@ -2,6 +2,7 @@ if [ "$(uname)" = "Darwin" ]; then
     alias ls='ls -G'
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
     alias ls='ls --color=auto'
+    alias fd=fdfind
     alias cb='cd /mnt/c/_dev/cre-bus-fra/CREBusFra.Web'
 elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
     # Do something under 32 bits Windows NT platform
@@ -126,10 +127,17 @@ fshow() {
 FZF-EOF"
 }
 
-# fda - including hidden directories
-fda() {
+# fd - cd to selected directory
+fda() {#tofix
     local dir
-    dir=$(fd $1 --type d 2> /dev/null | fzf +m) && builtin cd "$dir"
+    # dir=$(fd $1 --type d 2> /dev/null | fzf +m) && builtin cd "$dir"
+    dir=$(fd $1 --type d | fzf +m) && builtin cd "$dir"
+}
+
+# fdh - including hidden directories
+fdh() {#tofix
+    local dir
+    dir=$(fd $1 --type d --hidden | fzf +m) && builtin cd "$dir"
 }
 
 # vf - fuzzy open with vim from anywhere
@@ -137,7 +145,7 @@ fda() {
 # zsh autoload function
 #
 #
-vf() {
+vf() { #tofix
     local files
 
     files=(${(f)"$(fd $@ | rg '~$' | fzf --read0 -0 -1 -m)"})
@@ -162,6 +170,10 @@ vg() {
     fi
 }
 
+# fh - repeat history
+fh() {
+    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+}
 
 # checkout git branch
 gbr() {
