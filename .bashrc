@@ -5,12 +5,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
 
     alias cb='cd /mnt/c/_dev/cre-bus-fra/CREBusFra.Web'
     alias fd=fdfind
-elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
-    # Do something under 32 bits Windows NT platform
-    alias cb='cd /c/_dev/cre-bus-fra/CREBusFra.Web'
-    alias fdfind=fd
-elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
-    # Do something under 64 bits Windows NT platform
+# elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
+elif [ "$(expr substr $(uname -s) 1 7)" = "MSYS_NT" ]; then
     alias cb='cd /c/_dev/cre-bus-fra/CREBusFra.Web'
     alias fdfind=fd
 fi
