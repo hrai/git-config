@@ -17,7 +17,7 @@ fi
 ################################################
 
 # fzf command to honour gitignore
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 
 prettify_json() {
     if [ $# -gt 0 ];
