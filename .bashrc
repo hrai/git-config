@@ -133,14 +133,14 @@ FZF-EOF"
 }
 
 # fd - cd to selected directory
-fda() {#tofix
+fda() {
     local dir
     # dir=$(fdfind $1 --type d 2> /dev/null | fzf +m) && builtin cd "$dir"
     dir=$(fdfind $1 --type d | fzf +m) && builtin cd "$dir"
 }
 
 # fdh - including hidden directories
-fdh() {#tofix
+fdh() {
     local dir
     dir=$(fdfind $1 --type d --hidden | fzf +m) && builtin cd "$dir"
 }
