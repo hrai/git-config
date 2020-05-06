@@ -137,14 +137,14 @@ FZF-EOF"
 # fd - cd to selected directory
 fda() {#tofix
     local dir
-    # dir=$(fd $1 --type d 2> /dev/null | fzf +m) && builtin cd "$dir"
-    dir=$(fd $1 --type d | fzf +m) && builtin cd "$dir"
+    # dir=$(fdfind $1 --type d 2> /dev/null | fzf +m) && builtin cd "$dir"
+    dir=$(fdfind $1 --type d | fzf +m) && builtin cd "$dir"
 }
 
 # fdh - including hidden directories
 fdh() {#tofix
     local dir
-    dir=$(fd $1 --type d --hidden | fzf +m) && builtin cd "$dir"
+    dir=$(fdfind $1 --type d --hidden | fzf +m) && builtin cd "$dir"
 }
 
 # vf - fuzzy open with vim from anywhere
@@ -155,7 +155,7 @@ fdh() {#tofix
 vf() { #tofix
     local files
 
-    files=(${(f)"$(fd $@ | rg '~$' | fzf --read0 -0 -1 -m)"})
+    files=(${(f)"$(fdfind $@ | rg '~$' | fzf --read0 -0 -1 -m)"})
 
     if [[ -n $files ]]
     then
