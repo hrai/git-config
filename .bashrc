@@ -4,15 +4,13 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
     alias ls='ls --color=auto'
 
     alias cb='cd /mnt/c/_dev/cre-bus-fra/CREBusFra.Web'
-    alias fd=fdfind
 # elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
 elif [ "$(expr substr $(uname -s) 1 7)" = "MSYS_NT" ]; then
     alias cb='cd /c/_dev/cre-bus-fra/CREBusFra.Web'
-    alias fdfind=fd
 fi
 
 # fzf command to honour gitignore
-export FZF_DEFAULT_COMMAND='fdfind --type f --hidden'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
 ################################################
@@ -131,14 +129,14 @@ FZF-EOF"
 # fd - cd to selected directory
 fda() {
     local dir
-    # dir=$(fdfind $1 --type d 2> /dev/null | fzf +m) && builtin cd "$dir"
-    dir=$(fdfind $1 --type d | fzf +m) && builtin cd "$dir"
+    # dir=$(fd $1 --type d 2> /dev/null | fzf +m) && builtin cd "$dir"
+    dir=$(fd $1 --type d | fzf +m) && builtin cd "$dir"
 }
 
 # fdh - including hidden directories
 fdh() {
     local dir
-    dir=$(fdfind $1 --type d --hidden | fzf +m) && builtin cd "$dir"
+    dir=$(fd $1 --type d --hidden | fzf +m) && builtin cd "$dir"
 }
 
 # vf - fuzzy open with vim from anywhere
@@ -149,7 +147,7 @@ fdh() {
 vf() { #tofix
     local files
 
-    files=(${(f)"$(fdfind $@ | rg '~$' | fzf --read0 -0 -1 -m)"})
+    files=(${(f)"$(fd $@ | rg '~$' | fzf --read0 -0 -1 -m)"})
 
     if [[ -n $files ]]
     then

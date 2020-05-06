@@ -179,6 +179,9 @@ zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zinit ice from"gh-r" as"program" bpick"*amd64*"
 zinit light junegunn/fzf-bin
 
+zinit ice from"gh-r" as"program" bpick"*amd64*" mv"usr/bin/fd -> fd"
+zinit light sharkdp/fd
+
 zinit lucid as=program pick="$ZPFX/bin/fzf-tmux" \
         atclone=" cp bin/fzf-tmux $ZPFX/bin" \
             for junegunn/fzf
