@@ -2,23 +2,20 @@ if [ "$(uname)" = "Darwin" ]; then
     alias ls='ls -G'
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
     alias ls='ls --color=auto'
-    alias fd=fdfind
-
-    # fzf command to honour gitignore
-    export FZF_DEFAULT_COMMAND='fdfind --type f --hidden'
 
     alias cb='cd /mnt/c/_dev/cre-bus-fra/CREBusFra.Web'
 elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
     # Do something under 32 bits Windows NT platform
     alias cb='cd /c/_dev/cre-bus-fra/CREBusFra.Web'
+    alias fdfind=fd
 elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
     # Do something under 64 bits Windows NT platform
     alias cb='cd /c/_dev/cre-bus-fra/CREBusFra.Web'
-else
-    # fzf command to honour gitignore
-    export FZF_DEFAULT_COMMAND='fd --type f --hidden'
+    alias fdfind=fd
 fi
 
+# fzf command to honour gitignore
+export FZF_DEFAULT_COMMAND='fdfind --type f --hidden'
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
 ################################################
