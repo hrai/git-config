@@ -165,7 +165,7 @@ vg() {
 
     if [[ -n $file ]]
     then
-        vim $file +$line
+        vim +$line $file
     fi
 }
 
