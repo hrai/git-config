@@ -144,7 +144,7 @@ fdh() {
 # zsh autoload function
 #
 #
-vf() { #tofix
+vf() {
     local files
 
     files=(${(f)"$(fd $@ | fzf --read0 -0 -1 -m)"})
