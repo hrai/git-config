@@ -160,6 +160,7 @@ function install_apps() {
             cmake
             dos2unix
             editorconfig
+            fd-find
             fonts-powerline
             git
             git-extras
@@ -173,7 +174,7 @@ function install_apps() {
             python3-pip
             python3-setuptools
             redshift-gtk
-            silversearcher-ag
+            ripgrep
             tree
             xclip
             xdg-utils

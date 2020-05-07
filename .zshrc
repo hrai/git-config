@@ -129,7 +129,8 @@ alias -s log=vim
 alias -s notes=vim
 
 # Ignoring cre-bus-fra build folders
-alias ag='ag --ignore-dir={wwwroot,dist}'
+# alias ag='ag --ignore-dir={wwwroot,dist}'
+alias ag=rg --hidden
 
 ################################################
 ############# Sourcing zinit ###################
@@ -167,7 +168,7 @@ zinit snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
 zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
 zinit snippet OMZ::plugins/web-search/web-search.plugin.zsh
-zinit snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
+# zinit snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
 zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
 
@@ -177,6 +178,13 @@ zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 # Binary release in archive, from Github-releases page; after automatic unpacking it provides program "fzf"
 zinit ice from"gh-r" as"program" bpick"*amd64*"
 zinit light junegunn/fzf-bin
+
+zinit ice from"gh-r" as"program" bpick"*amd64*" mv"usr/bin/fd -> fd"
+zinit light sharkdp/fd
+
+zinit lucid as=program pick="$ZPFX/bin/fzf-tmux" \
+        atclone=" cp bin/fzf-tmux $ZPFX/bin" \
+            for junegunn/fzf
 
 zinit ice as"program" pick"yank" make
 zinit light mptre/yank
@@ -302,9 +310,6 @@ export EDITOR="nvim"
 ## ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# fzf command to honour gitignore
-export FZF_DEFAULT_COMMAND='ag -l --path-to-ignore ~/.gitignore --nocolor --hidden -g ""'
-
 
 # setting up thefuck plugin
 eval $(thefuck --alias)
@@ -392,38 +397,7 @@ fi
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
-## powerlevel9k theme settings ##
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_HOME_ICON="\uf015 "
-POWERLEVEL9K_HOME_SUB_ICON="\uf07c "
-POWERLEVEL9K_FOLDER_ICON="\uf07c "
-# POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-# POWERLEVEL9K_DISABLE_RPROMPT=true
-# POWERLEVEL9K_COLOR_SCHEME='light'
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs )
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode time)
-
 #----- Fuzzy finder (fzf) functions -------
-# fh - repeat history
-fh() {
-    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
-}
-
-# fd - cd to selected directory
-unalias fd
-fd() {
-    local dir
-    dir=$(find ${1:-.} -path '*/\.*' -prune \
-        -o -type d -print 2> /dev/null | fzf +m) &&
-        builtin cd "$dir"
-    }
-
-# fda - including hidden directories
-fda() {
-    local dir
-    dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && builtin cd "$dir"
-}
 
 # fkill - kill processes - list only the ones you can kill
 fkill() {
@@ -444,70 +418,23 @@ fkill() {
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
 fe() (
-IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-[[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+    IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+    [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 )
 
 # Modified version where you can press
 #   - CTRL-O to open with `open` command,
 #   - CTRL-E or Enter key to open with the $EDITOR
 fo() (
-IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
-key=$(head -1 <<< "$out")
-file=$(head -2 <<< "$out" | tail -1)
-if [ -n "$file" ]; then
-    [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
-fi
+    IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
+    key=$(head -1 <<< "$out")
+    file=$(head -2 <<< "$out" | tail -1)
+
+    if [ -n "$file" ]; then
+        [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
+    fi
 )
 
-# vf - fuzzy open with vim from anywhere
-# ex: vf word1 word2 ... (even part of a file name)
-# zsh autoload function
-vf() {
-    local files
-
-    files=(${(f)"$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1 -m)"})
-
-    if [[ -n $files ]]
-    then
-        vim -- $files
-        print -l $files[1]
-    fi
-}
-
-# fuzzy grep open via ag
-vg() {
-    local file
-
-    file="$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1}')"
-
-    if [[ -n $file ]]
-    then
-        vim $file
-    fi
-}
-
-# fuzzy grep open via ag with line number
-vg() {
-    local file
-    local line
-
-    read -r file line <<<"$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
-
-    if [[ -n $file ]]
-    then
-        vim $file +$line
-    fi
-}
-
-
-# checkout git branch
-gbr() {
-    local branches branch
-    branches=$(git --no-pager branch -vv) &&
-        branch=$(echo "$branches" | fzf +m) &&
-        git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
-    }
 
 # ssh functions
 load_work_ssh_settings() {

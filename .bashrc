@@ -2,18 +2,21 @@ if [ "$(uname)" = "Darwin" ]; then
     alias ls='ls -G'
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
     alias ls='ls --color=auto'
+
     alias cb='cd /mnt/c/_dev/cre-bus-fra/CREBusFra.Web'
-elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
-    # Do something under 32 bits Windows NT platform
-    alias cb='cd /c/_dev/cre-bus-fra/CREBusFra.Web'
-elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
-    # Do something under 64 bits Windows NT platform
+# elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
+elif [ "$(expr substr $(uname -s) 1 7)" = "MSYS_NT" ]; then
     alias cb='cd /c/_dev/cre-bus-fra/CREBusFra.Web'
 fi
+
+# fzf command to honour gitignore
+export FZF_DEFAULT_COMMAND='fd --type f --hidden'
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
 ################################################
 ############# function definitions #############
 ################################################
+
 
 prettify_json() {
     if [ $# -gt 0 ];
@@ -123,6 +126,61 @@ fshow() {
 FZF-EOF"
 }
 
+# fd - cd to selected directory
+fda() {
+    local dir
+    # dir=$(fd $1 --type d 2> /dev/null | fzf +m) && builtin cd "$dir"
+    dir=$(fd $1 --type d | fzf +m) && builtin cd "$dir"
+}
+
+# fdh - including hidden directories
+fdh() {
+    local dir
+    dir=$(fd $1 --type d --hidden | fzf +m) && builtin cd "$dir"
+}
+
+# vf - fuzzy open with vim from anywhere
+# ex: vf word1 word2 ... (even part of a file name)
+# zsh autoload function
+#
+#
+vf() {
+    local files
+
+    files=(${(f)"$(fd $@ | fzf --read0 -0 -1 -m)"})
+
+    if [[ -n $files ]]
+    then
+        vim -- $files
+        print -l $files[1]
+    fi
+}
+
+# fuzzy grep open via rg with line number
+vg() {
+    local file
+    local line
+
+    read -r file line <<<"$(rg $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
+
+    if [[ -n $file ]]
+    then
+        vim +$line $file
+    fi
+}
+
+# fh - repeat history
+fh() {
+    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+}
+
+# checkout git branch
+gbr() {
+    local branches branch
+    branches=$(git --no-pager branch -vv) &&
+        branch=$(echo "$branches" | fzf +m) &&
+        git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
 
 #-----Internal Command aliases-------
 alias ~='cd ~'
