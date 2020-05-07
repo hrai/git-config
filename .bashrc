@@ -156,7 +156,7 @@ vf() {
     fi
 }
 
-# fuzzy grep open via ag with line number
+# fuzzy grep open via rg with line number
 vg() {
     local file
     local line
