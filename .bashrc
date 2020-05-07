@@ -147,7 +147,7 @@ fdh() {
 vf() { #tofix
     local files
 
-    files=(${(f)"$(fd $@ | rg '~$' | fzf --read0 -0 -1 -m)"})
+    files=(${(f)"$(fd $@ | fzf --read0 -0 -1 -m)"})
 
     if [[ -n $files ]]
     then
