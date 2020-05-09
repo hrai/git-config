@@ -251,7 +251,7 @@ zinit ice from"gh-r" as"program" bpick"*linux*" mv"exa* -> exa"
 zplugin light ogham/exa
 
 zinit ice as"completion"
-zinit snippet https://raw.githubusercontent.com/ogham/exa/master/contrib/completions.zsh
+zinit snippet https://github.com/ogham/exa/blob/master/contrib/completions.zsh
 
 zinit ice blockf atload'zinit creinstall -q .'
 zinit light zsh-users/zsh-completions
