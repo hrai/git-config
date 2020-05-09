@@ -247,7 +247,7 @@ zinit as"null" wait"1" lucid for \
     sbin"git-url;git-guclone" make"GITURL_NO_CGITURL=1" \
     zdharma/git-url
 
-zinit ice from"gh-r" as"program" bpick"*linux*" mv"exa* -> exa" src"contrib/completions.zsh"
+zinit ice from"gh-r" as"program" bpick"*linux*" mv"exa* -> exa"
 zplugin light ogham/exa
 
 zinit ice blockf atload'zinit creinstall -q .'
