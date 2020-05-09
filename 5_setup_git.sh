@@ -79,7 +79,3 @@ fi
 
 git config --global core.excludesfile '~/.gitignore'
 
-echo -e "\n"
-
-echo "Press any key to continue..."
-read
