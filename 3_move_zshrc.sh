@@ -43,11 +43,6 @@ if hash zsh 2>/dev/null; then
     mkdir -p ~/.zsh/cache
     chmod 777 ~/.zsh/cache
     echo "Successfully moved .zshenv to home directory...."
-
-    echo -e "\n"
-
-    echo "Press any key to continue..."
-    read
 else
     echo "Please install zsh to run this script."
 fi
