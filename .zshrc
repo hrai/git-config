@@ -250,8 +250,7 @@ zinit as"null" wait"1" lucid for \
 zinit ice from"gh-r" as"program" bpick"*linux*" mv"exa* -> exa"
 zplugin light ogham/exa
 
-zinit ice as"completion"
-zinit snippet https://github.com/ogham/exa/blob/master/contrib/completions.zsh
+zinit as"completion" mv"c* -> _exa" for https://github.com/ogham/exa/blob/master/contrib/completions.zsh
 
 zinit ice blockf atload'zinit creinstall -q .'
 zinit light zsh-users/zsh-completions
