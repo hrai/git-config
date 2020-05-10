@@ -356,8 +356,9 @@ setopt AUTO_CD
 
 # Initialising zsh abbreviations plugin
 abbrev-alias -i
-abbrev-alias -g G="| grep"
+abbrev-alias -g G="| rg"
 abbrev-alias -g gcl="gap cleanup"
+abbrev-alias -g ls="exa"
 
 # Fasd
 # If fasd is installed and in use, add a bunch of
