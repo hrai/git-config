@@ -55,9 +55,10 @@ update_system () {
     nvim --headless +PlugUpdate +UpdateRemotePlugins +qall
 }
 
-agf() {
-    ag $* | fpp
+rgf() {
+    rg $* | fpp
 }
+
 
 load_docker_config() {
     # auto completion
