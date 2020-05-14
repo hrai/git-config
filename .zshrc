@@ -91,12 +91,8 @@ load_docker_config() {
     }
 }
 
-start_tmux () {
-    # set shell to start up tmux by default
-    if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-        exec tmux attach || tmux new
-    fi
-}
+# set shell to start up tmux by default
+export ZSH_TMUX_AUTOSTART=true
 
 convert_to_mobi_and_delete() {
     for book in *.epub; do echo "Converting $book"; ebook-convert "$book" "$(basename "$book" .epub).mobi"; done && rm -f *.epub
@@ -105,10 +101,8 @@ convert_to_mobi_and_delete() {
 
 if [ "$(uname)" = "Darwin" ]; then
     alias ls='ls -G'
-    start_tmux
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
     alias ls='ls --color=auto'
-    start_tmux
 fi
 
 # ALIASES
