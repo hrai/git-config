@@ -245,6 +245,9 @@ zinit as"null" wait"1" lucid for \
 zinit ice from"gh-r" as"program" bpick"*linux*" mv"exa* -> exa"
 zplugin light ogham/exa
 
+zinit ice from"gh-r" as"program" bpick"*amd64.deb" mv"usr/bin/bat -> bat"
+zplugin light sharkdp/bat
+
 zinit as"completion" mv"c* -> _exa" for https://github.com/ogham/exa/blob/master/contrib/completions.zsh
 
 # zinit ice blockf atload'zinit creinstall -q .'
