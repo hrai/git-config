@@ -253,7 +253,8 @@ zplugin light ogham/exa
 
 zinit as"completion" mv"c* -> _exa" for https://github.com/ogham/exa/blob/master/contrib/completions.zsh
 
-zinit ice blockf atload'zinit creinstall -q .'
+# zinit ice blockf atload'zinit creinstall -q .'
+zinit ice blockf atclone'zinit creinstall -q' atpull'%atclone'
 zinit light zsh-users/zsh-completions
 
 zinit wait lucid for \
