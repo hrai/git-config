@@ -490,6 +490,15 @@ fi
 
 # load_docker_config
 
+autoload -Uz compinit
+compinit
+
+zinit cdreplay -q   # -q is for quiet; actually run all the `compdef's saved before
+                    #`compinit` call (`compinit' declares the `compdef' function, so
+                    # it cannot be used until `compinit' is ran; Zinit solves this
+                    # via intercepting the `compdef'-calls and storing them for later
+                    # use with `zinit cdreplay')
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 P10K=~/.p10k.zsh
 [[ ! -f $P10K ]] || source $P10K && echo "$P10K sourced..."
