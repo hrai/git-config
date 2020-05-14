@@ -94,7 +94,7 @@ load_docker_config() {
 start_tmux () {
     # set shell to start up tmux by default
     if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-        exec tmux
+        exec tmux attach || tmux new
     fi
 }
 
