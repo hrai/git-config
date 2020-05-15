@@ -310,6 +310,7 @@ export UPDATE_ZSH_DAYS=13
 
 ## Preferred editor for local and remote sessions
 export EDITOR="nvim"
+export VIMCONFIG="~/.config"
 
 ## ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
