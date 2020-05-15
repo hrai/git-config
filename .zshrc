@@ -145,7 +145,8 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 ############# Oh-my-zsh plugins #############
 ################################################
 
-#
+setopt promptsubst
+
 zinit snippet OMZ::lib/clipboard.zsh
 zinit snippet OMZ::lib/correction.zsh
 zinit snippet OMZ::lib/directories.zsh
@@ -166,6 +167,14 @@ zinit snippet OMZ::plugins/web-search/web-search.plugin.zsh
 # zinit snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
 zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
+zinit snippet OMZP::gitignore
+zinit snippet OMZP::jira
+zinit snippet OMZP::thefuck
+zinit snippet OMZP::vi-mode
+zinit snippet OMZP::yarn
+
+zinit ice as"completion"
+zinit snippet OMZP::fd/_fd
 
 ################################################
 ################## apps #######################
@@ -312,12 +321,9 @@ export UPDATE_ZSH_DAYS=13
 export EDITOR="nvim"
 export VIMCONFIG="~/.config"
 
-## ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-
-# setting up thefuck plugin
-eval $(thefuck --alias)
+export JIRA_URL='https://domain.atlassian.net'
 
 # setting up fasd plugin
 eval "$(fasd --init auto)"
