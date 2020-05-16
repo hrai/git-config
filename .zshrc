@@ -98,13 +98,6 @@ convert_to_mobi_and_delete() {
     for book in *.epub; do echo "Converting $book"; ebook-convert "$book" "$(basename "$book" .epub).mobi"; done && rm -f *.epub
     }
 
-
-if [ "$(uname)" = "Darwin" ]; then
-    alias ls='ls -G'
-elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
-    alias ls='ls --color=auto'
-fi
-
 # ALIASES
 alias fm=ranger
 
@@ -254,10 +247,10 @@ zinit as"null" wait"1" lucid for \
 zinit ice from"gh-r" as"program" bpick"*linux*" mv"exa* -> exa"
 zplugin light ogham/exa
 
+zinit as"completion" mv"c* -> _exa" for https://github.com/ogham/exa/blob/master/contrib/completions.zsh
+
 zinit ice from"gh-r" as"program" bpick"*amd64.deb" mv"usr/bin/bat -> bat"
 zplugin light sharkdp/bat
-
-zinit as"completion" mv"c* -> _exa" for https://github.com/ogham/exa/blob/master/contrib/completions.zsh
 
 # zinit ice blockf atload'zinit creinstall -q .'
 zinit ice blockf atclone'zinit creinstall -q' atpull'%atclone'
@@ -364,7 +357,8 @@ setopt AUTO_CD
 abbrev-alias -i
 abbrev-alias -g G="| rg"
 abbrev-alias -g gcl="gap cleanup"
-abbrev-alias -g ls="exa"
+abbrev-alias -g la="exa --all"
+abbrev-alias -g lt="exa --tree"
 
 # Fasd
 # If fasd is installed and in use, add a bunch of
