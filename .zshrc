@@ -470,7 +470,7 @@ fix_git_hooks_line_breaks() {
 }
 
 # Forgit plugin config
-forgit_reset_head=grhd
+alias forgit_reset_head=grhd
 
 
 # Use it when fzf-tab doesn't initialize properly
