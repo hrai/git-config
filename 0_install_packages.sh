@@ -173,6 +173,7 @@ function install_apps() {
             python3-dev
             python3-pip
             python3-setuptools
+            ranger
             redshift-gtk
             ripgrep
             tree
