@@ -56,13 +56,6 @@ function install_dotnet() {
 }
 
 function install_ctags() {
-
-    # echo "Do you want to install and compile ctags (y/n)?"
-    # read user_response
-
-    # if [ "$user_response" = "y" ]
-    # then
-
     if ! [ -x "$(command -v ctags)" ]; then
         sudo apt install "automake" -y
         sudo apt install "pkg-config" -y
