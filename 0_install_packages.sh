@@ -123,12 +123,10 @@ function install_apps() {
             editorconfig
             fzf
             git
-            git-extras
             make
             neovim
             nodejs
             python3-dev
-            the_silver_searcher
             thefuck
             tmux
             tree
@@ -163,7 +161,6 @@ function install_apps() {
             fd-find
             fonts-powerline
             git
-            git-extras
             kdiff3
             libatk1.0-dev libbonoboui2-dev libcairo2-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libncurses5-dev libsm-dev libx11-dev libxpm-dev libxt-dev libxtst-dev #vim build deps
             build-essential libevent-dev byacc #tmux build deps
