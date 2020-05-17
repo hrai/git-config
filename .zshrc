@@ -105,8 +105,8 @@ alias fm=ranger
 alias opm='open-pr master'
 alias opd='open-pr develop'
 
-alias zconf="vim ~/.zshrc"
-alias szc='source ~/.zshrc'
+alias zc="vim ~/.zshrc"
+alias sz='source ~/.zshrc'
 alias zls='zinit ls'
 alias ex='explorer.exe .'
 alias tconf="vim ~/.tmux.conf"
