@@ -158,7 +158,6 @@ function install_apps() {
             dos2unix
             editorconfig
             fd-find
-            fonts-powerline
             git
             kdiff3
             make
