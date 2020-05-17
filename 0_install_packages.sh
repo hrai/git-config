@@ -176,6 +176,7 @@ function install_apps() {
             ranger
             redshift-gtk
             ripgrep
+            tmux
             tree
             xclip
             xdg-utils
