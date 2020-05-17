@@ -151,7 +151,6 @@ function install_apps() {
 
         sudo apt remove vim -y
         packages=(
-            # ack-grep
             bat
             calibre
             curl
