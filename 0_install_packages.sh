@@ -190,9 +190,6 @@ function install_apps() {
         bash _install_kitty.sh
     fi
 
-    # echo 'Setting up YCM...'
-    # bash _install_ycm.sh
-
     echo 'Finished installing apps....'
 }
 
