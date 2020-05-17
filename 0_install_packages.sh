@@ -162,7 +162,6 @@ function install_apps() {
             fonts-powerline
             git
             kdiff3
-            build-essential libevent-dev byacc #tmux build deps
             make
             neovim
             python-dev
