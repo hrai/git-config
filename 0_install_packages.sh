@@ -162,7 +162,6 @@ function install_apps() {
             fonts-powerline
             git
             kdiff3
-            libatk1.0-dev libbonoboui2-dev libcairo2-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libncurses5-dev libsm-dev libx11-dev libxpm-dev libxt-dev libxtst-dev #vim build deps
             build-essential libevent-dev byacc #tmux build deps
             make
             neovim
