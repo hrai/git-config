@@ -210,7 +210,11 @@ zinit light 4U6U57/wsl-open
 zinit light zsh-users/zsh-history-substring-search
 zinit light MichaelAquilina/zsh-you-should-use
 zinit light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
+
+# Forgit plugin config
+forgit_reset_head=grhd
 zinit light wfxr/forgit
+
 zinit light hlissner/zsh-autopair
 zinit light peterhurford/git-it-on.zsh
 zinit light caarlos0/zsh-open-pr
