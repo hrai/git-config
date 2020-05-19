@@ -29,7 +29,7 @@ is_program_installed() {
 }
 
 is_not_mac() {
-    if [ "$(uname)" != "Darwin"  ]; then
+    if [[ $(uname) != "Darwin" ]]; then
         true
     else
         false
