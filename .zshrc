@@ -361,8 +361,12 @@ setopt AUTO_CD
 abbrev-alias -i
 abbrev-alias -g G="| rg"
 abbrev-alias -g gcl="gap cleanup"
-abbrev-alias -g la="exa --all"
+abbrev-alias -g la="exa --all --icons"
 abbrev-alias -g lt="exa --tree"
+
+alias l='exa --icons'
+alias ll='exa --icons -lah'
+alias ls='exa  --icons --color=auto'
 
 # Fasd
 # If fasd is installed and in use, add a bunch of
