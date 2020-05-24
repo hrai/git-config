@@ -252,7 +252,6 @@ zinit as"completion" mv"c* -> _exa" for https://github.com/ogham/exa/blob/master
 zinit ice from"gh-r" as"program" bpick"*amd64.deb" mv"usr/bin/bat -> bat"
 zplugin light sharkdp/bat
 
-# zinit ice blockf atload'zinit creinstall -q .'
 zinit ice blockf atclone'zinit creinstall -q' atpull'%atclone'
 zinit light zsh-users/zsh-completions
 
