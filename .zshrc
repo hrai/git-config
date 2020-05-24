@@ -361,7 +361,7 @@ abbrev-alias -g lt="exa --tree"
 
 alias l='exa --icons'
 alias ll='exa --icons -lah'
-alias ls='exa  --icons --color=auto'
+alias ls='exa --icons --color=auto'
 
 # Fasd
 # If fasd is installed and in use, add a bunch of
