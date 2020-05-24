@@ -368,13 +368,11 @@ alias ls='exa  --icons --color=auto'
 # aliases for it.
 if is_program_installed 'fasd'; then
     # https://dtw.io/writings/2017/dotfiles
-    fasd_cache="$ZSH_CACHE_DIR/fasd-init-cache"
+    local fasd_cache="$ZSH_CACHE_DIR/fasd-init-cache"
     if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
         fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install >| "$fasd_cache"
     fi
     source "$fasd_cache"
-    unset fasd_cache
-
 
     # Any
     abbrev-alias a='fasd -a'
@@ -427,7 +425,8 @@ fkill() {
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
 fe() (
-    IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+    IFS=$'\n'
+    local files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
     [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 )
 
