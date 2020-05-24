@@ -226,10 +226,6 @@ zinit load zdharma/history-search-multi-word
 zinit light kutsan/zsh-system-clipboard
 ZSH_SYSTEM_CLIPBOARD_TMUX_SUPPORT='true'
 
-# install tmux
-# zinit ice as"program" atclone"sh autogen.sh && ./configure" atpull"%atclone" make"install" pick"tmux/tmux"
-# zinit light tmux/tmux
-
 zinit ice as"program" cd"PathPicker/debian" atpull"./package.sh "  pick"facebook/PathPicker"
 zinit light facebook/PathPicker
 
