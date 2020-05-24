@@ -17,7 +17,6 @@ export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 ############# function definitions #############
 ################################################
 
-
 prettify_json() {
     if [ $# -gt 0 ];
         then
@@ -59,25 +58,24 @@ gnr() {
 }
 
 get_branch_name() {
-    branch_name=$(git symbolic-ref -q HEAD);
+    local branch_name=$(git symbolic-ref -q HEAD);
     echo $branch_name;
 }
 
 gac() {
-  branch_name=$(get_branch_name);
   git add .;
   git commit -m "$*";
 }
 
 gap() {
-  branch_name=$(get_branch_name);
+  local branch_name=$(get_branch_name);
   git add .;
   git commit -m "$*";
   git push -u origin $branch_name;
 }
 
 gcp() {
-  branch_name=$(get_branch_name);
+  local branch_name=$(get_branch_name);
   git commit -m "$*";
   git push -u origin $branch_name;
 }
@@ -87,19 +85,19 @@ gcmm() {
 }
 
 gcap() {
-  branch_name=$(get_branch_name);
+  local branch_name=$(get_branch_name);
   git add .;
   git commit --amend --no-edit;
   git push -u -f origin $branch_name;
 }
 
 gpu() {
-  branch_name=$(get_branch_name);
+  local branch_name=$(get_branch_name);
   git push --set-upstream origin $branch_name;
 }
 
 grc() {
-  branch_name=$(get_branch_name);
+  local branch_name=$(get_branch_name);
   git add .;
   git commit -m "review comments";
   git push -u origin $branch_name;
