@@ -202,7 +202,8 @@ alias vi='nvim'
 alias vim='nvim'
 alias y='yarn'
 alias fd='fd --ignore-file ~/.gitignore'
-
+alias pip=pip3
+alias python=python3
 
 alias dn='dotnet'
 alias db='dotnet build'
