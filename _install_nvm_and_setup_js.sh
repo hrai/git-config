@@ -36,10 +36,11 @@ if [ -d "$NODE_MODULES_DIR" ]; then
     # sudo chown -R $USER /usr/bin
 fi
 
-npm install -i -g web-ext
-npm install -i -g eslint
-npm install -i -g jest-cli
-npm install -i -g bash-language-server
+npm install -g web-ext
+npm install -g eslint
+npm install -g jest-cli
+npm install -g bash-language-server
+npm install -g sql-language-server
 
 
 
