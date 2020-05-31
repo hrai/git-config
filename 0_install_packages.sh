@@ -218,6 +218,12 @@ function install_apps() {
     if is_linux; then
         echo 'Setting up kitty...'
         bash _install_kitty.sh
+
+        packages=(
+            transmission
+        )
+
+        install_linux_packages ${packages[@]}
     fi
 
     echo 'Finished installing apps....'
