@@ -191,7 +191,6 @@ function install_apps() {
             python3-setuptools
             ranger
             redshift-gtk
-            ripgrep
             tmux
             tree
             xclip
