@@ -494,6 +494,7 @@ fi
 
 # adding golang location to path
 export PATH=$PATH:/usr/lib/go-1.14/bin
+export GO111MODULE=on
 
 # load_docker_config
 
