@@ -492,6 +492,9 @@ if is_program_installed 'bat'; then
     export BAT_STYLE="full"
 fi
 
+# adding golang location to path
+export PATH=$PATH:/usr/lib/go-1.14/bin
+
 # load_docker_config
 
 autoload -Uz compinit
