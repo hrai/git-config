@@ -1,11 +1,11 @@
 #!/bin/bash
 
 function create_ssh_key() {
-    local ssh_file=~/.ssh/id_rsa
+    local ssh_file=~/.ssh/$1
 
     if [ ! -f $ssh_file ]; then
         # create ssh keys
-        echo -e "\n\n\n" | ssh-keygen -t rsa -b 4096 -C "hangjit.rai@outlook.com" -N ""
+        echo -e "\n\n\n" | ssh-keygen -f $ssh_file -t rsa -b 4096 -C "hangjit.rai@outlook.com" -N ""
         eval "$(ssh-agent -s)"
         ssh-add $ssh_file
         # xclip -sel clip < ~/.ssh/id_rsa.pub
@@ -27,7 +27,8 @@ function is_windows() {
     fi
 }
 
-create_ssh_key
+create_ssh_key 'id_rsa'
+create_ssh_key 'id_rsa_personal'
 
 echo 'Moving git hooks to .global-git-hooks directory....'
 mkdir -p ~/.global-git-hooks/hooks
