@@ -478,14 +478,12 @@ alias forgit_reset_head=grhd
 # Use it when fzf-tab doesn't initialize properly
 enable-fzf-tab
 
-if is_wsl; then
+if is_wsl && [[ $(uname -r) == *Microsoft ]]; then
     # Adding wsl-open as a browser for Bash for Windows
-    if [[ $(uname -r) == *Microsoft ]]; then
-        if [[ -z $BROWSER ]]; then
-            export BROWSER=wsl-open
-        else
-            export BROWSER=wsl-open:$BROWSER
-        fi
+    if [[ -z $BROWSER ]]; then
+        export BROWSER=wsl-open
+    else
+        export BROWSER=wsl-open:$BROWSER
     fi
 fi
 
