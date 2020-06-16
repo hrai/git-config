@@ -262,10 +262,10 @@ zinit ice blockf atclone'zinit creinstall -q' atpull'%atclone'
 zinit light zsh-users/zsh-completions
 
 zinit light zinit-zsh/z-a-as-monitor
-zplugin id-as'terraform' as'track|command' atclone'zpextract terraform zip' atpull'%atclone' \
+zinit id-as'terraform' as'monitor|command' atclone'zpextract terraform zip' atpull'%atclone' \
     dlink0'/terraform/%VERSION%/' \
-    dlink='/terraform/%VERSION%/terraform_%VERSION%_linux_386.zip' for \
-        http://releases.hashicorp.com/terraform/
+    dlink='/terraform/%VERSION%/terraform_%VERSION%_linux_amd64.zip' is-snippet for \
+        https://releases.hashicorp.com/terraform
 
 zinit wait lucid for \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
