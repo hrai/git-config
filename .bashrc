@@ -216,6 +216,7 @@ alias gignore='vim ~/.gitignore'
 alias vconf='vim ~/.vimrc'
 alias bconf='vim ~/.bashrc'
 alias ro='vim ~/rough.notes'
+alias vc='vim ~/.vim_runtime/my_configs.vim'
 
 
 #-------Git aliases-------
