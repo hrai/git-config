@@ -169,6 +169,9 @@ zinit snippet OMZP::yarn
 zinit ice as"completion"
 zinit snippet OMZP::fd/_fd
 
+zinit ice as"completion"
+zinit snippet OMZP::pip/_pip
+
 ################################################
 ################## apps #######################
 ################################################
