@@ -160,6 +160,7 @@ zinit snippet OMZ::plugins/web-search/web-search.plugin.zsh
 # zinit snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
 zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
+zinit snippet OMZP::command-not-found
 zinit snippet OMZP::gitignore
 zinit snippet OMZP::jira
 zinit snippet OMZP::thefuck
