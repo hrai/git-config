@@ -41,6 +41,7 @@ npm install -g eslint
 npm install -g jest-cli
 npm install -g bash-language-server
 npm install -g sql-language-server
+npm install -g tldr
 
 
 
