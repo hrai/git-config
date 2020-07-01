@@ -99,7 +99,7 @@ gpu() {
 grc() {
   local branch_name=$(get_branch_name);
   git add .;
-  git commit -m "review comments";
+  git commit -m "addressed review comments";
   git push -u origin $branch_name;
 }
 
