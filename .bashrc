@@ -137,23 +137,6 @@ fdh() {
     dir=$(fd $1 --type d --hidden | fzf +m) && builtin cd "$dir"
 }
 
-# vf - fuzzy open with vim from anywhere
-# ex: vf word1 word2 ... (even part of a file name)
-# zsh autoload function
-#
-#
-vf() {
-    local files
-
-    files=(${(f)"$(fd $@ | fzf --read0 -0 -1 -m)"})
-
-    if [[ -n $files ]]
-    then
-        vim -- $files
-        print -l $files[1]
-    fi
-}
-
 # fuzzy grep open via rg with line number
 vg() {
     local file
