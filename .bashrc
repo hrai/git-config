@@ -107,6 +107,12 @@ gco() {
     git clone "$1" && cd "$(basename "$1" .git)"
 }
 
+git_sync() {
+    git fetch upstream
+    git checkout master
+    git merge upstream/master
+}
+
 fa() {
   alias | grep $1
 }
