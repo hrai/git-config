@@ -61,6 +61,7 @@ rm -rf ~/.gitconfig
 
 git config --global core.editor vim
 git config --global core.filemode false
+git config --global core.ignorecase false
 git config --global credential.helper 'cache --timeout=3600'
 git config --global diff.tool vimdiff
 git config --global difftool.prompt false
