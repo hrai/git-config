@@ -217,6 +217,7 @@ function install_apps() {
     if is_linux; then
         echo 'Setting up kitty...'
         bash _install_kitty.sh
+        bash _install_firefox_dev.sh
 
         packages=(
             transmission
