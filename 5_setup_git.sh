@@ -59,17 +59,18 @@ echo 'Successfully set the global git-hooks folder to ~/.global-git-hooks\n'
 echo 'Removing gitconfig file\n'
 rm -rf ~/.gitconfig
 
+git config --global core.attributesfile '~/.gitattributes'
 git config --global core.editor vim
 git config --global core.filemode false
 git config --global core.ignorecase false
 git config --global credential.helper 'cache --timeout=3600'
 git config --global diff.tool vimdiff
 git config --global difftool.prompt false
+git config --global init.templatedir '~/.global-git-hooks'
 git config --global merge.tool kdiff3
+git config --global pull.rebase true
 git config --global user.email hangjit.rai@outlook.com
 git config --global user.name "Hangjit Rai"
-git config --global init.templatedir '~/.global-git-hooks'
-git config --global core.attributesfile '~/.gitattributes'
 
 if is_windows; then
     git config --global core.autocrlf true
