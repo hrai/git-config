@@ -180,6 +180,10 @@ zinit snippet OMZP::pip/_pip
 zinit ice from"gh-r" as"program" bpick"*amd64*"
 zinit light junegunn/fzf-bin
 
+zinit ice from"gh-r" as"program" bpick"nvim-linux64.tar.gz" mv"nvim-linux64/bin/nvim -> nvim"
+zinit light neovim/neovim
+export VIMRUNTIME=~/.zinit/plugins/neovim---neovim/nvim-linux64/share/nvim/runtime
+
 zinit ice from"gh-r" as"program" bpick"*amd64*" mv"usr/bin/fd -> fd"
 zinit light sharkdp/fd
 
