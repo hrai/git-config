@@ -25,6 +25,7 @@ function install_python_packages() {
     sudo pip3 install awscli --user
     sudo pip3 install thefuck --user
     sudo pip3 install ranger-fm --user
+    sudo pip3 install pynvim --user --upgrade
 }
 
 function install_mac_vim() {
