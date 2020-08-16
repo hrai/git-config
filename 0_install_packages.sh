@@ -142,15 +142,19 @@ function install_apps() {
         brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
         packages=(
+            bat
             curl
             dos2unix
             editorconfig
+            exa
+            fd
             fzf
             git
             make
             neovim
             nodejs
             python3-dev
+            ripgrep
             thefuck
             tmux
             tree
