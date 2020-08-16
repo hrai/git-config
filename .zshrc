@@ -177,15 +177,34 @@ zinit snippet OMZP::pip/_pip
 ################## apps #######################
 ################################################
 # Binary release in archive, from Github-releases page; after automatic unpacking it provides program "fzf"
-zinit ice from"gh-r" as"program" bpick"*amd64*"
-zinit light junegunn/fzf-bin
+if is_not_mac; then
+    zinit ice from"gh-r" as"program" bpick"*amd64*"
+    zinit light junegunn/fzf-bin
 
-zinit ice from"gh-r" as"program" bpick"nvim-linux64.tar.gz" mv"nvim-linux64/bin/nvim -> nvim"
-zinit light neovim/neovim
-export VIMRUNTIME=~/.zinit/plugins/neovim---neovim/nvim-linux64/share/nvim/runtime
+    zinit ice from"gh-r" as"program" bpick"nvim-linux64.tar.gz" mv"nvim-linux64/bin/nvim -> nvim"
+    zinit light neovim/neovim
+    export VIMRUNTIME=~/.zinit/plugins/neovim---neovim/nvim-linux64/share/nvim/runtime
 
-zinit ice from"gh-r" as"program" bpick"*amd64*" mv"usr/bin/fd -> fd"
-zinit light sharkdp/fd
+    zinit ice from"gh-r" as"program" bpick"*amd64*" mv"usr/bin/fd -> fd"
+    zinit light sharkdp/fd
+
+    zinit ice from"gh-r" as"program" bpick"*linux*" mv"exa* -> exa"
+    zplugin light ogham/exa
+
+    zinit as"completion" mv"c* -> _exa" for https://github.com/ogham/exa/blob/master/contrib/completions.zsh
+
+    zinit ice from"gh-r" as"program" bpick"*amd64.deb" mv"usr/bin/bat -> bat"
+    zplugin light sharkdp/bat
+
+    zinit ice from"gh-r" as"program" bpick"*amd64.deb" mv"usr/bin/rg -> rg"
+    zplugin light BurntSushi/ripgrep
+
+    zinit ice from"gh-r" as"program" bpick"exercism-linux-64bit.tgz"
+    zplugin light exercism/cli
+
+# load_docker_config
+
+fi
 
 zinit lucid as=program pick="$ZPFX/bin/fzf-tmux" \
         atclone=" cp bin/fzf-tmux $ZPFX/bin" \
@@ -252,19 +271,6 @@ zinit as"null" wait"1" lucid for \
     sbin"git-url;git-guclone" make"GITURL_NO_CGITURL=1" \
     zdharma/git-url
 
-zinit ice from"gh-r" as"program" bpick"*linux*" mv"exa* -> exa"
-zplugin light ogham/exa
-
-zinit as"completion" mv"c* -> _exa" for https://github.com/ogham/exa/blob/master/contrib/completions.zsh
-
-zinit ice from"gh-r" as"program" bpick"*amd64.deb" mv"usr/bin/bat -> bat"
-zplugin light sharkdp/bat
-
-zinit ice from"gh-r" as"program" bpick"*amd64.deb" mv"usr/bin/rg -> rg"
-zplugin light BurntSushi/ripgrep
-
-zinit ice from"gh-r" as"program" bpick"exercism-linux-64bit.tgz"
-zplugin light exercism/cli
 
 zinit ice blockf atclone'zinit creinstall -q' atpull'%atclone'
 zinit light zsh-users/zsh-completions
@@ -508,8 +514,6 @@ fi
 # adding golang location to path
 export PATH=$PATH:/usr/lib/go-1.14/bin
 export GO111MODULE=on
-
-# load_docker_config
 
 autoload -Uz compinit
 compinit
