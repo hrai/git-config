@@ -148,6 +148,7 @@ function install_apps() {
             editorconfig
             exa
             fd
+            fzf
             git
             make
             neovim
