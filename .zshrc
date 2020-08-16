@@ -177,9 +177,10 @@ zinit snippet OMZP::pip/_pip
 ################## apps #######################
 ################################################
 # Binary release in archive, from Github-releases page; after automatic unpacking it provides program "fzf"
+zinit ice from"gh-r" as"program" bpick"*amd64*"
+zinit light junegunn/fzf-bin
+
 if is_not_mac; then
-    zinit ice from"gh-r" as"program" bpick"*amd64*"
-    zinit light junegunn/fzf-bin
 
     zinit ice from"gh-r" as"program" bpick"nvim-linux64.tar.gz" mv"nvim-linux64/bin/nvim -> nvim"
     zinit light neovim/neovim
