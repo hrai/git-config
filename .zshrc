@@ -93,6 +93,7 @@ load_docker_config() {
 
 # set shell to start up tmux by default
 export ZSH_TMUX_AUTOSTART=true
+export SHELL=/bin/zsh
 
 convert_to_mobi_and_delete() {
     for book in *.epub; do echo "Converting $book"; ebook-convert "$book" "$(basename "$book" .epub).mobi"; done && rm -f *.epub
