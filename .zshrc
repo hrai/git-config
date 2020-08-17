@@ -124,6 +124,7 @@ alias ag=rg --hidden
 ################################################
 ############# Sourcing zinit ###################
 ################################################
+echo 'Loading zinit...'
 source ~/.zinit/bin/zinit.zsh
 
 zinit light zinit-zsh/z-a-bin-gem-node
@@ -141,6 +142,9 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 setopt promptsubst
 
+echo 'Starting tmux...'
+zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh
+
 zinit snippet OMZ::lib/clipboard.zsh
 zinit snippet OMZ::lib/correction.zsh
 zinit snippet OMZ::lib/directories.zsh
@@ -153,7 +157,6 @@ zinit snippet OMZ::plugins/git-extras/git-extras.plugin.zsh
 zinit snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
 zinit snippet OMZ::plugins/npm/npm.plugin.zsh
 zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
-zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh
 zinit snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
 zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
