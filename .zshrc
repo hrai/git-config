@@ -258,6 +258,8 @@ zinit load zdharma/history-search-multi-word
 zinit light kutsan/zsh-system-clipboard
 ZSH_SYSTEM_CLIPBOARD_TMUX_SUPPORT='true'
 
+zinit light peterhurford/up.zsh
+
 zinit ice as"program" cd"PathPicker/debian" atpull"./package.sh "  pick"facebook/PathPicker"
 zinit light facebook/PathPicker
 
