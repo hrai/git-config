@@ -150,6 +150,7 @@ function install_apps() {
             fd
             fzf
             git
+            jq
             make
             neovim
             nodejs
@@ -187,6 +188,7 @@ function install_apps() {
             editorconfig
             fd-find
             git
+            jq
             kdiff3
             make
             python-dev
