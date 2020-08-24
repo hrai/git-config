@@ -13,7 +13,7 @@
 #
 ## functions ##
 is_wsl() {
-    if grep -qE "(microsoft|wsl)" /proc/version &> /dev/null ; then
+    if grep -qE "(Microsoft|microsoft|WSL)" /proc/version &> /dev/null ; then
         true
     else
         false
