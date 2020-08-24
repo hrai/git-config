@@ -13,7 +13,7 @@
 #
 ## functions ##
 is_wsl() {
-    if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+    if grep -qE "(microsoft|wsl)" /proc/version &> /dev/null ; then
         true
     else
         false
@@ -504,7 +504,7 @@ alias forgit_reset_head=grhd
 # Use it when fzf-tab doesn't initialize properly
 enable-fzf-tab
 
-if is_wsl && [[ $(uname -r) == *Microsoft ]]; then
+if is_wsl; then
     # Adding wsl-open as a browser for Bash for Windows
     if [[ -z $BROWSER ]]; then
         export BROWSER=wsl-open
