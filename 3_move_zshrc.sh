@@ -35,6 +35,7 @@ if hash zsh 2>/dev/null; then
     echo "Successfully moved $ZSHRC to home directory...."
 
     if is_wsl; then
+        cp .bashrc ~/.bashrc
         echo '
         # Launch Zsh if it exists - for WSL
         if [ -t 1  ] && [ -x "$(command -v zsh)"  ]; then
