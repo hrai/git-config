@@ -72,3 +72,6 @@ fi
 
 git config --global core.excludesfile '~/.gitignore'
 
+if is_wsl; then
+    git config --global mergetool.kdiff3.cmd '"kdiff3.exe" $BASE $LOCAL $REMOTE -o $MERGED'
+fi
