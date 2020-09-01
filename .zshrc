@@ -9,32 +9,6 @@
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 
-#
-#
-## functions ##
-is_wsl() {
-    if grep -qE "(Microsoft|microsoft|WSL)" /proc/version &> /dev/null ; then
-        true
-    else
-        false
-    fi
-}
-
-is_program_installed() {
-    if command -v $1 >/dev/null 2>&1; then
-        true
-    else
-        false
-    fi
-}
-
-is_not_mac() {
-    if [[ $(uname) != "Darwin" ]]; then
-        true
-    else
-        false
-    fi
-}
 
 hibernate() {
     systemctl suspend -i

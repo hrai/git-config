@@ -1,4 +1,6 @@
 if hash zsh 2>/dev/null; then
+    source functions.sh
+
     echo 'Cloning zinit....'
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
     echo 'Successfully cloned zinit....'
@@ -25,11 +27,14 @@ if hash zsh 2>/dev/null; then
 
     ZSHRC=.zshrc
     echo "Moving $ZSHRC to home directory...."
-    cp .bashrc ~/$ZSHRC
+    > ~/$ZSHRC # create/overwrite existing file
+    cat functions.sh >> ~/$ZSHRC
+    cat .bashrc >> ~/$ZSHRC
     cat $ZSHRC >> ~/$ZSHRC
+
     echo "Successfully moved $ZSHRC to home directory...."
 
-    if grep -qE "(Microsoft|microsoft|WSL)" /proc/version &> /dev/null ; then
+    if is_wsl; then
         echo '
         # Launch Zsh if it exists - for WSL
         if [ -t 1  ] && [ -x "$(command -v zsh)"  ]; then
