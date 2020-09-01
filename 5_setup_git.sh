@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source functions.sh
+
 function create_ssh_key() {
     local ssh_file=~/.ssh/$1
 
@@ -12,18 +14,6 @@ function create_ssh_key() {
         echo ">>>ssh file created and copied to clipboard."
     else
         echo ">>>$ssh_file already exists."
-    fi
-}
-
-function is_windows() {
-    local SYSTEM_NAME="$(expr substr $(uname -s) 1 10)"
-
-    if [ "$SYSTEM_NAME" = "MINGW64_NT" ]; then
-        true
-    elif [ "$SYSTEM_NAME" = "MINGW32_NT" ]; then
-        true
-    else
-        false
     fi
 }
 
