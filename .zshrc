@@ -178,6 +178,9 @@ if is_not_mac; then
     zinit ice from"gh-r" as"program" bpick"*amd64.deb" mv"usr/bin/rg -> rg"
     zplugin light BurntSushi/ripgrep
 
+    zinit ice from"gh-r" as"program" bpick"*linux*" mv"navi -> navi"
+    zinit light  denisidoro/navi
+
     zinit ice from"gh-r" as"program" bpick"exercism-linux-64bit.tgz"
     zplugin light exercism/cli
 
