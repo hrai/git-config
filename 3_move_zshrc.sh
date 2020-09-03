@@ -34,14 +34,17 @@ if hash zsh 2>/dev/null; then
 
     echo "Successfully moved $ZSHRC to home directory...."
 
+    echo "Setting zsh as default shell...."
+    chsh -s $(which zsh)
+
     if is_wsl; then
         cp .bashrc ~/.bashrc
-        echo '
-        # Launch Zsh if it exists - for WSL
-        if [ -t 1  ] && [ -x "$(command -v zsh)"  ]; then
-          exec zsh
-        fi
-        ' >> ~/.bashrc
+        # echo '
+        # # Launch Zsh if it exists - for WSL
+        # if [ -t 1  ] && [ -x "$(command -v zsh)"  ]; then
+        #   exec zsh
+        # fi
+        # ' >> ~/.bashrc
     fi
 
     echo 'Moving .zshenv to home directory....'
