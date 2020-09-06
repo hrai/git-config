@@ -29,9 +29,9 @@ function change_default_terminal_to_kitty() {
 function install_and_configure_kitty() {
     install_kitty
 
-    setup_kitty_desktop_file
-
     move_kitty_conf
+
+    setup_kitty_desktop_file
 
     change_default_terminal_to_kitty
 }
