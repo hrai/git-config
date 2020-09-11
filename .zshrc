@@ -85,6 +85,7 @@ alias sz='source ~/.zshrc'
 alias zls='zinit ls'
 alias ex='explorer.exe .'
 alias tconf="vim ~/.tmux.conf"
+alias vimdiff="nvim -d"
 
 
 # Suffix aliases
