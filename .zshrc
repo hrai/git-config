@@ -178,6 +178,8 @@ if is_not_mac; then
 
     zinit ice from"gh-r" as"program" bpick"*amd64.deb" mv"usr/bin/rg -> rg"
     zplugin light BurntSushi/ripgrep
+    alias rg="rg --ignore-case"
+
 
     zinit ice from"gh-r" as"program" bpick"*linux*" mv"navi -> navi"
     zinit light  denisidoro/navi
