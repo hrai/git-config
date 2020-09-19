@@ -225,6 +225,7 @@ zinit light momo-lab/zsh-abbrev-alias #abbrev-alias -g G="| grep"
 
 # Forgit plugin config
 forgit_reset_head=grhd
+forgit_cherry_pick=gchp
 zinit light wfxr/forgit
 
 zinit light hlissner/zsh-autopair
@@ -476,9 +477,6 @@ load_personal_ssh_settings() {
 fix_git_hooks_line_breaks() {
     dos2unix .git/hooks/pre*
 }
-
-# Forgit plugin config
-alias forgit_reset_head=grhd
 
 
 # Use it when fzf-tab doesn't initialize properly
