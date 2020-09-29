@@ -50,7 +50,7 @@ echo 'Removing gitconfig file\n'
 rm -rf ~/.gitconfig
 
 git config --global core.attributesfile '~/.gitattributes'
-git config --global core.editor vim
+git config --global core.editor nvim
 git config --global core.filemode false
 git config --global core.ignorecase false
 git config --global credential.helper 'cache --timeout=3600'
