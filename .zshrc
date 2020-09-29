@@ -495,11 +495,10 @@ if is_program_installed 'bat'; then
     alias cat=bat
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
     export BAT_STYLE="full"
+
+    # ranger/rifle setting
     export PAGER=bat
 fi
-
-# ranger/rifle setting
-export EDITOR=nvim
 
 # adding golang location to path
 export PATH=$PATH:/usr/lib/go-1.14/bin
