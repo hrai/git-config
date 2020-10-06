@@ -187,6 +187,9 @@ if is_not_mac; then
     zinit ice from"gh-r" as"program" bpick"exercism-linux-64bit.tgz"
     zplugin light exercism/cli
 
+    zinit ice from"gh-r" as"program" bpick"*.tar.gz" mv"gh*/bin/gh -> gh"
+    zplugin load cli/cli
+
     load_docker_config
 
 fi
