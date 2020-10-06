@@ -30,12 +30,6 @@ function install_python_packages() {
     sudo pip3 install pynvim --user --upgrade
 }
 
-function install_mac_vim() {
-    brew remove vim
-    brew cleanup
-    brew install vim --with-python3
-}
-
 function install_mac_firacode_nerdfont() {
     brew tap homebrew/cask-fonts
     brew cask install font-fira-code
@@ -140,9 +134,7 @@ function install_apps() {
         install_package_mac_cask "kdiff3"
         install_package_mac_cask "visual-studio-code"
 
-        # install_mac_vim
         install_mac_firacode_nerdfont
-
         install_python_packages
 
     elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
