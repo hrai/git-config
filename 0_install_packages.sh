@@ -140,11 +140,10 @@ function install_apps() {
         install_package_mac_cask "kdiff3"
         install_package_mac_cask "visual-studio-code"
 
-        install_python_packages
-
-        # todo test this out
         # install_mac_vim
         install_mac_firacode_nerdfont
+
+        install_python_packages
 
     elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
         # disable Alt + F4 switching to TTY4
