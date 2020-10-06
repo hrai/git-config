@@ -118,6 +118,7 @@ function install_apps() {
             git
             jq
             make
+            navi
             neovim
             nodejs
             python3-dev
