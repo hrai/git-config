@@ -511,6 +511,12 @@ export GO111MODULE=on
 autoload -Uz compinit
 compinit
 
+autoload zmv
+alias zmv='noglob zmv'
+alias zcp='noglob zmv -C'
+alias zln='noglob zmv -L'
+alias zsy='noglob zmv -Ls'
+
 zinit cdreplay -q   # -q is for quiet; actually run all the `compdef's saved before
                     #`compinit` call (`compinit' declares the `compdef' function, so
                     # it cannot be used until `compinit' is ran; Zinit solves this
