@@ -36,9 +36,9 @@ function install_mac_vim() {
     brew install vim --with-python3
 }
 
-function install_mac_hack_nerdfont() {
+function install_mac_firacode_nerdfont() {
     brew tap homebrew/cask-fonts
-    brew cask install font-hack-nerd-font
+    brew cask install font-fira-code
 }
 
 function install_docker() {
@@ -144,7 +144,7 @@ function install_apps() {
 
         # todo test this out
         # install_mac_vim
-        install_mac_hack_nerdfont
+        install_mac_firacode_nerdfont
 
     elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
         # disable Alt + F4 switching to TTY4
