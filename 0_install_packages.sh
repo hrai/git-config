@@ -163,6 +163,7 @@ function install_apps() {
             redshift-gtk
             tmux
             tree
+            torbrowser-launcher
             xclip
             xdg-utils
             xsel
