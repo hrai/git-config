@@ -169,15 +169,18 @@ if is_not_mac; then
     zinit light sharkdp/fd
 
     zinit ice from"gh-r" as"program" bpick"*linux*" mv"exa* -> exa"
-    zplugin light ogham/exa
+    zinit light ogham/exa
+
+    zinit ice from"gh-r" as"program" bpick"*.tar.gz"
+    zinit light charmbracelet/glow
 
     zinit as"completion" mv"c* -> _exa" for https://github.com/ogham/exa/blob/master/contrib/completions.zsh
 
     zinit ice from"gh-r" as"program" bpick"*amd64.deb" mv"usr/bin/bat -> bat"
-    zplugin light sharkdp/bat
+    zinit light sharkdp/bat
 
     zinit ice from"gh-r" as"program" bpick"*amd64.deb" mv"usr/bin/rg -> rg"
-    zplugin light BurntSushi/ripgrep
+    zinit light BurntSushi/ripgrep
     alias rg="rg --ignore-case"
 
 
@@ -185,11 +188,11 @@ if is_not_mac; then
     zinit light  denisidoro/navi
 
     zinit ice from"gh-r" as"program" bpick"exercism-linux-64bit.tgz"
-    zplugin light exercism/cli
+    zinit light exercism/cli
 
     # github cli
     zinit ice from"gh-r" as"program" bpick"*.tar.gz" mv"gh*/bin/gh -> gh"
-    zplugin load cli/cli
+    zinit load cli/cli
 
     load_docker_config
 
@@ -249,8 +252,8 @@ zinit light anatolykopyl/doas-zsh-plugin
 zinit ice as"program" cd"PathPicker/debian" atpull"./package.sh "  pick"facebook/PathPicker"
 zinit light facebook/PathPicker
 
-zplugin ice as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX"
-zplugin light tj/git-extras
+zinit ice as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX"
+zinit light tj/git-extras
 
 zinit as"null" wait"1" lucid for \
     sbin    cloneopts paulirish/git-open \
