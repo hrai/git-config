@@ -165,10 +165,10 @@ if is_not_mac; then
     zinit light neovim/neovim
     export VIMRUNTIME=~/.zinit/plugins/neovim---neovim/nvim-linux64/share/nvim/runtime
 
-    zinit ice from"gh-r" as"program" bpick"*amd64*" mv"usr/bin/fd -> fd"
+    zinit ice from"gh-r" as"program" mv"fd*/fd -> fd"
     zinit light sharkdp/fd
 
-    zinit ice from"gh-r" as"program" bpick"*linux*" mv"exa* -> exa"
+    zinit ice from"gh-r" as"program"  mv"exa* -> exa"
     zinit light ogham/exa
 
     zinit ice from"gh-r" as"program" bpick"*.tar.gz"
