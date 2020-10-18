@@ -488,6 +488,14 @@ fix_git_hooks_line_breaks() {
     dos2unix .git/hooks/pre*
 }
 
+pull_rough() {
+  rclone sync -i remote:rough ~/rough
+}
+
+push_rough() {
+  rclone sync -i ~/rough remote:rough
+}
+
 
 # Use it when fzf-tab doesn't initialize properly
 enable-fzf-tab

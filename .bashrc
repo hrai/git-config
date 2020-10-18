@@ -33,7 +33,7 @@ alias gconf='vim ~/.gitconfig'
 alias gignore='vim ~/.gitignore'
 alias vconf='vim ~/.vimrc'
 alias bconf='vim ~/.bashrc'
-alias ro='vim ~/rough.notes'
+alias ro='vim ~/rough/rough.notes'
 alias vc='vim ~/.vim_runtime/my_configs.vim'
 
 
@@ -263,7 +263,6 @@ gbr() {
         branch=$(echo "$branches" | fzf +m) &&
         git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
-
 
 # AWS CLI path
 export PATH=~/.local/bin:$PATH
