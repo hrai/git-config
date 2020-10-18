@@ -171,6 +171,9 @@ if is_not_mac; then
     zinit ice from"gh-r" as"program"  mv"exa* -> exa"
     zinit light ogham/exa
 
+    zinit ice from"gh-r" as"program" bpick"*.deb" mv"usr/bin/rclone -> rclone"
+    zinit light  rclone/rclone
+
     zinit ice from"gh-r" as"program" bpick"*.tar.gz"
     zinit light charmbracelet/glow
 
