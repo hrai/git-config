@@ -33,7 +33,7 @@ alias gconf='vim ~/.gitconfig'
 alias gignore='vim ~/.gitignore'
 alias vconf='vim ~/.vimrc'
 alias bconf='vim ~/.bashrc'
-alias ro='vim ~/rough/rough.notes'
+alias ro='nb sync && nb open rough.notes'
 alias vc='vim ~/.vim_runtime/my_configs.vim'
 
 
