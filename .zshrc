@@ -159,7 +159,7 @@ zinit snippet OMZP::pip/_pip
 
 if is_not_mac; then
     zinit ice from"gh-r" as"program"
-    zinit load junegunn/fzf-bin
+    zinit load junegunn/fzf
 
     zinit ice from"gh-r" as"program" bpick"nvim-linux64.tar.gz" mv"nvim-linux64/bin/nvim -> nvim"
     zinit light neovim/neovim
