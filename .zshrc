@@ -525,6 +525,10 @@ export GO111MODULE=on
 autoload -Uz compinit
 compinit
 
+if is_program_installed 'screenfetch'; then
+    screenfetch
+fi
+
 autoload zmv
 alias zmv='noglob zmv'
 alias zcp='noglob zmv -C'
@@ -540,3 +544,5 @@ zinit cdreplay -q   # -q is for quiet; actually run all the `compdef's saved bef
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 P10K=~/.p10k.zsh
 [[ ! -f $P10K ]] || source $P10K && echo "$P10K sourced..."
+
+
