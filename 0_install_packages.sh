@@ -161,6 +161,7 @@ function install_apps() {
             python3-setuptools
             ranger
             redshift-gtk
+            screenfetch
             tmux
             tree
             torbrowser-launcher
