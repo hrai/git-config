@@ -525,10 +525,6 @@ export GO111MODULE=on
 autoload -Uz compinit
 compinit
 
-if is_program_installed 'screenfetch'; then
-    screenfetch
-fi
-
 autoload zmv
 alias zmv='noglob zmv'
 alias zcp='noglob zmv -C'
@@ -546,3 +542,6 @@ P10K=~/.p10k.zsh
 [[ ! -f $P10K ]] || source $P10K && echo "$P10K sourced..."
 
 
+if is_program_installed 'screenfetch'; then
+    screenfetch
+fi
