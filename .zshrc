@@ -202,6 +202,12 @@ if is_not_mac; then
     zinit light dalance/procs
 
     alias ps=procs
+
+    zinit ice from"gh-r" as"program" mv"btm -> btm"
+    zinit light  ClementTsang/bottom
+    alias top=btm
+    alias htop=btm
+
     load_docker_config
 
 fi
