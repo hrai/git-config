@@ -429,7 +429,7 @@ if is_program_installed 'fasd'; then
     abbrev-alias f='fasd -f'
 
     # Interactive directory selection
-    abbrev-alias sd='fasd -sid'
+    # abbrev-alias sd='fasd -sid'
 
     # Interactive file selection
     abbrev-alias sf='fasd -sif'
