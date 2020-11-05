@@ -197,6 +197,11 @@ if is_not_mac; then
     zinit ice from"gh-r" as"program" bpick"*.tar.gz" mv"gh*/bin/gh -> gh"
     zinit load cli/cli
 
+
+    zinit ice from"gh-r" as"program" mv"usr/bin/procs -> procs"
+    zinit light dalance/procs
+
+    alias ps=procs
     load_docker_config
 
 fi
