@@ -208,6 +208,12 @@ if is_not_mac; then
     alias top=btm
     alias htop=btm
 
+    # https://github.com/chmln/sd
+    # sed alternative
+    zinit ice from"gh-r" as"program" mv"sd-* -> sd"
+    zinit light chmln/sd
+    alias sed=sd
+
     load_docker_config
 
 fi
