@@ -51,7 +51,7 @@ load_docker_config() {
     # Select a docker container to start and attach to
     da() {
         local cid
-        cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
+        cid=$(docker ps -a | command sed 1d | fzf -1 -q "$1" | awk '{print $1}')
 
         [ -n "$cid" ] && docker start "$cid" && docker attach "$cid"
     }
@@ -59,7 +59,7 @@ load_docker_config() {
     # Select a running docker container to stop
     ds() {
         local cid
-        cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
+        cid=$(docker ps | command sed 1d | fzf -q "$1" | awk '{print $1}')
 
         [ -n "$cid" ] && docker stop "$cid"
     }
@@ -452,9 +452,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 fkill() {
     local pid
     if [ "$UID" != "0" ]; then
-        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+        pid=$(ps -f -u $UID | command sed 1d | fzf -m | awk '{print $2}')
     else
-        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+        pid=$(ps -ef | command sed 1d | fzf -m | awk '{print $2}')
     fi
 
     if [ "x$pid" != "x" ]

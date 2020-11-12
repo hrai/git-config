@@ -253,7 +253,7 @@ vg() {
 
 # fh - repeat history
 fh() {
-    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | command sed -r 's/ *[0-9]*\*? *//' | command sed -r 's/\\/\\\\/g')
 }
 
 # checkout git branch
@@ -261,7 +261,7 @@ gbr() {
     local branches branch
     branches=$(git --no-pager branch -vv) &&
         branch=$(echo "$branches" | fzf +m) &&
-        git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+        git checkout $(echo "$branch" | awk '{print $1}' | command sed "s/.* //")
 }
 
 # AWS CLI path
