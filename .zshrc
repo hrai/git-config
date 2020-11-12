@@ -65,6 +65,11 @@ load_docker_config() {
     }
 }
 
+kc(){
+    KITTY_CONFIG_PATH=~/.config/kitty
+    vim $KITTY_CONFIG_PATH/kitty.conf
+}
+
 # set shell to start up tmux by default
 export ZSH_TMUX_AUTOSTART=true
 export SHELL=/bin/zsh
