@@ -182,7 +182,7 @@ if is_not_mac; then
     zinit ice from"gh-r" as"program" bpick"*.tar.gz"
     zinit light charmbracelet/glow
 
-    zinit as"completion" mv"c* -> _exa" for https://github.com/ogham/exa/blob/master/contrib/completions.zsh
+    zinit as"completion" mv"c* -> _exa" for https://raw.githubusercontent.com/ogham/exa/master/completions/completions.zsh
 
     zinit ice from"gh-r" as"program" bpick"*amd64.deb" mv"usr/bin/bat -> bat"
     zinit light sharkdp/bat
