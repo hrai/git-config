@@ -191,8 +191,7 @@ if is_not_mac; then
     zinit light BurntSushi/ripgrep
     alias rg="rg --ignore-case"
 
-
-    zinit ice from"gh-r" as"program" bpick"*linux*" mv"navi -> navi"
+    zinit ice from"gh-r" as"program" bpick"*linux*"
     zinit light  denisidoro/navi
 
     zinit ice from"gh-r" as"program" bpick"exercism-linux-64bit.tgz"
@@ -202,13 +201,12 @@ if is_not_mac; then
     zinit ice from"gh-r" as"program" bpick"*.tar.gz" mv"gh*/bin/gh -> gh"
     zinit load cli/cli
 
-
     zinit ice from"gh-r" as"program" mv"usr/bin/procs -> procs"
     zinit light dalance/procs
 
     alias ps=procs
 
-    zinit ice from"gh-r" as"program" mv"btm -> btm"
+    zinit ice from"gh-r" as"program"
     zinit light  ClementTsang/bottom
     alias top=btm
     alias htop=btm
