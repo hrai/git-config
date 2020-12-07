@@ -533,6 +533,7 @@ if is_program_installed 'bat'; then
     alias cat=bat
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
     export BAT_STYLE="full"
+    export BAT_PAGER="less -RF"
 
     # ranger/rifle setting
     export PAGER=bat
