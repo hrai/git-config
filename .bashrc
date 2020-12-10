@@ -105,7 +105,7 @@ elif [ "$(expr substr $(uname -s) 1 7)" = "MSYS_NT" ]; then
 fi
 
 # fzf command to honour gitignore
-export FZF_DEFAULT_COMMAND='fd --type f --hidden'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
 ################################################
