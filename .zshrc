@@ -215,7 +215,7 @@ if is_not_mac; then
     # sed alternative
     zinit ice from"gh-r" as"program" mv"sd-* -> sd"
     zinit light chmln/sd
-    alias sed=sd
+    # alias sed=sd
 
     load_docker_config
 
