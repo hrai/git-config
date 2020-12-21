@@ -46,7 +46,7 @@ load_docker_config() {
 
     zinit ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"; zinit load docker/compose
 
-    export DOCKER_HOST=tcp://localhost:2375
+    # export DOCKER_HOST=tcp://localhost:2375
 
     # Select a docker container to start and attach to
     da() {
