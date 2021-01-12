@@ -213,7 +213,7 @@ if is_not_mac; then
 
     # https://github.com/chmln/sd
     # sed alternative
-    zinit ice from"gh-r" as"program" mv"sd-* -> sd"
+    zinit ice from"gh-r" as"program" mv"sd-* -> sd" atclone"chmod +x sd"
     zinit light chmln/sd
     # alias sed=sd
 
@@ -445,6 +445,8 @@ if is_program_installed 'fasd'; then
 
     # Interactive open file in Vim
     abbrev-alias of='fasd -f -e vim'
+
+    unalias sd
 fi
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
