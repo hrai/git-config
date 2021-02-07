@@ -80,6 +80,7 @@ convert_to_mobi_and_delete() {
 
 # ALIASES
 alias fm=ranger
+alias mux=tmuxinator
 
 ## Aliases for opening Github PRs
 alias opm='open-pr master'

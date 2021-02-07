@@ -125,6 +125,7 @@ function install_apps() {
             ripgrep
             thefuck
             tmux
+            tmuxinator
             tree
             zip
             zsh
@@ -163,6 +164,7 @@ function install_apps() {
             redshift-gtk
             screenfetch
             tmux
+            tmuxinator
             tree
             torbrowser-launcher
             xclip
