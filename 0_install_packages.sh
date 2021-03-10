@@ -143,6 +143,10 @@ function install_apps() {
         # disable Alt + F4 switching to TTY4
         sudo kbd_mode -s
 
+        # using latest version of git
+        sudo apt-add-repository ppa:git-core/ppa
+        sudo apt-get update
+
         sudo apt remove vim -y
         packages=(
             bat
